@@ -1,3 +1,6 @@
 node_modules
 *.json
 *.local
+*.config.js
+*.config.ts
+.gitignore

@@ -1,4 +1,4 @@
-import app from "../server.js";
+import app from "../index.js";
 import mongoose from "mongoose";
 import { MONGODB_URI, PORT, NODE_ENV } from "../config/env.js";
 
