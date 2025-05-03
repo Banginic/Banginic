@@ -12,6 +12,7 @@ import {
   ViewEmployee,
   ViewMessage,
   ViewProject,
+  Login
 } from "./components/LazyExports";
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/message" element={<Messages />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/messages:/messageId" element={<ViewMessage />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects:/projectId" element={<ViewProject />} />

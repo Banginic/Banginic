@@ -16,7 +16,9 @@ function Navbar() {
       </Link>
       <ul className=" hidden md:flex items-center gap-5 text-sm ">
         {navlinks.map((link) => (
-          <NavLink to={link.link} className={`${location === link.link ? 'active font-medium text-accent border-b' : ''}  `}>
+          <NavLink
+          key={link.name}
+           to={link.link} className={`${location === link.link ? 'active font-medium text-accent border-b' : ''}  `}>
             <li key={link.link}>{link.name}</li>
           </NavLink>
         ))}

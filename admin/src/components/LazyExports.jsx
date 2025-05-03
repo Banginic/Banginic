@@ -9,6 +9,7 @@ const ViewMessage = lazy(() => import("../pages/ViewMessage"));
 const ViewEmployee = lazy(() => import("../pages/ViewEmployee"));
 const Testimonial = lazy(() => import("../pages/Testimonial"));
 const ViewTestimonial = lazy(() => import("../pages/ViewTestimonial"));
+const Login = lazy(() => import('../pages/Login'))
 
 export {
   Employee,
@@ -20,4 +21,5 @@ export {
   Testimonial,
   ViewProject,
   Messages,
+  Login
 };
