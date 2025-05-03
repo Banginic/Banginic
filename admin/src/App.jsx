@@ -33,7 +33,7 @@ function App() {
 
   document.addEventListener("scroll", handleScroll);
   return (
-    <div className="h-screen relative">
+    <div className="min-h-screen relative">
       <header
         className={`${showNavbar ? "fixed top-0 right-0 left-0" : "static"}`}
       >
@@ -42,7 +42,7 @@ function App() {
           <Sidebar />
         </div>
       </header>
-      <main>
+      <main className="min-h-[70dvh]">
         <ToastContainer />
         <Suspense fallback={<Loading />}>
           <Routes>

@@ -1,5 +1,5 @@
 
-import { navlinks } from "./data";
+import { navlinks } from "../assets/assest";
 import { NavLink } from "react-router-dom";
 
 function Sidebar() {

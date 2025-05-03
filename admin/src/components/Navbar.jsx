@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, NavLink } from "react-router-dom";
-import { navlinks } from "./data";
+import { navlinks } from "../assets/assest";
 
 
 function Navbar() {
