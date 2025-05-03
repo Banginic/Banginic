@@ -10,13 +10,13 @@ function Navbar() {
     setLocation(path.pathname)
   },[path])
   return (
-    <div className="h-16 lg:h-20 flex items-center justify-around  bg-gray-50">
+    <nav className="h-16 lg:h-20 flex items-center justify-around bg-gray-50">
       <Link to="/" className="heading3 cursor-pointer">
         Admin
       </Link>
-      <ul className=" hidden md:flex justify-between items-center gap-8 text-[17px]">
+      <ul className=" hidden md:flex items-center gap-5 text-sm ">
         {navlinks.map((link) => (
-          <NavLink to={link.link} className={`${location === link.link ? 'active' : ''} min-w-18 `}>
+          <NavLink to={link.link} className={`${location === link.link ? 'active font-medium text-accent border-b' : ''}  `}>
             <li key={link.link}>{link.name}</li>
           </NavLink>
         ))}
@@ -24,7 +24,7 @@ function Navbar() {
       <button className="hidden md:block text-red-500 bg-red-50 border border-red-200 px-6 py-2 hover:bg-red-100 text-sm font-medium rounded-sm trans">
         Log out
       </button>
-    </div>
+    </nav>
   );
 }
 

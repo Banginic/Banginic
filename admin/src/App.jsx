@@ -39,10 +39,10 @@ function App() {
       >
         <Navbar />
         <div>
-          <Sidebar />
+          {/* <Sidebar /> */}
         </div>
       </header>
-      <main className="min-h-[70dvh]">
+      <main className="">
         <ToastContainer />
         <Suspense fallback={<Loading />}>
           <Routes>

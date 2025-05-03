@@ -5,3 +5,6 @@ export const navlinks = [
     { name: "Employees", link: "/employee" },
     { name: "News", link: "/news" },
   ];
+  export const metaData = {
+    name: 'Banginic'
+  }
