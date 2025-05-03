@@ -27,7 +27,7 @@ const app = express()
 app.use(cors(['http://localhost:5173']))
 app.use(cookieParser())
 app.use(express.json())
-app.use(morgan('tiny'))
+app.use(morgan('dev'))
 app.use('/public', express.static('public'))
 app.use('/uploads', express.static('uploads'))
 app.use(express.urlencoded({ extended: true }));
