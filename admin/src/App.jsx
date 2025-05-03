@@ -49,13 +49,13 @@ function App() {
           <Routes>
             <Route path="/message" element={<Messages />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/messages:/messageId" element={<ViewMessage />} />
+            <Route path="/messages/:messageId" element={<ViewMessage />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/projects:/projectId" element={<ViewProject />} />
+            <Route path="/projects/:projectId" element={<ViewProject />} />
             <Route path="/news" element={<News />} />
             <Route path="/testimonial" element={<Testimonial />} />
             <Route path="/employee" element={<Employee />} />
-            <Route path="/employee:/employeeId" element={<ViewEmployee />} />
+            <Route path="/employee/:employeeId" element={<ViewEmployee />} />
           </Routes>
         </Suspense>
         <Routes>

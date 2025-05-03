@@ -7,13 +7,12 @@ import axios from "axios";
 
 function Messages() {
   const [isLoading, setLoading] = useState(false);
-  const [messages, setMessages] = useState("");
-  const { baseUrl, token } = useContext(AppContext);
+  const { baseUrl, token, messages, setMessages, run } = useContext(AppContext);
 
-  console.log(messages);
+
 
   useEffect(() => {
-    console.log("Messages route");
+   
     async function fetchMessages() {
       setLoading(true);
       try {
@@ -36,7 +35,7 @@ function Messages() {
     }
     fetchMessages();
     return () => {};
-  }, []);
+  }, [run]);
 
   if (isLoading) return <Loading />;
 
