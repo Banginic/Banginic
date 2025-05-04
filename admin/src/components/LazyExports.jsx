@@ -1,6 +1,7 @@
 import { lazy } from "react";
 
 const Employee = lazy(() => import("../pages/Employee"));
+const EmployeeForm = lazy(() => import("./EmployeeForm"));
 const News = lazy(() => import("../pages/News"));
 const Messages = lazy(() => import("../pages/Messages"));
 const Projects = lazy(() => import("../pages/Projects"));
@@ -21,5 +22,6 @@ export {
   Testimonial,
   ViewProject,
   Messages,
-  Login
+  Login,
+  EmployeeForm
 };
