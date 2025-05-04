@@ -19,6 +19,8 @@ function Messages() {
         const { data } = await axios.get(baseUrl + "/api/v2/messages/list", {
           headers: { authorization: `Bearer ${token}` },
         });
+        console.log(data);
+        
         const { success, message, messages } = data;
 
         if (success) {

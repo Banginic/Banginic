@@ -7,6 +7,7 @@ function AppProvider({ children }) {
     const baseUrl = import.meta.env.VITE_BASE_URL
     const token = localStorage.getItem('Admin-token') || null
     const [ messages, setMessages ] = useState([])
+    const [ projects, setProjects ] = useState([])
     const [ run, setRun ] = useState(false)
     
     
@@ -18,6 +19,7 @@ function AppProvider({ children }) {
         messages,
         setMessages,
          setRun,
+         projects, setProjects,
           run
     }
   return (
