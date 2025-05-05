@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, NavLink } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 import { navlinks } from "../assets/assest";
+import { Logo } from './exportComp'
 
 
 function Navbar() {
@@ -11,9 +12,7 @@ function Navbar() {
   },[path])
   return (
     <nav className="h-16 lg:h-20 flex items-center justify-around bg-gray-50">
-      <Link to="/" className="heading3 cursor-pointer">
-        Admin
-      </Link>
+      <Logo logoSize={'size-14'} textSize={'heading3'} />
       <ul className=" hidden md:flex items-center gap-5 text-sm ">
         {navlinks.map((link) => (
           <NavLink

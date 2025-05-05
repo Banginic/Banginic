@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { metaData } from '../assets/assest'
+import { Logo } from '../components/exportComp'
 import axios from 'axios'
 import AppContext from '../context/AppContext'
 import { toast } from 'react-toastify'
@@ -37,7 +37,7 @@ function Login() {
       <form
       onSubmit={handleSubmit}
       className=' p-5 border rounded w-sm' >
-        <h2 className='font-medium text-lg'>{metaData.name}</h2>
+        <Logo logoSize={'size-6'} textSize={'heading4'} />
         <p className='text-gray-600'>Welcome back! Please Login using the form below</p>
         <div className='mt-8 '>
             <label htmlFor="email" className=''>Email address</label>
@@ -75,7 +75,7 @@ function Login() {
         <button
         type='submit'
         disabled={disabledBTN}
-        className='bg-black disabled:bg-gray-300 disabled:cursor-not-allowed text-white w-full py-1.5 cursor-pointer disable:cursor-wait hover:opacity-90 trans rounded mt-4'
+        className='bg-black disabled:bg-gray-400 disabled:cursor-not-allowed text-white w-full py-1.5 cursor-pointer disable:cursor-wait hover:opacity-90 trans rounded mt-4'
         >Login</button>
         <p className='text-red-500 text-center mt-1'>{fetchState.error}</p>
       </form>

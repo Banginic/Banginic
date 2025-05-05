@@ -1,8 +1,8 @@
 import { Suspense, useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Loading, Footer, Sidebar, Navbar } from "./components/exportComp";
-import { Home } from "./components/exportComp";
+import { Home, useTitle } from "./components/exportComp";
 import {
   Employee,
   Messages,
@@ -16,6 +16,7 @@ import {
 } from "./components/LazyExports";
 
 function App() {
+  
   const [showNavbar, setShowNavbar] = useState(false);
   const [scroll, setScroll] = useState(false);
 
@@ -33,6 +34,11 @@ function App() {
   }, [scroll]);
 
   document.addEventListener("scroll", handleScroll);
+  
+  // custom hooks
+  useTitle()
+
+ 
   return (
     <div className="min-h-screen relative">
       <header

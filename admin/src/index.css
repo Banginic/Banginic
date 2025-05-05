@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Outfit:wght@100..900&family=Prata&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');@import "tailwindcss";
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
@@ -26,7 +27,7 @@
     font-family: 'Courgette', 'Outfit', sans-serif, UI;
   }
   .mano{
-    font-family: 'Space Mono', 'Outfit', sans-serif, UI;
+    font-family:'Space Mono', 'Outfit',  sans-serif, UI;
   }
   
   .light-bg{
@@ -34,4 +35,7 @@
   }
   .dark-bg{
       background-image:linear-gradient(10deg,  var(--primary-color1), var(--primary-color3)) ; 
+  }
+  .bodoni{
+    font-family:'Space Mano',  sans-serif, UI;
   }
