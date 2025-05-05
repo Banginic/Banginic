@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom'
 function AppProvider({ children }) {
    const navigate =  useNavigate()
     const baseUrl = import.meta.env.VITE_BASE_URL
+    const [showNavbar, setShowNavbar] = useState(false);
+    const [showSidebar, setShowSidebar] = useState(false);
+    
     const token = localStorage.getItem('Admin-token') || null
     const [ messages, setMessages ] = useState([])
     const [ projects, setProjects ] = useState([])
@@ -28,6 +31,10 @@ function AppProvider({ children }) {
     },])
     const [ run, setRun ] = useState(false)
     
+    function removeAllDisplay(){
+     setShowNavbar(false)
+     setShowSidebar(false)
+    }
     
 
     const values = {
@@ -36,7 +43,9 @@ function AppProvider({ children }) {
         token,
         messages,
         setMessages,
-         setRun,
+         setRun, removeAllDisplay,
+         showNavbar, setShowNavbar,
+         showSidebar, setShowSidebar,
          projects, setProjects,
          employees, setEmployees,
           run

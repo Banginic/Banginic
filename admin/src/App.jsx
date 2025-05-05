@@ -1,8 +1,8 @@
-import { Suspense, useEffect, useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Suspense,  useContext, } from "react";
+import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { Loading, Footer, Sidebar, Navbar } from "./components/exportComp";
-import { Home, useTitle } from "./components/exportComp";
+import { Home, useTitle, useToggleSidebar, Loading, Footer, Sidebar, Navbar, useToggleNavbar } from "./components/exportComp";
+
 import {
   Employee,
   Messages,
@@ -14,41 +14,27 @@ import {
   ViewProject,
   Login
 } from "./components/LazyExports";
+import AppContext from "./context/AppContext";
 
 function App() {
-  
-  const [showNavbar, setShowNavbar] = useState(false);
-  const [scroll, setScroll] = useState(false);
-
-  function handleScroll() {
-    setScroll(!scroll);
-  }
-  useEffect(() => {
-    const offSet = pageYOffset;
-    if (offSet > 500) {
-      setShowNavbar(true);
-    }
-    if (offSet < 5) {
-      setShowNavbar(false);
-    }
-  }, [scroll]);
-
-  document.addEventListener("scroll", handleScroll);
-  
-  // custom hooks
+const { showNavbar } = useContext(AppContext)
+ 
+  //custom hooks
   useTitle()
+  useToggleNavbar()
+  useToggleSidebar()
 
  
   return (
-    <div className="min-h-screen relative">
+    <div className=" relative">
       <header
         className={`${showNavbar ? "fixed top-0 right-0 left-0" : "static"}`}
       >
         <Navbar />
-        <div>
-          {/* <Sidebar /> */}
+        <div >
         </div>
       </header>
+          <Sidebar />
       <main className="">
         <ToastContainer />
         <Suspense fallback={<Loading />}>

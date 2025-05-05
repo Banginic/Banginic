@@ -15,3 +15,5 @@ export { default as Logo } from './Logo'
 
 // HOOKS
 export { default as useTitle } from '../hooks/useTitle'
+export { default as useToggleNavbar } from '../hooks/useToggleNavbar'
+export { default as useToggleSidebar } from '../hooks/useToggleSidebar'

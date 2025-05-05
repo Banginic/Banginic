@@ -10,12 +10,16 @@ function useTitle() {
         window.document.title = "Home | Admin Banginc";
       } else if (pathname === "/login") {
         window.document.title = "Login | Admin Banginc";
-      } else if (pathname === "/messages") {
-        window.document.title = "Login | Admin Banginc";
-      } else if (pathname === "/projects") {
+      } else if (pathname === "/message") {
+        window.document.title = "Messages | Admin Banginc";
+      } else if (pathname.startsWith("/project", 0)) {
         window.document.title = "Projects | Admin Banginc";
-      } else if (pathname.startsWith("/employee", 0)) {
+      } 
+      else if (pathname.startsWith("/employee", 0)) {
         window.document.title = "Employees | Admin Banginc";
+      }
+      else if (pathname.startsWith("/news", 0)) {
+        window.document.title = "News | Admin Banginc";
       }
     }
 
