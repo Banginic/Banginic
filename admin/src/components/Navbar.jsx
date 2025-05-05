@@ -5,7 +5,7 @@ import { Logo } from "./exportComp";
 import AppContext from "../context/AppContext";
 
 function Navbar() {
-  const { removeAllDisplay, setShowSidebar } = useContext(AppContext);
+  const { removeAllDisplay, setShowSidebar, isLoggedIn, setIsLoggedIn, navigate } = useContext(AppContext);
   const [location, setLocation] = useState("");
   const path = useLocation();
   useEffect(() => {
@@ -16,7 +16,7 @@ function Navbar() {
       <Logo logoSize={"size-8 lg:size-12"} textSize={"heading3"} />
 
       {/* SMALL SCREEN */}
-      <div className="md:hidden">
+      <div className={`md:hidden ${!isLoggedIn && 'hidden'}`}>
         <button
           onClick={() => {
             removeAllDisplay();
@@ -37,8 +37,8 @@ function Navbar() {
         </button>
       </div>
       {/* LARGE SCREEN */}
-      <div className="hidden md:flex gap-8">
-        <ul className=" hidden md:flex items-center gap-5 text-sm ">
+      <div className='hidde md:flex gap-4 text-sm'>
+        <ul className={`${!isLoggedIn ? 'hidden' : 'hidden md:flex gap-8'}`}>
           {navlinks.map((link) => (
             <NavLink
               key={link.name}
@@ -53,9 +53,29 @@ function Navbar() {
             </NavLink>
           ))}
         </ul>
-        <button className="hidden md:block text-red-500 bg-red-50 border border-red-200 px-6 py-2 hover:bg-red-100 text-sm font-medium rounded-sm trans">
-          Log out
-        </button>
+        <div className=" flex items-center gap-4 px-6">
+        {isLoggedIn ? (
+          <button
+          onClick={() =>{
+            localStorage.clear()
+            setIsLoggedIn(false)
+            setTimeout(() => { navigate('/login')}, 1000)
+          }}
+           className="px-8 py-1.5 bg-red-300 text-red-700 cursor-pointer rounded shadow hover:opacity-80 trans">
+            Log out
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              removeAllDisplay();
+              navigate("/login");
+            }}
+            className="px-8 py-1.5 bg-accent text-white cursor-pointer rounded shadow hover:opacity-80 trans"
+          >
+            Login
+          </button>
+        )}
+      </div>
       </div>
     </nav>
   );

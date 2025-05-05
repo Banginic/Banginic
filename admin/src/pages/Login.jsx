@@ -5,7 +5,7 @@ import AppContext from '../context/AppContext'
 import { toast } from 'react-toastify'
 
 function Login() {
-    const { baseUrl, navigate } = useContext(AppContext)
+    const { baseUrl, navigate, setUser, setIsLoggedIn } = useContext(AppContext)
     const [ fetchState, setFetchStat ] = useState({ isLoading: false, error: ''})
  const [ admin, setAdmin ] = useState({ email:'', password:''})
  const disabledBTN = admin.email.length < 6 || admin.password.length < 8 || fetchState.isLoading
@@ -15,12 +15,15 @@ function Login() {
     setFetchStat({isLoading: true, error: ''})
     try{
         const { data } = await axios.post(baseUrl + '/api/auth/sign-in', admin)
-        const { success, message, token }  = data
+        const { success, message, token, user }  = data
         if(success){
             toast.success(message)
             localStorage.setItem('Admin-token', token)
+            localStorage.setItem('isLoggedIn', true)
             setAdmin({ email:'', password:''})
             setFetchStat({ isLoading: false, error:''})
+            setUser(user)
+            setIsLoggedIn(true)
           return  setTimeout(() => navigate('/'), 1000)
         }
         setFetchStat({ isLoading: false, error: message})

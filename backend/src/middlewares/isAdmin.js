@@ -4,6 +4,7 @@ import UserModel from "../models/user.Model.js";
 
 async function isAdmin(req, res, next) {
   console.log('Auth called');
+  console.log(req.headers);
   
   try {
     const authHeader = req.headers.authorization;
@@ -22,7 +23,7 @@ async function isAdmin(req, res, next) {
 
     if (admin.email !== ADMIN_EMAIL)
       return res.status(401).json({ success: false, message: "UNAUTHORIZED3" });
-    console.log('Auth Passed');
+    req.admin = admin
     next();
   } catch (ex) {
     next(ex);

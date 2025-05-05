@@ -72,3 +72,9 @@ export const signIn = asynMiddleware(async (req, res) => {
           user: rest,
         });
 });
+
+// CHECK AUTH: /api/auth/me
+export const authAdmin = asynMiddleware( async (req, res ) => {
+ const { admin } = req
+ return res.status(200).json({ success:true, message: 'All good!', admin})
+})

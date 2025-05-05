@@ -1,11 +1,16 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import AppContext from "../context/AppContext";
 
 function useTitle() {
+const { navigate, isLoggedIn} = useContext(AppContext)
   const { pathname } = useLocation();
 
   useEffect(() => {
     function handleTitle() {
+      if(pathname ==='/login' && isLoggedIn ){
+        return navigate('/')
+      }
       if (pathname === "/") {
         window.document.title = "Home | Admin Banginc";
       } else if (pathname === "/login") {

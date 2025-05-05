@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import AppContext from "../context/AppContext";
 
 function Sidebar() {
-  const { showSidebar, setShowSidebar, removeAllDisplay, user, navigate } =
+  const { showSidebar, setShowSidebar, removeAllDisplay } =
     useContext(AppContext);
 
   useEffect(() => {
@@ -16,29 +16,12 @@ function Sidebar() {
   }, [showSidebar]);
 
   return (
-    <div
+    <aside
       className={`fixed top-0 left-0 h-full w-full bg-gray-50  z-50 trans p-5 ${
         showSidebar ? "translate-x-0" : "-translate-x-full"
       }
     `}
     >
-      <div className=" flex items-center gap-4 px-6">
-        {user ? (
-          <button className="px-8 py-1.5 bg-red-300 text-red-700 cursor-pointer rounded shadow hover:opacity-80 trans">
-            Log out
-          </button>
-        ) : (
-          <button
-            onClick={() => {
-              removeAllDisplay()
-              navigate("/login")
-            }}
-            className="px-8 py-1.5 bg-accent text-white cursor-pointer rounded shadow hover:opacity-80 trans"
-          >
-            Login
-          </button>
-        )}
-      </div>
       <button
         onClick={() => {
           removeAllDisplay();
@@ -69,7 +52,7 @@ function Sidebar() {
           </NavLink>
         ))}
       </ul>
-    </div>
+    </aside>
   );
 }
 

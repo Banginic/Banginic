@@ -11,6 +11,9 @@ function AppProvider({ children }) {
     const token = localStorage.getItem('Admin-token') || null
     const [ messages, setMessages ] = useState([])
     const [ projects, setProjects ] = useState([])
+    const [ user, setUser ] = useState( null)
+    const [ isLoggedIn, setIsLoggedIn ] = useState(localStorage.getItem('isLoggedIn') || false)
+
     const [ employees, setEmployees ] = useState([ {
       _id:1234,
       name:'Boris Ayam Ndoh',
@@ -42,7 +45,9 @@ function AppProvider({ children }) {
         navigate,
         token,
         messages,
+        isLoggedIn, setIsLoggedIn,
         setMessages,
+        user, setUser,
          setRun, removeAllDisplay,
          showNavbar, setShowNavbar,
          showSidebar, setShowSidebar,
