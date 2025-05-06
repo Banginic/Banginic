@@ -1,7 +1,17 @@
-import { Suspense,  useContext, } from "react";
+import { Suspense, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { Home, useTitle, useToggleSidebar, Loading, Footer, Sidebar, Navbar, useToggleNavbar, useAuthorized } from "./components/exportComp";
+import {
+  Home,
+  useTitle,
+  useToggleSidebar,
+  Loading,
+  Footer,
+  Sidebar,
+  Navbar,
+  useToggleNavbar,
+  useAuthorized,
+} from "./components/exportComp";
 import {
   Employee,
   Messages,
@@ -11,24 +21,29 @@ import {
   ViewEmployee,
   ViewMessage,
   ViewProject,
-  Login
+  Login,
+  AddEmployee,
+  AddNews,
+  AddProjects,
 } from "./components/LazyExports";
 import AppContext from "./context/AppContext";
 
 function App() {
-const { showNavbar } = useContext(AppContext)
- 
-  //custom hooks
-  useAuthorized()
-  useTitle()
-  useToggleNavbar()
-  useToggleSidebar()
+  const { showNavbar } = useContext(AppContext);
 
- 
+  //custom hooks
+  useAuthorized();
+  useTitle();
+  useToggleNavbar();
+  useToggleSidebar();
+
   return (
     <div className=" relative">
       <header
-        className={`${showNavbar ? "fixed top-0 right-0 left-0" : "static"}`}>
+        className={`${
+          showNavbar ? "fixed top-0 right-0 left-0 " : "static"
+        } z-50`}
+      >
         <Navbar />
       </header>
       <Sidebar />
@@ -45,11 +60,13 @@ const { showNavbar } = useContext(AppContext)
             <Route path="/testimonial" element={<Testimonial />} />
             <Route path="/employee" element={<Employee />} />
             <Route path="/employee/:employeeId" element={<ViewEmployee />} />
+            <Route path="/add-employee" element={<AddEmployee />} />
+            <Route path="/add-news" element={<AddNews />} />
+            <Route path="/add-project" element={<AddProjects />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </Suspense>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <Routes></Routes>
       </main>
       <footer>
         <Footer />

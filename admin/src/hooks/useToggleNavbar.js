@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import AppContext from "../context/AppContext";
 
-useEffect;
+
 
 function useToggleNavbar() {
   const { setShowNavbar } = useContext(AppContext);

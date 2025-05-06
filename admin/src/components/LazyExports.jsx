@@ -11,6 +11,10 @@ const ViewEmployee = lazy(() => import("../pages/ViewEmployee"));
 const Testimonial = lazy(() => import("../pages/Testimonial"));
 const ViewTestimonial = lazy(() => import("../pages/ViewTestimonial"));
 const Login = lazy(() => import('../pages/Login'))
+const AddEmployee = lazy(() => import('../pages/AddEmployee'))
+const AddNews = lazy(() => import('../pages/AddNews'))
+const AddProjects = lazy(() => import('../pages/AddProjects'))
+
 
 export {
   Employee,
@@ -23,5 +27,8 @@ export {
   ViewProject,
   Messages,
   Login,
-  EmployeeForm
+  EmployeeForm,
+  AddNews,
+  AddEmployee,
+  AddProjects
 };

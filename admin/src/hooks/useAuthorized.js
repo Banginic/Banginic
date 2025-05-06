@@ -4,7 +4,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 function useAuthorized() {
-  console.log("useAuthCalled");
 
   const { baseUrl, setUser, token, navigate, setIsLoggedIn } =
     useContext(AppContext);

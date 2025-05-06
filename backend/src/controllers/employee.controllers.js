@@ -1,23 +1,33 @@
 import EmployeeModel from "../models/employee.model.js";
 import asyncHandler from "../middlewares/asyncMiddleware.js";
+import cloudinary from "../config/cloudinary.js";
 
 // CREATE EMPLOYEE /api/v2/employees/create
 export const createEmployee = asyncHandler(async (req, res) => {
-  const { fullName, position, qualification, motivation, socialLinks, photo } =
+  const { fullName, position, qualification, motivation, socialLinks } =
     req.body;
-  const existEmployee = await EmployeeModel.findOne({fullName});
+ 
+  const existEmployee = await EmployeeModel.findOne({ fullName });
   if (existEmployee)
     return res
       .status(400)
       .json({ success: false, message: "Employee already exist" });
 
+  //  Save photo and get URL from cloudinary
+  const fileBuffer = req.file.buffer;
+  const base64String = fileBuffer.toString("base64");
+  const dataURI = `data:${req.file.mimetype};base64,${base64String}`;
+  const photoUrl = await cloudinary.uploader.upload(dataURI, {
+    folder:'employees'
+  });
+
   const newEmployee = await EmployeeModel.create({
     fullName,
     position,
     qualification,
-    socialLinks,
+    socialLinks: JSON.parse(socialLinks),
     motivation,
-    photo,
+    photo: photoUrl.secure_url,
   });
   await newEmployee.save();
   return res
