@@ -8,7 +8,7 @@ const employeeRouter = Router()
 
 employeeRouter.post('/create', upload.single('photo'), isAdmin, validateEmployee, createEmployee)
 
-employeeRouter.post('/list', isAdmin, getEmployees)
+employeeRouter.get('/list', isAdmin, getEmployees)
 
 employeeRouter.delete('/delete/:employeeId', isAdmin, deleteEmployee)
 

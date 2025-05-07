@@ -36,9 +36,13 @@ const employeeSchema = mongoose.Schema({
         minLength:3,
         maxLength:250,
         required:true
+    },
+    hiredDate: {
+        type:Date,
+        default: Date.now()
     }
 
-}, { timestamp: true })
+}, { timesstamp: true, minimize:false })
 
 const EmployeeModel = mongoose.model('Employee', employeeSchema)
 export default EmployeeModel

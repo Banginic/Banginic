@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import {
   Home,
   useTitle,
-  useToggleSidebar,
+  // useToggleSidebar,
   Loading,
   Footer,
   Sidebar,
@@ -35,7 +35,7 @@ function App() {
   useAuthorized();
   useTitle();
   useToggleNavbar();
-  useToggleSidebar();
+  // useToggleSidebar();
 
   return (
     <div className=" relative">

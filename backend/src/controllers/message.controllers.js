@@ -32,7 +32,6 @@ export const createMessage = asyncHandler(async (req, res) => {
 // GET ALL MESSAGES: /api/v2/messages/list
 export const getMessages = asyncHandler(async (req, res) => {
   const messages = await MessageModel.find({});
-console.log(messages);
 
   if(messages.length < 1) return res.status(200).json({ success: true, message: 'No message available', messages: null})
   return res

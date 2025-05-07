@@ -1,48 +1,30 @@
-import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AppContext from "../context/AppContext";
-import { Loading } from "../components/exportComp.js";
-import axios from "axios";
-import { toast } from "react-toastify";
+import { Loading, useFetch } from "../components/exportComp.js";
+import fetchProjects from "../utils/fetchProjects.js";
 
 function Projects() {
-  const { baseUrl, projects, setProjects, token } = useContext(AppContext);
-  const [isLoading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const { isError, isLoading, data, refetch } = useFetch(
+    "Projects",
+    fetchProjects
+  );
 
-  // fetch projects
-  async function fetchProjects() {
-    setError("");
-    setLoading(true);
-    try {
-      const { data } = await axios.get(baseUrl + "/api/v2/projects/list", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const { message, success, projects } = data;
-      if (!success) {
-        return setError(message);
-      }
-      toast.success(message);
-      setProjects(projects);
-    } catch (ex) {
-      setError(ex.response.data.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-  useEffect(() => {
-    fetchProjects();
-    return () => {};
-  }, []);
+  if (isLoading) return <Loading />;
 
-  if (isLoading) {
-    return <Loading />;
-  }
-  if (!projects || projects.length < 1) {
+  if (isError)
+    return (
+      <div className="grid place-self-center">
+        <div>
+          <h2 className="heading3">Error fetching data</h2>
+          <p>Please try again later</p>
+          <button onClick={() => refetch()}>Retry</button>
+        </div>
+      </div>
+    );
+  if (!data.projects || data.projects.length < 1) {
     return (
       <section className="h-screen grid place-items-center">
         <div>
-          <h2 className="heading3">{error}</h2>
+          <h2 className="heading3"></h2>
           <p className="text-gray-800 heading4 text-center">
             Keep up the flame Boss!
           </p>
@@ -63,7 +45,7 @@ function Projects() {
           </tr>
         </thead>
         <tbody>
-          {projects.map((project, index) => (
+          {data.projects.map((project, index) => (
             <Link
               className="bg-gray-50 hover:bg-gray-100"
               key={index}

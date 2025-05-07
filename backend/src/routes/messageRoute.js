@@ -9,7 +9,7 @@ messageRouter.post('/create', validateMessage, createMessage)
 
 messageRouter.post('/:messageId',isAdmin, getMessage)
 
-messageRouter.post('/list',isAdmin, getMessages)
+messageRouter.get('/list',isAdmin, getMessages)
 
 messageRouter.delete('/delete/:messageId',isAdmin, deleteMessage)
 

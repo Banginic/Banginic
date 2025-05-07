@@ -40,11 +40,11 @@ export const getEmployees = asyncHandler(async (req, res) => {
   const employees = await EmployeeModel.find({});
   if (!employees)
     return res.json({
-      success: false,
+      success: true,
       message: "No Employee found, Please add Employee",
     });
 
-  return res.status(200).json({ success: true, message: "Success" });
+  return res.status(200).json({ success: true, message: "", employees });
 });
 
 // REMOVE EMPLOYEE /api/v2/employees/:employeeId

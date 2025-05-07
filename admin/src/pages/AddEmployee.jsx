@@ -97,6 +97,8 @@ function AddEmployee() {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
+      console.log(data);
+      
       const { success, employees, message } = data;
       if (!success) {
         return setError(message);

@@ -1,50 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
-import AppContext from "../context/AppContext";
 import { Loading } from "../components/exportComp";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import axios from "axios";
+import fetchMessages from "../utils/fetchMessages";
+import useFetch from "../hooks/useFetch";
+
 
 function Messages() {
-  const [isLoading, setLoading] = useState(false);
-  const { baseUrl, token, messages, setMessages, run } = useContext(AppContext);
-
-
-
-  useEffect(() => {
-   
-    async function fetchMessages() {
-      setLoading(true);
-      try {
-        const { data } = await axios.get(baseUrl + "/api/v2/messages/list", {
-          headers: { authorization: `Bearer ${token}` },
-        });
-        console.log(data);
-        
-        const { success, message, messages } = data;
-
-        if (success) {
-          toast.success(message);
-          setMessages(messages);
-          return setLoading(false);
-        }
-        toast.error(message);
-        setLoading(false);
-      } catch (ex) {
-        setLoading(false);
-        toast.error(ex.response.data.message);
-      }
-    }
-    fetchMessages();
-    return () => {};
-  }, [run]);
+  const { isError, isLoading, data, refetch } = useFetch('Messages', fetchMessages);
 
   if (isLoading) return <Loading />;
-
+  
+  if(isError) return <div className="grid place-self-center">
+     <div>
+       <h2 className="heading3">Error fetching data</h2>
+       <p>Please try again later</p>
+       <button onClick={() => refetch()}>Retry</button>
+     </div>
+  </div>
   return (
     <div className="h-screen mt-12">
       <h1 className="heading3 mano text-center my-4">MESSAGES</h1>
-      {messages.length < 1 ? (
+      {data.messages.length < 1 ? (
         <div className="grid place-items-center">
           <h3 className="heading3 mt-24">No message available</h3>
           <p className="text-gray-600  xl:text-xl">Be patient Boss</p>
@@ -60,7 +35,7 @@ function Messages() {
             </tr>
           </thead>
           <tbody>
-            {messages.map((message, index) => (
+            {data.messages.map((message, index) => (
               <Link to={`/messages/${message._id}`} key={index}>
                 <tr
                   title="View message"

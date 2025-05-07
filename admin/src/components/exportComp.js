@@ -2,7 +2,6 @@
 export { default as Home } from '../pages/Home'
 
 
-
 // COMPONENTS
 export { default as Navbar } from './Navbar'
 export { default as EmployeeForm} from './EmployeeForm'
@@ -16,5 +15,5 @@ export { default as Logo } from './Logo'
 // HOOKS
 export { default as useTitle } from '../hooks/useTitle'
 export { default as useToggleNavbar } from '../hooks/useToggleNavbar'
-export { default as useToggleSidebar } from '../hooks/useToggleSidebar'
+export { default as useFetch } from '../hooks/useFetch'
 export { default as useAuthorized } from '../hooks/useAuthorized'
