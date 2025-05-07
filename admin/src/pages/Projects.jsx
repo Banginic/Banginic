@@ -10,13 +10,18 @@ function Projects() {
 
   if (isLoading) return <Loading />;
 
-  if (isError)
+  if (isError || !data.projects)
     return (
-      <div className="grid place-self-center">
+      <div className="h-screen grid place-items-center text-center">
         <div>
-          <h2 className="heading3">Error fetching data</h2>
+          <h2 className="heading3">Error fetching projects</h2>
           <p>Please try again later</p>
-          <button onClick={() => refetch()}>Retry</button>
+          <button
+            className="bg-gray-200 hover:bg-gray-300 mt-1 px-4 py-1 rounded cursor-pointer"
+            onClick={() => refetch()}
+          >
+            Retry
+          </button>
         </div>
       </div>
     );

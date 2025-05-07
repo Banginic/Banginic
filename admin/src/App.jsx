@@ -1,6 +1,7 @@
 import { Suspense, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import {
   Home,
   useTitle,
@@ -38,7 +39,7 @@ function App() {
   // useToggleSidebar();
 
   return (
-    <div className=" relative">
+    <div className=" relative ">
       <header
         className={`${
           showNavbar ? "fixed top-0 right-0 left-0 " : "static"
@@ -47,6 +48,7 @@ function App() {
         <Navbar />
       </header>
       <Sidebar />
+      <ReactQueryDevtools />
       <main className="">
         <ToastContainer />
         <Suspense fallback={<Loading />}>
@@ -59,7 +61,7 @@ function App() {
             <Route path="/news" element={<News />} />
             <Route path="/testimonial" element={<Testimonial />} />
             <Route path="/employee" element={<Employee />} />
-            <Route path="/employee/:employeeId" element={<ViewEmployee />} />
+            <Route path="/view-employee/:employeeId" element={<ViewEmployee />} />
             <Route path="/add-employee" element={<AddEmployee />} />
             <Route path="/add-news" element={<AddNews />} />
             <Route path="/add-project" element={<AddProjects />} />

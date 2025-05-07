@@ -3,19 +3,29 @@ import { Link } from "react-router-dom";
 import fetchMessages from "../utils/fetchMessages";
 import useFetch from "../hooks/useFetch";
 
-
 function Messages() {
-  const { isError, isLoading, data, refetch } = useFetch('Messages', fetchMessages);
+  const { isError, isLoading, data, refetch } = useFetch(
+    "Messages",
+    fetchMessages
+  );
 
   if (isLoading) return <Loading />;
-  
-  if(isError) return <div className="grid place-self-center">
-     <div>
-       <h2 className="heading3">Error fetching data</h2>
-       <p>Please try again later</p>
-       <button onClick={() => refetch()}>Retry</button>
-     </div>
-  </div>
+
+  if (isError || !data.message)
+    return (
+      <div className="h-screen grid place-items-center text-center">
+        <div>
+          <h2 className="heading3">Error fetching messages</h2>
+          <p>Please try again later</p>
+          <button
+            className="bg-gray-200 hover:bg-gray-300 mt-1 px-4 py-1 rounded cursor-pointer"
+            onClick={() => refetch()}
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
   return (
     <div className="h-screen mt-12">
       <h1 className="heading3 mano text-center my-4">MESSAGES</h1>

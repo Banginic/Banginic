@@ -11,7 +11,9 @@ function connectToDB(){
         console.log(`App is running in ${NODE_ENV} mode at http://localhost:${PORT}`);
     })
   })
-  .catch(() =>{
+  .catch((ex) =>{
+    console.log(ex);
+    
     console.error('Failed to connect to database');
   })
 }

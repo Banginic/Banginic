@@ -1,11 +1,10 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-async function fetchEmployee(employeeId) {
-   
+async function fetchMessages() {
   const baseUrl = import.meta.env.VITE_BASE_URL;
   try {
-    const { data } = await axios.get(baseUrl + `/api/v2/employees/${employeeId}`, {
+    const { data } = await axios.get(baseUrl + "/api/v2/employees/list", {
       headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}` },
     });
     return data;
@@ -14,4 +13,4 @@ async function fetchEmployee(employeeId) {
   }
 }
 
-export default fetchEmployee;
+export default fetchMessages;

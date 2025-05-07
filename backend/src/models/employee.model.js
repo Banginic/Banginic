@@ -33,9 +33,8 @@ const employeeSchema = mongoose.Schema({
     },
     photo:{
         type:String,
-        minLength:3,
         maxLength:250,
-        required:true
+        default:''
     },
     hiredDate: {
         type:Date,

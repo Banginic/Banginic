@@ -46,10 +46,30 @@ export const getEmployees = asyncHandler(async (req, res) => {
 
   return res.status(200).json({ success: true, message: "", employees });
 });
+// GET AN EMPLOYEE /api/v2/employees/:employeeId
+export const getEmployee = asyncHandler(async (req, res) => {
+  const { employeeId } = req.params
+  console.log(employeeId);
+  
+  if(!employeeId) return res.status(404).json({ success: false, message: "No employee with this ID" });
+
+  const employee = await EmployeeModel.findById(employeeId);
+  if (!employee)
+    return res.json({
+      success: true,
+      message: "No Employee found, Please add Employee",
+    });
+
+  return res.status(200).json({ success: true, message: "", employee });
+});
 
 // REMOVE EMPLOYEE /api/v2/employees/:employeeId
 export const deleteEmployee = asyncHandler(async (req, res) => {
+  
+  
   const { employeeId } = req.params;
+  console.log(employeeId);
+  
   if (!employeeId)
     return res
       .status(400)
