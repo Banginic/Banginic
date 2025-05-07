@@ -1,5 +1,6 @@
 import { Router } from 'express'
-import isAdmin from '../middlewares/isAdmin'
+import isAdmin from '../middlewares/isAdmin.js'
+import { createNews, getNews, deleteNews } from '../controllers/news.controllers.js'
 
 const newsRouter =  Router()
 
