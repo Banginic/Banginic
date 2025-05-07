@@ -35,7 +35,9 @@ function Messages() {
       {!data.messages ? (
         <div className="grid place-items-center">
           <h3 className="heading3 mt-24">No message available</h3>
-          <p className="text-gray-600 text-lg xl:w-2xl text-center">Be patient Boss</p>
+          <p className="text-gray-600 text-lg xl:w-2xl text-center">
+            Be patient Boss
+          </p>
         </div>
       ) : (
         <table className="border rounded border-gray-400 mx-auto w-sm lg:w-xl text-sm ">
@@ -60,8 +62,9 @@ function Messages() {
                 <td>{message.service}</td>
                 <td>{message.date || new Date().getFullYear()}</td>
                 <td
-                className="bg-neutral-700 text-white text-sm px-4 hover:bg-neutral-600 cursor-pointer rounded"
-                 onClick={() => navigate(`/message/${message._id}`)}>
+                  className="bg-neutral-700 text-white text-sm px-4 hover:bg-neutral-600 cursor-pointer rounded"
+                  onClick={() => navigate(`/message/${message._id}`)}
+                >
                   View
                 </td>
               </tr>
