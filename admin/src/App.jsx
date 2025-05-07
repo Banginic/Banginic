@@ -55,7 +55,7 @@ function App() {
           <Routes>
             <Route path="/message" element={<Messages />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/messages/:messageId" element={<ViewMessage />} />
+            <Route path="/message/:messageId" element={<ViewMessage />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:projectId" element={<ViewProject />} />
             <Route path="/news" element={<News />} />
@@ -68,7 +68,7 @@ function App() {
             <Route path="/" element={<Home />} />
           </Routes>
         </Suspense>
-        <Routes></Routes>
+       
       </main>
       <footer>
         <Footer />

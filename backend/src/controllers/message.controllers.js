@@ -47,6 +47,8 @@ export const getMessages = asyncHandler(async (req, res) => {
 // GET A MESSAGE: /api/v2/messages/:messageId
 export const getMessage = asyncHandler(async (req, res) => {
   const { messageId } = req.params;
+   console.log(messageId);
+   
   if (!messageId)
     return res
       .status(400)

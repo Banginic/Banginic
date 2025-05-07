@@ -7,7 +7,7 @@ const messageRouter = Router()
 
 messageRouter.post('/create', validateMessage, createMessage)
 
-messageRouter.post('/:messageId',isAdmin, getMessage)
+messageRouter.get('/single/:messageId',isAdmin, getMessage)
 
 messageRouter.get('/list',isAdmin, getMessages)
 

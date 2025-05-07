@@ -10,7 +10,7 @@ employeeRouter.post('/create', upload.single('photo'), isAdmin, validateEmployee
 
 employeeRouter.get('/list', isAdmin, getEmployees)
 
-employeeRouter.get('/:employeeId', isAdmin, getEmployee)
+employeeRouter.get('/single/:employeeId', isAdmin, getEmployee)
 
 employeeRouter.delete('/delete/:employeeId', isAdmin, deleteEmployee)
 

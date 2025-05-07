@@ -12,7 +12,7 @@ function ViewEmployee() {
 const { navigate} =  useContext(AppContext)
   const { employeeId } = useParams();
   
-  const { isSuccess, error, isPending, mutate} = useMutate(deleteEmployee, employeeId)
+  const { isSuccess, error, isPending, mutate} = useMutate(deleteEmployee, `Employee: ${employeeId}`, employeeId)
  
   if(isSuccess){
     navigate('/employee')

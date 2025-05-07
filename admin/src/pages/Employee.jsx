@@ -9,24 +9,27 @@ function Employee() {
   const { isError, isLoading, data, refetch } = useFetch(
     "employee",
     fetchEmployee
-  ); 
-  
- 
+  );
+
   if (isLoading) return <Loading />;
 
-  if (isError || !data){
+  if (isError || !data) {
     return (
       <div className="grid h-screen place-items-center text-center">
         <div>
           <h2 className="heading4">Error fetching data</h2>
           <p>Please try again later</p>
-          <button className="cursor-pointer hover:bg-slate-300 px-4 py-1 rounded trans" onClick={() => refetch()}>Retry</button>
+          <button
+            className="cursor-pointer hover:bg-slate-300 px-4 py-1 rounded trans"
+            onClick={() => refetch()}
+          >
+            Retry
+          </button>
         </div>
       </div>
     );
   }
-   setEmployees(data.employees)
-
+  setEmployees(data.employees);
 
   if (employees && employees.length < 1)
     return (
@@ -71,30 +74,34 @@ function Employee() {
         </svg>
         Add Employee
       </button>
-      <table className="w-sm lg:w-xl border mx-auto mt-4 text-sm table-fixed ">
+      <table className="w-sm lg:w-xl 2xl:w-2xl border mx-auto mt-8 text-sm table-fixed ">
         <thead>
           <tr className="flex justify-around bg-gray-100 py-1">
             <th className="text-start ">S/N</th>
             <th>FULL NAME</th>
             <th>POSITON</th>
             <th>HIRE DATE</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {employees &&
             employees.map((employee, index) => (
-              <Link
-                className="bg-gray-50 hover:bg-gray-100"
+              <tr
                 key={index}
-                to={`/view-employee/${employee._id}`}
+                className="flex justify-between px-2 py-3 my-1 "
               >
-                <tr className="flex justify-between px-2 py-3 my-1 bg-gray-50 hover:bg-gray-300">
-                  <td>{index + 1}</td>
-                  <td>{employee.fullName}</td>
-                  <td>{employee.position}</td>
-                  <td>{new Date(employee.hiredDate).toLocaleDateString()} </td>
-                </tr>
-              </Link>
+                <td>{index + 1}</td>
+                <td>{employee.fullName}</td>
+                <td>{employee.position}</td>
+                <td>{new Date(employee.hiredDate).toLocaleDateString()} </td>
+                <td
+                  onClick={() => navigate(`/view-employee/${employee._id}`)}
+                  className="px-4 text-sm bg-neutral-600 hover:bg-neutral-500 trans cursor-pointer text-white rounded py-0.5"
+                >
+                  View
+                </td>
+              </tr>
             ))}
         </tbody>
       </table>
