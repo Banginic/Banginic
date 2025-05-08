@@ -3,26 +3,32 @@ import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { Loading } from "../components/exportComp";
 import fetchEmployee from "../utils/fetchEmployee";
-import { Edit, Trash  } from "lucide-react";
+import { Edit, Trash } from "lucide-react";
 import useMutate from "../hooks/useMutate";
 import deleteEmployee from "../utils/deleteEmployee";
 import AppContext from "../context/AppContext";
 
 function ViewEmployee() {
-const { navigate} =  useContext(AppContext)
+  const { navigate } = useContext(AppContext);
   const { employeeId } = useParams();
-  
-  const { isSuccess, error, isPending, mutate} = useMutate(deleteEmployee, `Employee: ${employeeId}`, employeeId)
- 
-  if(isSuccess){
-    navigate('/employee')
+
+  const { isSuccess, error, isPending, mutate } = useMutate(
+    deleteEmployee,
+    `Employee: ${employeeId}`,
+    employeeId
+  );
+
+  if (isSuccess) {
+    navigate("/employee");
   }
 
   const { isLoading, isError, data, refetch } = useFetch(
     `Employee_id: ${employeeId}`,
     fetchEmployee,
-    employeeId
+    employeeId,
+    "body=null"
   );
+
   if (!data) return null;
   const { fullName, position, qualification, motivation, socialLinks, photo } =
     data.employee;
@@ -106,9 +112,10 @@ const { navigate} =  useContext(AppContext)
               Edith Contract
             </button>
             <button
-            onClick={() => mutate()}
-             className="text-red-700 flex gap-2 text-nowrap items-center bg-red-200 px-4 py-1 rounded text-sm hover:bg-red-300 trans cursor-pointer">
-              <Trash  size={18}/>
+              onClick={() => mutate()}
+              className="text-red-700 flex gap-2 text-nowrap items-center bg-red-200 px-4 py-1 rounded text-sm hover:bg-red-300 trans cursor-pointer"
+            >
+              <Trash size={18} />
               Terminate Contract
             </button>
           </div>

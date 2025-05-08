@@ -8,7 +8,7 @@ newsRouter.post('/create', isAdmin, createNews )
 
 newsRouter.get('/list', isAdmin, getNews )
 
-newsRouter.delete('/delete/newsId', isAdmin, deleteNews )
+newsRouter.delete('/delete/:newsId', isAdmin, deleteNews )
 
 
 export default newsRouter;

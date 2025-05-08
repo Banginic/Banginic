@@ -3,7 +3,7 @@ import { JWT_SECRET, ADMIN_EMAIL } from "../config/env.js";
 import UserModel from "../models/user.Model.js";
 
 async function isAdmin(req, res, next) {
-
+ 
   try {
     const authHeader = req.headers.authorization;
 

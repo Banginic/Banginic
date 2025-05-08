@@ -2,10 +2,10 @@ import React from 'react'
 import { useMutation } from '@tanstack/react-query'
 import { queryClient } from '../main'
 
-function useMutate(mutationFn, mutationKey, mutationId) {
+function useMutate(mutationFn, mutationKey, mutationId, body=null) {
     
     function returnFn(){
-        return mutationFn(mutationId)
+        return mutationFn(mutationId, body)
     }
 
    return useMutation({

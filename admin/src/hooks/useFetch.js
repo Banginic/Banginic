@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 
-function useFetch(queryKey, queryFn, id = "") {
+function useFetch(queryKey, queryFn, id = "", body= null) {
   function returnFn() {
-    return queryFn(id);
+    return queryFn( id, body);
   }
   return useQuery({
     queryKey: [queryKey],
