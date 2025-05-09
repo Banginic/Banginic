@@ -2,7 +2,8 @@ import asynMiddleware from "../middlewares/asyncMiddleware.js";
 import NewEmployee from "../models/newEmployee.model.js";
 import cloudinary from "../config/cloudinary.js";
 
-export const applyJob = asynMiddleware(async (req, res) => {
+// CREATE APPLICATION: /api/v2/jobs/application/create/:jobId
+export const createJobApplication = asynMiddleware(async (req, res) => {
   const { jobId } = req.params;
   const { fullName, emailAddress, phone, motivation } = req.body;
 

@@ -27,7 +27,7 @@ process.on('uncaughtException', (ex) =>{
 const app = express()
 
 // Middlewares
-app.use(cors(['http://localhost:5173']))
+app.use(cors(['http://localhost:5173', 'http://localhost:5174']))
 app.use(cookieParser())
 app.use(express.json())
 app.use(morgan('dev'))
@@ -44,7 +44,7 @@ app.use('/api/v2/projects', projectRouter)
 app.use('/api/v2/testimony', testimonyRouter)
 app.use('/api/v2/news', newsRouter)
 app.use('/api/v2/jobs', jobRouter)
-app.use('/api/v2/jobs/apply', newEmployeeRouter)
+app.use('/api/v2/jobs/applications', newEmployeeRouter)
 
 // Error handler
 app.use(errorHandler)

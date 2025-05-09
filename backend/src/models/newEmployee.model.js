@@ -1,4 +1,5 @@
 
+
 import mongoose from "mongoose";
 
 const NewEmployee = mongoose.model(
@@ -31,6 +32,10 @@ const NewEmployee = mongoose.model(
       default: ''
     },
     job:{
+      type:String,
+      required: true,
+    },
+    jobId:{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Job',
       required: true
