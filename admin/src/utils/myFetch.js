@@ -3,6 +3,8 @@ import { toast } from "react-toastify";
 
 // (method, endpoint, body=null, id=null )
 async function myFetch(props) {
+    console.log('I am called');
+    
     const { method, endpoint, body = "", id = ""} = props
   const baseUrl = import.meta.env.VITE_BASE_URL;
   try {
@@ -33,6 +35,8 @@ async function myFetch(props) {
 
     // Get all items
     if (method === "get" && !id ) {
+        console.log('called');
+        
       const { data } = await axios.get(
         baseUrl + endpoint  ,  { headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}`} });
       return data;

@@ -28,7 +28,8 @@ export const getJobs = asynMiddleware(async (req, res) => {
     return res
       .status(404)
       .json({ success: true, message: "No jobs Available" });
-
+  
+  
   return res.status(200).json({ success: true, message: "All jobs", jobs });
 });
 

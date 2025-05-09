@@ -12,27 +12,11 @@ function AppProvider({ children }) {
     const [ messages, setMessages ] = useState([])
     const [ employees, setEmployees ] = useState([])
     const [ projects, setProjects ] = useState([])
+    const [ jobs, setJobs ] = useState([])
     const [ user, setUser ] = useState( null)
     const [ isLoggedIn, setIsLoggedIn ] = useState(localStorage.getItem('isLoggedIn') || false)
 
-    // const [ employees, setEmployees ] = useState([ {
-    //   _id:1234,
-    //   name:'Boris Ayam Ndoh',
-    //   position:'Admin CEO',
-    //   qualification:'I am a passion web developer with little experience hope for God to bless me. ',
-    //   socialLinks: {facebook: 'http://facebook.com', instagram: 'http://instagram'},
-    //   photo:'http://cloudinary/v3/image.png',
-    //   createdAt:'23-04-2004'
-    // },
-    // {
-    //   _id:12345,
-    //   name:'Boris Ayam Ndoh',
-    //   position:'Admin CEO',
-    //   qualification:'I am a passion web developer with little experience hope for God to bless me. ',
-    //   socialLinks: {facebook: 'http://facebook.com', instagram: 'http://instagram'},
-    //   photo:'http://cloudinary/v3/image.png',
-    //   createdAt:'23-04-2004'
-    // },])
+   
     const [ run, setRun ] = useState(false)
     
     function removeAllDisplay(){
@@ -49,6 +33,7 @@ function AppProvider({ children }) {
         isLoggedIn, setIsLoggedIn,
         setMessages,
         user, setUser,
+        jobs, setJobs,
          setRun, removeAllDisplay,
          showNavbar, setShowNavbar,
          showSidebar, setShowSidebar,

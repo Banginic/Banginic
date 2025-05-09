@@ -37,7 +37,7 @@ function App() {
   const { showNavbar } = useContext(AppContext);
 
   //custom hooks
-  useAuthorized();
+  // useAuthorized();
   useTitle();
   useToggleNavbar();
   // useToggleSidebar();

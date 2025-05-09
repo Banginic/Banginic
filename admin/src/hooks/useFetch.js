@@ -1,12 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 
-function useFetch(queryKey, queryFn, id = "", body= null) {
-  function returnFn() {
-    return queryFn( id, body);
-  }
+function useFetch(queryKey, queryFn ) {
+
   return useQuery({
     queryKey: [queryKey],
-    queryFn: id ? returnFn : queryFn,
+    queryFn:  queryFn,
     staleTime: 5 * 60 * 1000,
   });
 }
