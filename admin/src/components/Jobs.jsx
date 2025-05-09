@@ -29,10 +29,27 @@ function Jobs() {
         "lorem sdfhdasf hjdafdas aodfhadsof adfhdsfh dsafdsfohdsf ds dsafohdasf ds dsofhdsaof dsf hdsao dsfhjdsaoifh dss odsa fdsf dsfopidsafj dsf dsfojpdsf dsfjdspf djsfpjdsf pjdspf jdsafpdsf pd",
     },
   ];
+
+  if (jobs.length < 1)
+    return (
+      <div className="mt-8 min-w-sm lg:w-2xl mx-auto">
+        <div>
+          <h3 className="heading4 text-center">No Job Availble </h3>
+          <p className="text-center">Post a Job advert</p>
+        </div>
+      </div>
+    );
   return (
     <div className="mt-8 min-w-sm lg:w-2xl mx-auto">
       <div>
-        <table className="min-w-[95%] lg:w-2xl border mx-auto text-sm">
+        <button
+          onClick={() => navigate("/job-form")}
+          className="px-6 cursor-pointer mx-4 py-2 rounded-sm  my-4 bg-green-200 text-green-800 hover:bg-green-300 trans"
+        >
+          Post job
+        </button>
+        <h3 className=" text-xl mano text-indigo-400">Available Jobs</h3>
+        <table className="min-w-[95%] lg:w-2xl border border-gray-300 mx-auto text-sm">
           <thead>
             <tr className="flex gap-4 justify-around py-2">
               <th>SN</th>

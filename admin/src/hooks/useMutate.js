@@ -1,22 +1,20 @@
-import React from 'react'
-import { useMutation } from '@tanstack/react-query'
-import { queryClient } from '../main'
+import React from "react";
+import { useMutation } from "@tanstack/react-query";
+import { queryClient } from "../main";
+import { toast } from "react-toastify";
 
-function useMutate(mutationFn, mutationKey, mutationId, body=null) {
-    
-    function returnFn(){
-        return mutationFn(mutationId, body)
-    }
-
-   return useMutation({
-      mutationFn: returnFn,
-      onError: (error) => console.log(error),
-      onSuccess: (data) =>{
-        console.log('success', data);
-        queryClient.invalidateQueries(mutationKey)
-      }
-    })
-  
+function useMutate(mutationFn, mutationKey) {
+  return useMutation({
+    mutationKey,
+    mutationFn: mutationFn,
+    onError: (error) => {
+      toast.error(error);
+    },
+    onSuccess: (data) => {
+      toast.success(data.message);
+      queryClient.invalidateQueries(mutationKey);
+    },
+  });
 }
 
-export default useMutate
+export default useMutate;

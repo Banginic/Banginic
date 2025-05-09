@@ -26,9 +26,12 @@ import {
   AddEmployee,
   AddNews,
   AddProjects,
+  JobApplicationForm,
 } from "./components/LazyExports";
 import AppContext from "./context/AppContext";
 import JobApplications from "./pages/JobApplications";
+import ViewJobApplication from "./pages/ViewJobApplication";
+import ViewJob from "./pages/ViewJob";
 
 function App() {
   const { showNavbar } = useContext(AppContext);
@@ -67,6 +70,9 @@ function App() {
             <Route path="/add-news" element={<AddNews />} />
             <Route path="/add-project" element={<AddProjects />} />
             <Route path="/job-applications" element={<JobApplications />} />
+            <Route path="/view-job/:jobId" element={<ViewJob />} />
+            <Route path="/job-form" element={<JobApplicationForm />} />
+            <Route path="/view-application/:applicationId" element={<ViewJobApplication />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </Suspense>

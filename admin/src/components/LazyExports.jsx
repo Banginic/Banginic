@@ -18,6 +18,8 @@ const JobApplicationForm = lazy (() => import('../pages/JobApplicationForm'))
 const JobApplications = lazy (() => import('../pages/JobApplications'))
 const Jobs = lazy(( ) => import('./Jobs'))
 const Applications = lazy(( ) => import('./Applications'))
+const ViewJob = lazy(() => import('../pages/ViewJob'))
+const ViewJobApplication = lazy(( ) => import('../pages/ViewJobApplication'))
 
 
 export {
@@ -31,12 +33,14 @@ export {
   ViewProject,
   Messages,
   Login,
+  Jobs,
   EmployeeForm,
   AddNews,
   AddEmployee,
   AddProjects,
   JobApplicationForm,
   JobApplications,
-  Jobs,
+  ViewJob,
+  ViewJobApplication,
   Applications
 };

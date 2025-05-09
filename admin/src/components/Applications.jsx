@@ -35,11 +35,20 @@ function Applications() {
       createdAt: "23-34-3433",
     },
   ];
-
+  
+  if (applications.length < 1)
+    return (
+      <div className="mt-8 min-w-sm lg:w-2xl mx-auto">
+        <div>
+          <h3 className="heading4 text-center">No Job Availble Application</h3>
+          <p className="text-center">Post a Job advert</p>
+        </div>
+      </div>
+    );
   return (
     <div className="mt-8 min-w-sm lg:w-2xl mx-auto">
       <h1 className=" mb-1">Job Applications</h1>
-      <table className="min-w-[95%] lg:w-2xl border mx-auto text-sm">
+      <table className="min-w-[95%] lg:w-2xl border border-gray-300 mx-auto text-sm">
         <thead>
           <tr className="flex gap-4 justify-around py-2">
             <th>SN</th>

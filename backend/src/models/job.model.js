@@ -24,9 +24,9 @@ const jobSchema = mongoose.Schema({
         maxLength: 50,
         requird: true
     },
-    decription:{
+    description:{
         type:String,
-        maxLength: 50
+        maxLength: 500
     }
 
 }, { timestamp: true, minimize:false})
