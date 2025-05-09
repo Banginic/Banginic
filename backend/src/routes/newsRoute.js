@@ -6,7 +6,7 @@ const newsRouter =  Router()
 
 newsRouter.post('/create', isAdmin, createNews )
 
-newsRouter.get('/list', isAdmin, getNews )
+newsRouter.get('/list', getNews )
 
 newsRouter.delete('/delete/:newsId', isAdmin, deleteNews )
 

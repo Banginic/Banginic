@@ -74,7 +74,7 @@ function Employee() {
         </svg>
         Add Employee
       </button>
-      <table className="w-sm lg:w-xl 2xl:w-2xl border mx-auto mt-8 text-sm table-fixed ">
+      <table className="w-s lg:w-xl 2xl:w-2xl border mx-auto mt-8 text-sm table-fixed ">
         <thead>
           <tr className="flex justify-around bg-gray-100 py-1">
             <th className="text-start ">S/N</th>

@@ -32,6 +32,7 @@ function News() {
   } = useMutate(deleteNews, "Delete NEWS", result && result._id, "news=null");
 
   const disabledBTN = news.body.length < 5 || news.body.length < 15;
+  const disabledDelete = isLoading || ! result
 
   if (isLoading || isPending ) return <Loading />;
 
@@ -117,9 +118,10 @@ function News() {
           </button>
           {data.news && (
             <button
+            disabled={disabledDelete}
               onClick={() => deleteData()}
               type="button"
-              className="bg-red-700 text-white text-sm  px-4 py-1 rounded cursor-pointer hover:bg-red-600"
+              className="bg-red-700 text-white text-sm  px-4 py-1 rounded cursor-pointer hover:bg-red-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
               Delete News
             </button>
