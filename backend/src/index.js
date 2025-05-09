@@ -12,6 +12,7 @@ import testimonyRouter from './routes/testimonyRoute.js'
 import projectRouter from './routes/projectRoute.js'
 import newsRouter from './routes/newsRoute.js'
 import jobRouter from './routes/JobRoute.js'
+import newEmployeeRouter from './routes/newEmployeeRouter.js'
 
 if(!JWT_SECRET){
     console.log('FATAL, NO JWT SECRET');
@@ -43,6 +44,7 @@ app.use('/api/v2/projects', projectRouter)
 app.use('/api/v2/testimony', testimonyRouter)
 app.use('/api/v2/news', newsRouter)
 app.use('/api/v2/jobs', jobRouter)
+app.use('/api/v2/jobs/apply', newEmployeeRouter)
 
 // Error handler
 app.use(errorHandler)

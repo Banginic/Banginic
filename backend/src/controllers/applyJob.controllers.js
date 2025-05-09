@@ -7,8 +7,7 @@ export const applyJob = asynMiddleware(async (req, res) => {
   const { fullName, emailAddress, phone, motivation } = req.body;
 
   const alreadyApplied = await NewEmployee.findOne({ fullName });
-
-  if (alreadyApplied && alreadyApplied.job.toString() === jobId  )
+  if (alreadyApplied && alreadyApplied.job === jobId)
     return res
       .status(400)
       .json({ success: false, message: "You Have Already Applied" });

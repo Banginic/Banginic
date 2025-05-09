@@ -41,7 +41,7 @@ const testimonySchema = mongoose.Schema({
         default:'',
         maxLength:250
     }
-},{ timestamp: true})
+},{ timestamps: true})
 
 const TestimonyModel = mongoose.model('Testimonie', testimonySchema)
 

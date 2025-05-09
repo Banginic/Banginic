@@ -57,7 +57,7 @@ const projectSchema = mongoose.Schema({
         maxLength:4,
         required:true,
     },
-}, { timestamp: true })
+}, { timestamps: true })
 
 // use time stamp as the production date in the frontend
 
