@@ -1,0 +1,73 @@
+import React, { useContext } from "react";
+import AppContext from "../context/AppContext";
+
+function Applications() {
+  const { navigate } = useContext(AppContext);
+  const applications = [
+    {
+      id: 123,
+      fullName: "Boiris ayama",
+      emailAddress: "email@gmail.com",
+      phone: "234342343",
+      job: "Junior software developer",
+      jobId: 123,
+      cvPath: "lcaohhdfhdfhdfhfd",
+      createdAt: "23-34-3433",
+    },
+    {
+      id: 1234,
+      fullName: "Boiris ayama",
+      emailAddress: "email@gmail.com",
+      phone: "234342343",
+      job: "Junior software developer",
+      jobId: 123,
+      cvPath: "lcaohhdfhdfhdfhfd",
+      createdAt: "23-34-3433",
+    },
+    {
+      id: 1235,
+      fullName: "Boiris ayama",
+      emailAddress: "email@gmail.com",
+      phone: "234342343",
+      job: "Junior software developer",
+      jobId: 123,
+      cvPath: "lcaohhdfhdfhdfhfd",
+      createdAt: "23-34-3433",
+    },
+  ];
+
+  return (
+    <div className="mt-8 min-w-sm lg:w-2xl mx-auto">
+      <h1 className=" mb-1">Job Applications</h1>
+      <table className="min-w-[95%] lg:w-2xl border mx-auto text-sm">
+        <thead>
+          <tr className="flex gap-4 justify-around py-2">
+            <th>SN</th>
+            <th>NAME</th>
+            <th>JOB TITLE</th>
+            <th>APPLY DATE</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {applications.map((application, index) => (
+            <tr key={index + 1} className="flex gap-4 justify-around py-2">
+              <td>{index + 1}</td>
+              <td>{application.fullName}</td>
+              <td>{application.job}</td>
+              <td>{application.createdAt}</td>
+              <td
+                onClick={() => navigate(`/view-application/${application.id}`)}
+                className="bg-gray-200 hover:opacity-80 cursor-pointer text-gray-700 px-4 py-1 rounded"
+              >
+                View
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default Applications;

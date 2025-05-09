@@ -28,6 +28,7 @@ import {
   AddProjects,
 } from "./components/LazyExports";
 import AppContext from "./context/AppContext";
+import JobApplications from "./pages/JobApplications";
 
 function App() {
   const { showNavbar } = useContext(AppContext);
@@ -65,6 +66,7 @@ function App() {
             <Route path="/add-employee" element={<AddEmployee />} />
             <Route path="/add-news" element={<AddNews />} />
             <Route path="/add-project" element={<AddProjects />} />
+            <Route path="/job-applications" element={<JobApplications />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </Suspense>

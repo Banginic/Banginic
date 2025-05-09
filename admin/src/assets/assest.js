@@ -15,6 +15,7 @@ export const navlinks = [
     { name: "Message", link: "/message" },
     { name: "Projects", link: "/projects" },
     { name: "Employees", link: "/employee" },
+    { name: "Jobs / Applications", link: "/job-applications" },
     { name: "News", link: "/news" },
   ];
   export const metaData = {

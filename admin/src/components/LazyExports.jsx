@@ -14,6 +14,10 @@ const Login = lazy(() => import('../pages/Login'))
 const AddEmployee = lazy(() => import('../pages/AddEmployee'))
 const AddNews = lazy(() => import('../pages/AddNews'))
 const AddProjects = lazy(() => import('../pages/AddProjects'))
+const JobApplicationForm = lazy (() => import('../pages/JobApplicationForm'))
+const JobApplications = lazy (() => import('../pages/JobApplications'))
+const Jobs = lazy(( ) => import('./Jobs'))
+const Applications = lazy(( ) => import('./Applications'))
 
 
 export {
@@ -30,5 +34,9 @@ export {
   EmployeeForm,
   AddNews,
   AddEmployee,
-  AddProjects
+  AddProjects,
+  JobApplicationForm,
+  JobApplications,
+  Jobs,
+  Applications
 };
