@@ -12,9 +12,9 @@ const jobSchema = mongoose.Schema({
     },
     latestDate:{
         type:Date,
-        default: function(){
+        default: () => {
             const date = new Date();
-            date.setMonth(date.getMonth + 2)
+            date.setMonth(date.getMonth() + 2)
             return date
         }
 
@@ -26,10 +26,10 @@ const jobSchema = mongoose.Schema({
     },
     decription:{
         type:String,
-        minLength: 50
+        maxLength: 50
     }
 
-}, { timestamp: true})
+}, { timestamp: true, minimize:false})
 
 const Job = mongoose.model('Job', jobSchema)
 
