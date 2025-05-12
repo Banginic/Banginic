@@ -50,7 +50,7 @@ function Jobs() {
         <h3 className=" text-xl mano my-1">JOBS</h3>
         <table className="min-w-[95%] lg:w-2xl border border-gray-300 mx-auto text-sm">
           <thead>
-            <tr className="flex gap-4 justify-around py-2 bg-gray-100 ">
+            <tr className="flex gap-4 justify-around py-2 bg-gray-200 ">
               <th>SN</th>
               <th>TITLE</th>
               <th>LOCATION</th>
@@ -69,7 +69,7 @@ function Jobs() {
                 <td>{job.location}</td>
                 <td>{job.postedDate}</td>
                 <td
-                  onClick={() => navigate(`/view-job/${job.jobId}`)}
+                  onClick={() => navigate(`/view-job/${job._id}`)}
                   className="bg-green-200 hover:opacity-80 cursor-pointer text-green-700 px-4 py-1 rounded"
                 >
                   View

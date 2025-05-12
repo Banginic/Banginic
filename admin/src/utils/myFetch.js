@@ -3,7 +3,6 @@ import { toast } from "react-toastify";
 
 // (method, endpoint, body=null, id=null )
 async function myFetch(props) {
-    console.log('I am called');
     
     const { method, endpoint, body = "", id = ""} = props
   const baseUrl = import.meta.env.VITE_BASE_URL;

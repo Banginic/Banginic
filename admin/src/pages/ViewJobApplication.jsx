@@ -12,7 +12,7 @@ function ViewJobApplication() {
 
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       <h1 className="heading4 mt-12 mano text-center">VIEW JOB APPLICATION</h1>
       <div className="border border-gray-300 w-[95%] mx-auto lg:w-2xl p-4 mt-8 rounded">
         <h3 className="heading4 text-accent mb-4 text-center">Junior software developer</h3>

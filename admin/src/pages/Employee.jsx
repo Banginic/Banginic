@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
 import { Loading, useFetch } from "../components/exportComp";
-import { Link } from "react-router-dom";
-import fetchEmployee from "../utils/fetchEmployees";
+import myFetch from "../utils/myFetch";
 
 function Employee() {
-  const { navigate, setEmployees, employees } = useContext(AppContext);
+
+   async function returnFn() {
+    const endpoint = "/api/v2/employees/list";
+    return myFetch({ method: "get", endpoint });
+   }
+  const { navigate, } = useContext(AppContext);
   const { isError, isLoading, data, refetch } = useFetch(
     "employee",
-    fetchEmployee
+    returnFn
   );
 
   if (isLoading) return <Loading />;
@@ -29,9 +33,9 @@ function Employee() {
       </div>
     );
   }
-  setEmployees(data.employees);
+  
 
-  if (employees && employees.length < 1)
+  if (data.employees && data.employees.length < 1)
     return (
       <div className="h-screen grid place-items-center">
         <div>
@@ -57,8 +61,8 @@ function Employee() {
     );
 
   return (
-    <div className="h-screen mt-12">
-      <h2 className="heading3 mano text-center">EMPLOYEES</h2>
+    <div className="h-screen mt-12 rounded w-s bg-accent/10 lg:w-4xl 2xl:w-3xl mx-auto ">
+      <h2 className="heading3 mano text-center mt-4">EMPLOYEES</h2>
       <button
         onClick={() => navigate("/add-employee")}
         className="px-4 py-1 mt-8 border gap-1.5 text-sm items-center rounded mx-auto hover:bg-black text-neutral-500 trans cursor-pointer flex"
@@ -74,9 +78,9 @@ function Employee() {
         </svg>
         Add Employee
       </button>
-      <table className="w-s lg:w-xl 2xl:w-2xl border mx-auto mt-8 text-sm table-fixed ">
+      <table className="w-s lg:w-xl 2xl:w-2xl border border-gray-300 mx-auto mt-8 text-sm table-fixed bg-gray-50 ">
         <thead>
-          <tr className="flex justify-around bg-gray-100 py-1">
+          <tr className="flex justify-around bg-gray-200 py-2">
             <th className="text-start ">S/N</th>
             <th>FULL NAME</th>
             <th>POSITON</th>
@@ -85,11 +89,11 @@ function Employee() {
           </tr>
         </thead>
         <tbody>
-          {employees &&
-            employees.map((employee, index) => (
+          {data.employees &&
+            data.employees.map((employee, index) => (
               <tr
                 key={index}
-                className="flex justify-between px-2 py-3 my-1 "
+                className="flex justify-between items-center px-2 py-3 my-2 "
               >
                 <td>{index + 1}</td>
                 <td>{employee.fullName}</td>
@@ -97,7 +101,7 @@ function Employee() {
                 <td>{new Date(employee.hiredDate).toLocaleDateString()} </td>
                 <td
                   onClick={() => navigate(`/view-employee/${employee._id}`)}
-                  className="px-4 text-sm bg-neutral-600 hover:bg-neutral-500 trans cursor-pointer text-white rounded py-0.5"
+                  className="px-4 text-sm bg-green-300 hover:bg-green-200 trans cursor-pointer text-green-700 rounded py-1.5"
                 >
                   View
                 </td>

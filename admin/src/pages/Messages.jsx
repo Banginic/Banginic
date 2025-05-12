@@ -1,15 +1,21 @@
 import { Loading } from "../components/exportComp";
 import { Link } from "react-router-dom";
-import fetchMessages from "../utils/fetchMessages";
+
 import useFetch from "../hooks/useFetch";
 import { useContext } from "react";
 import AppContext from "../context/AppContext";
+import myFetch from "../utils/myFetch";
 
 function Messages() {
+
+  async function returnFn() {
+    const endpoint = "/api/v2/messages/list";
+    return myFetch({ method: "get", endpoint });
+  }
   const { navigate } = useContext(AppContext);
   const { isError, isLoading, data, refetch } = useFetch(
     "Messages",
-    fetchMessages
+    returnFn
   );
 
   if (isLoading) return <Loading />;
@@ -40,9 +46,9 @@ function Messages() {
           </p>
         </div>
       ) : (
-        <table className="border rounded border-gray-400 mx-auto w-sm lg:w-xl text-sm ">
+        <table className="border rounded border-gray-300 mx-auto w-sm lg:w-xl text-sm ">
           <thead>
-            <tr className="flex gap-4 justify-around py-2">
+            <tr className="flex gap-4 justify-around py-2 bg-gray-200">
               <th>SN</th>
               <th>SENDER</th>
               <th>SUBJECT</th>
@@ -55,14 +61,14 @@ function Messages() {
               <tr
                 key={index}
                 title="View message"
-                className="flex gap-4 text-gray-600 justify-around my-2 bg-gray-50  py-1"
+                className="flex gap-4 text-gray-600 justify-around my-2 bg-gray-50  py-2 items-center"
               >
                 <td>{index + 1}</td>
                 <td>{message.fullName}</td>
                 <td>{message.service}</td>
                 <td>{message.date || new Date().getFullYear()}</td>
                 <td
-                  className="bg-neutral-700 text-white text-sm px-4 hover:bg-neutral-600 cursor-pointer rounded"
+                  className="bg-green-300 py-1.5 text-green-800 text-sm px-4 hover:bg-green-200 cursor-pointer rounded"
                   onClick={() => navigate(`/message/${message._id}`)}
                 >
                   View

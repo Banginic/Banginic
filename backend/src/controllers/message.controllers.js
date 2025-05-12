@@ -20,7 +20,6 @@ export const createMessage = asyncHandler(async (req, res) => {
       $push: { messages: newMessage._id },
     });
   }
-   console.log('ended');
    
   return res.status(201).json({
     success: true,

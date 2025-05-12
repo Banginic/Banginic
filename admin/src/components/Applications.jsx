@@ -47,10 +47,10 @@ function Applications() {
     );
   return (
     <div className="mt-8 min-w-sm lg:w-2xl mx-auto">
-      <h1 className=" mb-1">Job Applications</h1>
+      <h1 className=" mb-1 mano heading4">Job Applications</h1>
       <table className="min-w-[95%] lg:w-2xl border border-gray-300 mx-auto text-sm">
         <thead>
-          <tr className="flex gap-4 justify-around py-2">
+          <tr className="flex gap-4 justify-around bg-gray-200 py-2">
             <th>SN</th>
             <th>NAME</th>
             <th>JOB TITLE</th>
@@ -67,7 +67,7 @@ function Applications() {
               <td>{application.createdAt}</td>
               <td
                 onClick={() => navigate(`/view-application/${application.id}`)}
-                className="bg-gray-200 hover:opacity-80 cursor-pointer text-gray-700 px-4 py-1 rounded"
+                className="bg-green-200 hover:opacity-80 cursor-pointer text-green-700 px-4 py-1.5 rounded"
               >
                 View
               </td>
