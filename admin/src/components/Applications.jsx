@@ -60,14 +60,14 @@ function Applications() {
         </thead>
         <tbody>
           {applications.map((application, index) => (
-            <tr key={index + 1} className="flex gap-4 justify-around py-2">
+            <tr key={index + 1} className="flex justify-between items-center px-2 py-3 hover:bg-indigo-100/50 border border-indigo-100">
               <td>{index + 1}</td>
               <td>{application.fullName}</td>
               <td>{application.job}</td>
               <td>{application.createdAt}</td>
               <td
                 onClick={() => navigate(`/view-application/${application.id}`)}
-                className="bg-green-200 hover:opacity-80 cursor-pointer text-green-700 px-4 py-1.5 rounded"
+                className="bg-green-300 hover:opacity-80 cursor-pointer text-green-700 px-4 py-1.5 rounded"
               >
                 View
               </td>

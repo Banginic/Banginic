@@ -43,7 +43,7 @@ function Jobs() {
       <div>
         <button
           onClick={() => navigate("/job-form")}
-          className="px-6 cursor-pointer  py-2 rounded-sm  my-4 bg-green-200 text-green-800 hover:bg-green-300 trans"
+          className="px-6 cursor-pointer  py-2 rounded-sm  my-4 bg-black text-white hover:bg-black/90 trans"
         >
           Post job
         </button>
@@ -62,7 +62,7 @@ function Jobs() {
             {data?.jobs.map((job, index) => (
               <tr
                 key={index}
-                className="flex gap-4 justify-around py-1 cursor-pointer  my-1 bg-gray-50"
+                className="flex justify-between items-center px-2 py-3 hover:bg-indigo-100/50 border border-indigo-100"
               >
                 <td>{index + 1}</td>
                 <td>{job.title}</td>
@@ -70,7 +70,7 @@ function Jobs() {
                 <td>{job.postedDate}</td>
                 <td
                   onClick={() => navigate(`/view-job/${job._id}`)}
-                  className="bg-green-200 hover:opacity-80 cursor-pointer text-green-700 px-4 py-1 rounded"
+                  className="bg-green-300 hover:opacity-80 cursor-pointer text-green-700 px-4 py-1 rounded"
                 >
                   View
                 </td>

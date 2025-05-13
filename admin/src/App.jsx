@@ -11,7 +11,7 @@ import {
   Sidebar,
   Navbar,
   useToggleNavbar,
-  useAuthorized,
+  // useAuthorized,
 } from "./components/exportComp";
 import {
   Employee,

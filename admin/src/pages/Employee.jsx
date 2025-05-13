@@ -10,10 +10,12 @@ function Employee() {
     return myFetch({ method: "get", endpoint });
    }
   const { navigate, } = useContext(AppContext);
-  const { isError, isLoading, data, refetch } = useFetch(
+  const { data, isError, isLoading,  refetch } = useFetch(
     "employee",
     returnFn
   );
+  console.log(data);
+  
 
   if (isLoading) return <Loading />;
 
@@ -61,7 +63,7 @@ function Employee() {
     );
 
   return (
-    <div className="h-screen mt-12 rounded w-s bg-accent/10 lg:w-4xl 2xl:w-3xl mx-auto ">
+    <div className="h-screen mt-12 rounded w-s bg-indigo-50/50 lg:w-4xl 2xl:w-3xl mx-auto ">
       <h2 className="heading3 mano text-center mt-4">EMPLOYEES</h2>
       <button
         onClick={() => navigate("/add-employee")}
@@ -93,7 +95,7 @@ function Employee() {
             data.employees.map((employee, index) => (
               <tr
                 key={index}
-                className="flex justify-between items-center px-2 py-3 my-2 "
+                className="flex justify-between items-center px-2 py-3 hover:bg-indigo-100/50 border border-indigo-100 "
               >
                 <td>{index + 1}</td>
                 <td>{employee.fullName}</td>

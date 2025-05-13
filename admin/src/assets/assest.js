@@ -9,6 +9,7 @@ import {
   Check,
 } from "lucide-react";
 import person from './person.png'
+import person_Placeholder from './person_Placeholder.png'
 
 export const navlinks = [
     { name: "Home", link: "/" },
@@ -21,7 +22,7 @@ export const navlinks = [
   export const metaData = {
     name: 'Banginic'
   }
-  export { person}
+  export { person, person_Placeholder}
 
   export const platforms = [
     { name: 'twitter', icon: Twitter, label: 'Twitter', placeholder: 'https://twitter.com/yourusername' },

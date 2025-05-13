@@ -9,39 +9,39 @@ async function myFetch(props) {
   try {
 
     // create an item
-    if (method === "post") {
-        console.log('method callled');
-        
-        console.log(method, body, endpoint);
+    if (method === "post" && body) {
         
       const { data } = await axios.post(
         baseUrl + endpoint , body, { headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}`} });
       return data;
     }
     // Get single item
-    if (method === "get" && id ) {
+   else if (method === "get" && id.length > 1 ) {
       const { data } = await axios.get(
         baseUrl + endpoint + `/${id}` ,  { headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}`} });
       return data;
     }
 
     // Delete single item
-    if (method === "delete" && id ) {
+   else if (method === "delete" && id ) {
       const { data } = await axios.delete(
         baseUrl + endpoint + `/${id}` ,  { headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}`} });
       return data;
     }
 
     // Get all items
-    if (method === "get" && !id ) {
-        console.log('called');
+  else if (method === "get" && !id ) {
         
       const { data } = await axios.get(
         baseUrl + endpoint  ,  { headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}`} });
       return data;
     }
   } catch (ex) {
-    toast.error(ex.response.data.message);
+    if(ex instanceof Error){
+    return toast.warning('Please Login again')
+    }
+    toast.error(ex.message)
+    localStorage.clear()
   }
 }
 

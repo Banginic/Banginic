@@ -69,7 +69,7 @@ function Navbar() {
                   navigate("/login");
                 }, 1000);
               }}
-              className="px-8 py-1.5 bg-red-300 text-red-700 cursor-pointer rounded shadow hover:opacity-80 trans"
+              className="px-8 py-2 bg-red-300 text-red-700 cursor-pointer rounded shadow hover:opacity-80 trans"
             >
               Log out
             </button>

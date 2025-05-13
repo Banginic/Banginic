@@ -1,14 +1,16 @@
 import React, { useContext, useState } from "react";
 import { Logo } from "../components/exportComp";
 import { platforms } from "../assets/assest";
-import axios from "axios";
 import { toast } from "react-toastify";
-import { person } from "../assets/assest";
+import { person_Placeholder } from "../assets/assest";
 import AppContext from "../context/AppContext";
+import myFetch from "../utils/myFetch";
+import { useMutation } from "@tanstack/react-query";
+import { queryClient } from "../main";
 
 function AddEmployee() {
-  const { baseUrl, token, setEmployees, navigate } = useContext(AppContext);
-  const [isLoading, setLoading] = useState(false);
+  const { navigate } = useContext(AppContext);
+
   const [error, setError] = useState("");
   const [changedFields, setChangedFields] = useState({});
   const [photo, setPhoto] = useState();
@@ -28,10 +30,52 @@ function AddEmployee() {
     github: "",
     website: "",
   });
-  console.log(photo);
+  // MANAGE FORM DATA
+  const changedValues = Object.keys(changedFields)
+    .filter((key) => changedFields[key] && links[key].trim() !== "")
+    .reduce((obj, key) => {
+      obj[key] = links[key];
+      return obj;
+    }, {});
+
+  const formData = new FormData();
+  formData.append("fullName", employee.fullName);
+  formData.append("position", employee.position);
+  formData.append("qualification", employee.qualification);
+  formData.append("motivation", employee.motivation);
+  formData.append("socialLinks", JSON.stringify(changedValues));
+  if (photo) {
+    formData.append("photo", photo);
+  }
+
+  function mutationFn() {
+    const fetchDetails = {
+      method: "post",
+      endpoint: "/api/v2/employees/create",
+      body: formData,
+      id: "",
+    };
+    return myFetch(fetchDetails);
+  }
+  const { isPending, mutate } = useMutation({
+    mutationFn,
+    onSuccess: (data) => {
+
+      
+      toast.success(data.message);
+      queryClient.invalidateQueries({ queryKey: ["employee"] });
+      const timer = setTimeout(navigate("/employee"), 2000);
+      return () => clearTimeout(timer);
+    },
+    onError: (error) => {
+      console.error(error);
+      
+      setError(error.message);
+    },
+  });
 
   const disabledBTN =
-    isLoading ||
+    isPending ||
     employee.fullName.length < 3 ||
     employee.position.length < 8 ||
     employee.motivation.length < 3;
@@ -67,58 +111,19 @@ function AddEmployee() {
     setPhoto();
   }
   // HANDLE SUBMIT
-  async function handleFormSubmit(event) {
+  async function useHandleFormSubmit(event) {
     event.preventDefault();
     setError("");
-    setLoading(true);
 
-    const changedValues = Object.keys(changedFields)
-      .filter((key) => changedFields[key] && links[key].trim() !== "")
-      .reduce((obj, key) => {
-        obj[key] = links[key];
-        return obj;
-      }, {});
-
-    const formData = new FormData();
-    formData.append("fullName", employee.fullName);
-    formData.append("position", employee.position);
-    formData.append("qualification", employee.qualification);
-    formData.append("motivation", employee.motivation);
-    formData.append("socialLinks", JSON.stringify(changedValues));
-    if (photo) {
-      formData.append("photo", photo);
-    }
-
-    try {
-      const { data } = await axios.post(
-        baseUrl + "/api/v2/employees/create",
-        formData,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-      console.log(data);
-      
-      const { success, employees, message } = data;
-      if (!success) {
-        return setError(message);
-      }
-      toast.success(message);
-      setEmployees(employees);
-      clearForm();
-      setTimeout(() => navigate("/employee"), 1000);
-    } catch (ex) {
-      setError(ex.response.data.message);
-    } finally {
-      setLoading(false);
-    }
+   await mutate();
+    clearForm();
   }
 
   return (
     <div className="min-h-screen my-12 text-sm">
       <h1 className="heading3 mano text-center">ADD EMPLOYEE</h1>
       <form
-        onSubmit={handleFormSubmit}
+        onSubmit={useHandleFormSubmit}
         className="border rounded-sm w-sm mx-auto mt-4 p-5"
       >
         <div className="mb-8">
@@ -135,7 +140,7 @@ function AddEmployee() {
           >
             <label htmlFor="photo" className="cursor-pointer">
               <img
-                src={photo ? URL.createObjectURL(photo) : person}
+                src={photo ? URL.createObjectURL(photo) : person_Placeholder}
                 alt=""
                 className="size-full object-cover"
               />
@@ -264,7 +269,7 @@ function AddEmployee() {
           disabled={disabledBTN}
           className="bg-black disabled:bg-neutral-500 hover:bg-black/50 cursor-pointer rounded-sm mt-4 text-white py-1.5 w-full"
         >
-          {isLoading ? "Adding... Please wait!" : "Add Employee"}
+          {isPending ? "Adding... Please wait!" : "Add Employee"}
         </button>
         <p className="text-red-500 text-center mt-0.5 h-5">{error}</p>
       </form>

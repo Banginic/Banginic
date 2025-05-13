@@ -1,33 +1,58 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
-import { Loading } from "../components/exportComp";
-import fetchEmployee from "../utils/fetchEmployee";
+import { Loading, Back } from "../components/exportComp";
 import { Edit, Trash } from "lucide-react";
-import useMutate from "../hooks/useMutate";
-import deleteEmployee from "../utils/deleteEmployee";
 import AppContext from "../context/AppContext";
+import myFetch from "../utils/myFetch";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { person_Placeholder } from "../assets/assest";
+import { toast } from "react-toastify";
+import { queryClient } from "../main";
 
 function ViewEmployee() {
   const { navigate } = useContext(AppContext);
   const { employeeId } = useParams();
 
-  const { isSuccess, error, isPending, mutate } = useMutate(
-    deleteEmployee,
-    `Employee: ${employeeId}`,
-    employeeId
-  );
-
-  if (isSuccess) {
-    navigate("/employee");
+  function returnFn() {
+    const fetchDetails = {
+      method: "get",
+      endpoint: "/api/v2/employees/single",
+      body: "",
+      id: employeeId,
+    };
+    return myFetch(fetchDetails);
   }
+  function mutationFn() {
+    const fetchDetails = {
+      method: "delete",
+      endpoint: "/api/v2/employees/delete",
+      body: "",
+      id: employeeId,
+    };
+    return myFetch(fetchDetails);
+  }
+  const {
+    isPending,
+    isError: error,
+    mutate,
+  } = useMutation({
+    mutationFn,
+    onSuccess: (data) => {
+      toast.success(data.message);
+      queryClient.invalidateQueries({ queryKey: ["employee"] });
+      const timer = setTimeout(navigate("/employee"), 1000);
+      return () => clearTimeout(timer);
+    },
+    onError: (error) => {
+      toast.error("Error deleting employee");
+      console.log(error);
+    },
+  });
 
-  const { isLoading, isError, data, refetch } = useFetch(
-    `Employee_id: ${employeeId}`,
-    fetchEmployee,
-    employeeId,
-    "body=null"
-  );
+  const { isLoading, isError, data, refetch } = useQuery({
+    queryKey: [`Employee: ${employeeId}`],
+    queryFn: returnFn,
+  });
 
   if (!data) return null;
   const { fullName, position, qualification, motivation, socialLinks, photo } =
@@ -37,7 +62,7 @@ function ViewEmployee() {
     url,
   }));
 
-  if (isLoading || !data || isPending) return <Loading />;
+  if (isLoading || isPending) return <Loading />;
 
   if (isError || error)
     return (
@@ -56,14 +81,17 @@ function ViewEmployee() {
     );
 
   return (
-    <div className="min-h-screen mt-12">
+    <div className="min-h-screen relative mt-12">
+      <div className="absolute left-8 2xl:left-20 top-0">
+        <Back link={"/employee"} />
+      </div>
       <h2 className="heading4 mano text-center">VIEW EMPLOYEE</h2>
-      <div className="flex flex-col md:flex-row p-5 md:justify-around mt-8">
-        <div className="w-sm lg:w-lg h-[92] mx-auto md:mx-0  rounded overflow-hidden">
+      <div className="flex flex-col md:flex-row bg-indigo-50/50 md:w-[90%] rounded-sm md:mx-auto p-5 lg:px-24 2xl:px-52 gap-8 md:justify-center mt-8">
+        <div className="w-sm lg:w-lg h-[92] mx-auto md:mx-0 grid place-items-center bg-gray-200/50 shadow rounded overflow-hidden">
           <img
             className="h-92 w-sm rounded-sm hover:scale-110 trans cursor-pointer object-cover"
             height={50}
-            src={photo}
+            src={photo ? photo : person_Placeholder}
             alt={fullName}
           />
         </div>
@@ -107,13 +135,13 @@ function ViewEmployee() {
             ))}
           </div>
           <div className="flex gap-4 mt-4">
-            <button className="text-green-700 text-nowrap flex gap-2 items-center bg-green-200 px-4 py-1 rounded text-sm hover:bg-green-300 trans cursor-pointer">
+            <button className="text-green-700 text-nowrap flex gap-2 items-center bg-green-200 px-4 py-2 rounded text-sm hover:bg-green-300 trans cursor-pointer">
               <Edit size={18} />
               Edith Contract
             </button>
             <button
               onClick={() => mutate()}
-              className="text-red-700 flex gap-2 text-nowrap items-center bg-red-200 px-4 py-1 rounded text-sm hover:bg-red-300 trans cursor-pointer"
+              className="text-red-700 flex gap-2 text-nowrap items-center bg-red-200 px-4 py-2 rounded text-sm hover:bg-red-300 trans cursor-pointer"
             >
               <Trash size={18} />
               Terminate Contract

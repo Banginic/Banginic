@@ -20,10 +20,11 @@ export const createJobApplication = asynMiddleware(async (req, res) => {
       .status(404)
       .json({ success: false, message: "No Job Available or Expired" });
 
-  if (alreadyApplied && alreadyApplied.job.toString() === jobId)
+  if (alreadyApplied && alreadyApplied.jobId.toString() === jobId)
     return res
       .status(400)
       .json({ success: false, message: "You Have Already Applied" });
+
 
   //  Save cv and get URL from cloudinary
   const fileBuffer = req.file.buffer;
