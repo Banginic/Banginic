@@ -1,0 +1,37 @@
+
+
+.main_container{
+  display: grid;
+  grid-template-columns:   1fr;
+  grid-template-rows: auto 1fr auto;
+}
+header{
+  grid-template-columns: 1/2;
+  grid-template-rows: 1/2;
+}
+
+main{
+  grid-template-columns: 1/2;
+  grid-template-rows: 2/3;
+}
+footer{
+  grid-template-columns: 1/2;
+  grid-template-rows: 3/4;
+}
+aside{
+  overscroll-behavior: contain;
+}
+.display_sidebar{
+  translate: 250px 0;
+  animation: showsidebar 300ms ease-out alternate; 
+}
+@keyframes showsidebar {
+  from{
+    translate:  0;
+   opacity: 0.6;
+  }
+  to{
+    translate: 250px;
+    opacity: 1;
+  }
+}

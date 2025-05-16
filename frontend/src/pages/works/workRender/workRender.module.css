@@ -1,0 +1,39 @@
+
+.work_arrow{
+  animation: showarrow 0.5s ease;
+ }
+ .work_cart{
+  cursor: pointer;
+  display: none ;
+  animation: showcart 1s ease alternate;
+ }
+ .work_container:hover .work_cart{
+  display: inline-block;
+ }
+ 
+ @keyframes showarrow {
+  from{
+    rotate: 45deg;
+    opacity: 0.9;
+  }
+  to{
+    opacity: 1;
+    rotate: 360deg;
+  }
+ }
+ @keyframes showcart {
+  0%{
+    opacity: 0.3;
+    translate: 0 40px ;
+    background: transparent;
+  }
+  50%{
+    opacity: 0.9;
+    translate: 0 px;
+  }
+  100%{
+    opacity: 1;
+    translate:0px;
+  }
+  
+ }

@@ -1,0 +1,57 @@
+
+.translate_x:nth-of-type(odd){
+  animation: translate_left 1.5s ease;
+}
+.translate_x:nth-of-type(even){
+  animation: translate_right 1.5s ease;
+}
+
+@keyframes translate_left {
+  from {
+    translate: -2rem 0;
+    opacity: 0;
+    scale: 0.8;
+  }
+
+}
+@keyframes translate_right {
+  from {
+    translate: 2rem 0;
+    opacity: 0;
+    scale: 0.8;
+  }
+ 
+}
+.page_hover:hover .rotate_arrow{
+  animation: rotate_arrow 1.5s ease ;
+}
+@keyframes rotate_arrow {
+   from{
+    rotate: -360deg;
+   }
+}
+.page_hover{
+  background: none;
+   transform: all 300ms ease;
+   border-bottom: 1px solid var(--gray-color2);
+   border-top: 1px solid var(--gray-color);
+
+ }
+ .page_hover:hover{
+  transition: all 300ms;
+  background-color: var(--primary-color2);
+  border: none;
+ }
+ .icons{
+  color: var(--accent-color2);
+ }
+ .page_hover:hover .icons{
+  transition: all 300ms;
+  color: var(--secondary-color);
+ 
+ }
+ .page_hover:hover .response_page_hover{
+  transition: all 300ms ease;
+  rotate: -90deg;
+ }
+ 
