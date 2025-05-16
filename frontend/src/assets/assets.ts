@@ -8,15 +8,21 @@ import vision from './vision.jpg'
 import happyCustomer from './happy-customer.jpg'
 import placeholdeImage from './placeholderImage.jpg'
 import manyHands from './manyHands.jpg'
-import instagram from './instagram_black.png'
-import facebook from './facebok_black.png'
-import linkedin from './linkedin_black.png'
-import twitter from './twitter_black.png'
+import instagram from './instagram_gray.png'
+import facebook from './facebook_gray.png'
+import linkedin from './linkedin_gray.png'
+import twitter from './twitter_gray.png'
 import githup from './githup_logo.png'
 import download from './download_cloud.png'
-import google_logo from './google_logo.png'
+import google_logo from './google_gray.png'
 import apple_logo from './apple_logo.png'
-import whatsApp_logo from './whatsApp_black.png'
+import whatsApp_logo from './whatsapp_gray.png'
+import person from './person_gray.png'
+import call from './call_gray.png'
+import location from './location_gray.png'
+import email from './email_gray.png'
+import lock from './lock_gray.png'
+
 
 
 export const metaData = {
@@ -24,7 +30,7 @@ export const metaData = {
  description: 'Banginic is a creative company that focuses on creating beautiful and functional websites and applications.',
 }
 export { image1, image2 }
-export { placeholdeImage, vision, whatsApp_logo, githup,google_logo, apple_logo, download, happyCustomer, manyHands,instagram, facebook, linkedin, twitter }
+export { placeholdeImage, vision, call, person, location, email, lock, whatsApp_logo, githup,google_logo, apple_logo, download, happyCustomer, manyHands,instagram, facebook, linkedin, twitter }
 export const skillsLinks = [
     { name: "All",path: "all" },
     { name: "Website",path: "/works/websites" },

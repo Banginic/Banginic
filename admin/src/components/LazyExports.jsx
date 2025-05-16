@@ -16,9 +16,13 @@ const AddNews = lazy(() => import('../pages/AddNews'))
 const AddProjects = lazy(() => import('../pages/AddProjects'))
 const JobApplicationForm = lazy (() => import('../pages/JobApplicationForm'))
 const JobApplications = lazy (() => import('../pages/JobApplications'))
+const NewsLetterForm = lazy(( ) => import('./NewsLetterForm'))
+const ViewNewsletters = lazy(( ) => import('./ViewNewsletters'))
+const NewsLetterSubscribers = lazy(( ) => import('./NewsLetterSubscribers'))
 const Jobs = lazy(( ) => import('./Jobs'))
 const Applications = lazy(( ) => import('./Applications'))
 const ViewJob = lazy(() => import('../pages/ViewJob'))
+const NewsLetters = lazy(() => import('../pages/NewsLetters'))
 const ViewJobApplication = lazy(( ) => import('../pages/ViewJobApplication'))
 
 
@@ -42,5 +46,9 @@ export {
   JobApplications,
   ViewJob,
   ViewJobApplication,
-  Applications
+  Applications,
+  NewsLetters,
+  NewsLetterForm,
+  NewsLetterSubscribers,
+  ViewNewsletters
 };

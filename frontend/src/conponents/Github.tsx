@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { AppContext } from "../context/AppProvider";
 
 function Github() {
-  const { theme } = useContext(AppContext);
+  const appContext = useContext(AppContext);
   const link = "https://github.com/BinaryDigitz";
   return (
     <a href={link} className="" target="self" title="Go to our Githup page">
-      {theme === "dark" ? (
+      {appContext?.theme === "dark" ? (
         <img
           src="./dev_icons/github-mark-white.png"
           alt="github logo"

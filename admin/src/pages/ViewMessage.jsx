@@ -2,20 +2,40 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import AppContext from "../context/AppContext";
 import { Loading, useFetch } from "../components/exportComp";
-import fetchMessage from "../utils/fetchMessage";
 import deleteMessage from '../utils/deleteMessage'
 import useMutate from "../hooks/useMutate";
+import myFetch from "../utils/myFetch";
 
 function ViewMessage() {
- const { navigate} = useContext(AppContext)
   const { messageId } = useParams();
+  function deleteFn(){
+    const fetchDetails = {
+      method:'delete',
+      endpoint:'/api/v2/messages/delete',
+      body: '',
+      id: messageId
+    }
+    myFetch(fetchDetails)
+  }
+  function returnFn(){
+    const fetchDetails = {
+      method: 'get',
+      endpoint:'/api/v2/messages/single',
+      body:'',
+      id:messageId
+    }
+    return myFetch(fetchDetails)
+  }
+ const { navigate} = useContext(AppContext)
 
   const { isLoading, isError, data, refetch } = useFetch(
     `Message: ${messageId}`,
-    fetchMessage,
-    messageId
+    returnFn
   );
- const { success, isPending, error, mutate } = useMutate(deleteMessage,  `Message: ${messageId}`, messageId)
+  console.log(data);
+  
+  // function useMutate(mutationFn, mutationKey, invalidationKey, link) {
+ const { success, isPending, error, mutate } = useMutate( deleteFn, `Message: ${messageId}`, 'messages', '/message')
  
  if(success){
   navigate('/message')
@@ -45,26 +65,26 @@ function ViewMessage() {
     <div className="min-h-screen mt-12 text-sm ">
       <h1 className="heading4 mano text-center ">VIEW MESSAGE</h1>
       <div className="w-sm lg:w-xl 2xl:w-2xl rounded p-5 mt-8 bg-gray-100 mx-auto">
-        <div>
-          <div className="flex  gap-16.5 mb-1">
+        <div className="">
+          <div className="flex  gap-16.5 mb-2">
             <p className="text-gray-600">Sender:</p>
             <span>{data.message?.fullName}</span>
           </div>
-          <div className="flex gap-6 mb-1">
+          <div className="flex gap-6 mb-2">
             <p className="text-gray-600">Email address:</p>
             <span>{data.message?.emailAddress}</span>
           </div>
-          <div className="flex gap-16.5 mb-1">
+          <div className="flex gap-16.5 mb-2">
             <p className="text-gray-600">Subject:</p>
             <span>{data.message?.service}</span>
           </div>
-          <div className="flex   gap-5 mb-1">
+          <div className="flex   gap-5 mb-2">
             <p className="text-gray-600">Phone number:</p>
             <span>{data.message?.phoneNumber}</span>
           </div>
-          <div className="flex   gap-12">
+          <div className="flex gap-12 mb-2">
             <p className="text-gray-600">Send date:</p>
-            <span>20/04/2025</span>
+            <span className="text-red-500">{new Date(data?.message.createdAt).toDateString('en-GB')}</span>
           </div>
         </div>
       </div>

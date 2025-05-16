@@ -25,7 +25,7 @@ function RecentWorks() {
 
       {/* PROJECTS */}
        <div className="grid grid-cols-1 mt-12 md:grid-cols-2 xl:grid-cols-3 md:gap-4 lg:gap-12 justify-self-center-safe 2xl:gap-24">
-      <article className="rounded-lg mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8">
+      <article className="rounded-lg shadow-accent/50 hover:shadow-lg trans mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8">
         <img
           src={image2}
           className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
@@ -39,7 +39,7 @@ function RecentWorks() {
           </p>
           <button
           title="View Project"
-           className="my-4 text-bold shadow-md border border-gray-500 px-5 text-sm rounded-full py-1.5 flex items-center gap-2 cursor-pointer trans hover:bg-black hover:text-white">
+           className="my-4 text-bold md:w-30 text-nowrap md:hover:w-35 shadow-md border border-gray-500 px-5 text-sm rounded-full py-1.5 flex items-center gap-2 cursor-pointer trans hover:bg-black hover:text-white">
             <p>View Project</p>
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" className="rotate-180 size-4 fill-accent" ><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>          </button>
         </div>

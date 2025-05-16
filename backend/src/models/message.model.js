@@ -30,7 +30,7 @@ const messageSchema = mongoose.Schema({
         maxLength:250,
         required:true
     },
-},{ timestamps: true } )
+},{ timestamps: true, minimize:false } )
 
 const MessageModel = mongoose.model('Message', messageSchema)
 

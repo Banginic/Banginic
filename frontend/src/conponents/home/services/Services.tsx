@@ -20,12 +20,12 @@ function Qualities() {
           about more than just pixels
         </p>
       </motion.div>
-      <div className="flex flex-col mt-[var(--sm-margin)] 2xl:px-30 gap-10 lg:justify-between">
+      <div className="flex flex-col mt-[var(--sm-margin)]  gap-10 lg:justify-between">
         {servicesDetails.map((service, index) => {
           return (
             <div
               key={index}
-              className="services_children bg-white/90 shadow dark:bg-gray-900/30 md:flex justify-around w-full lg:w-[90%] items-center gap-5 mt-4 lg:mt-10 xl:mt-12 border-accent border-l-[0.5rem] py-[6rem] 
+              className="services_children bg-white/90 shadow-accent/20 hover:shadow-lg dark:bg-gray-900/30 md:flex justify-around w-full lg:w-[90%] items-center gap-5 mt-4 lg:mt-10 xl:mt-12 border-accent border-l-[0.5rem] py-[6rem] 
                lg:h-[300px] text-center m-auto rounded-md pt-[var(--sm-padding)] trans"
             >
               <motion.div

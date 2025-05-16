@@ -18,6 +18,7 @@ export const navlinks = [
     { name: "Employees", link: "/employee" },
     { name: "Jobs / Applications", link: "/job-applications" },
     { name: "News", link: "/news" },
+    { name: "Newsletters", link: "/newsletters" },
   ];
   export const metaData = {
     name: 'Banginic'

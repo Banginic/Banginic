@@ -11,7 +11,7 @@ const newsSchema = mongoose.Schema({
         required:true,
         maxLength:80
     }
-})
+}, {timestamps: true, minimize: false})
 
 const NewsModel = mongoose.model('New', newsSchema)
 

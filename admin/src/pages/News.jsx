@@ -32,6 +32,7 @@ function News() {
   }
 
   const { isLoading, data, isError, refetch } = useFetch("News", fetchNews);
+  console.log(data);
 
   const {
     isPending,
@@ -71,10 +72,16 @@ function News() {
       <h1 className="heading3 text-center mano">NEWS</h1>
       {data.news.length > 0 && (
         <div className=" bg-green-100 w-sm lg:w-lg 2xl:w-2xl p-4 rounded mx-auto mt-8">
+          <p className="text-red-700" aria-label="Subject">
+            <span className="text-gray-500 mr-4">Date created: </span>
+            {new Date(data.news[0].createdAt).toDateString("en-GB")}
+          </p>
           <p className="text-green-700" aria-label="Subject">
+            <span className="text-gray-500 mr-13.5">Subject: </span>
             {data.news[0].subject}
           </p>
           <p aria-label="Message body" className="text-green-950">
+            <span className="text-gray-500 mr-7.5">News body: </span>
             {data.news[0].body}
           </p>
         </div>

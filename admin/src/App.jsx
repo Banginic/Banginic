@@ -27,6 +27,7 @@ import {
   AddNews,
   AddProjects,
   JobApplicationForm,
+  NewsLetters,
 } from "./components/LazyExports";
 import AppContext from "./context/AppContext";
 import JobApplications from "./pages/JobApplications";
@@ -59,6 +60,7 @@ function App() {
           <Routes>
             <Route path="/message" element={<Messages />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/newsletters" element={<NewsLetters />} />
             <Route path="/message/:messageId" element={<ViewMessage />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:projectId" element={<ViewProject />} />

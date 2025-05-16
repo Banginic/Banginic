@@ -32,7 +32,7 @@ function Testimonials() {
         whileInView={{ opacity:1, x:0}}
         viewport={{once: true, amount:0.2}}
         transition={{ duration: 0.6, delay: 0.5 }}
-        className=" md:w-[300px] lg:w-1/3 h-[250px]">
+        className=" md:w-[300px] lg:w-1/3 h-[250px] ">
           <img src={happyCustomer} alt="" className="size-full rounded shadow-xl" />
         </motion.div>
         <motion.div className="relative rounded md:w-1/2 mt-24 md:mt-0 "

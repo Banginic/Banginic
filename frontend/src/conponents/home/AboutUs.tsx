@@ -15,7 +15,7 @@ function AboutUs() {
         <img
           src={vision}
           alt="ayamStudios team"
-          className="w-full h-full object-cover rounded-lg"
+          className="w-full h-full object-cover  rounded-lg"
         />
       </motion.div>
       
@@ -45,7 +45,7 @@ function AboutUs() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-         title="Go to about page" className="py-2 border border-black text-sm dark:border-white shadow-sm px-6 mt-9 my-4 round-md lg:text-lg trans
+         title="Go to about page" className="py-2 border shadow-accent/20 hover:shadow-lg border-black text-sm dark:border-white shadow-sm px-6 mt-9 my-4 round-md lg:text-lg trans
            hover:opacity-80 rounded-full cursor-pointer hover:bg-black/50">
           Read more about us
         </motion.button>

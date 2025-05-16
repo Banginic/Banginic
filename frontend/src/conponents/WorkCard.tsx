@@ -1,5 +1,7 @@
 
 import  styles  from './home/recent-works/recent_works.module.css'
+
+
 function WorkCard(props) {
    
     const { name_of_project, brief_description, project_images } = props.project

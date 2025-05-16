@@ -14,7 +14,7 @@ function Partners() {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: 0.5 }}
       className="heading3 mano py-[var(--sm-padding)] pb-[var(--md-padding)] text-center ">
-        PARTNERS and SPONSORS
+       TURSTED BY
       </motion.h2>
       
       <motion.div
@@ -27,7 +27,7 @@ function Partners() {
           return (
             <div
               key={index}
-              className="flex justify-center items-center gap-9 p-2 h-52 w-52 rounded-md overflow-hidden"
+              className="flex justify-center items-center opacity-50 gap-9 p-2 h-52 w-52 rounded-md overflow-hidden"
             >
               <img
                 src={partner.img}

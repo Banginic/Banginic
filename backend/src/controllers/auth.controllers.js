@@ -9,12 +9,12 @@ export const signUp = asynMiddleware(async (req, res) => {
  
 
 
-  const existUser = await UserModel.findOne({ email });
+  const existUser = await UserModel.findOne({ email, phone });
   if (existUser)
     return res.json({
       success: false,
       statusCode: 400,
-      message: "Account with Email Already Exist",
+      message: "Account Already Exist",
     });
 
   const hashedPassword = await bcrypt.hash(password, 10);

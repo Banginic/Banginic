@@ -21,7 +21,7 @@ import {
   ScrollToTop,
   News,
   Cookies,
-  NotFound
+  NotFound,
 } from "./conponents/exportComp";
 import { Routes, Route } from "react-router-dom";
 import { AppContext } from "./context/AppProvider";
@@ -70,7 +70,7 @@ function App() {
         <Navbar />
       </header>
       <main
-        className=" w-full pt-16 overflow-hidden lg:p-14  "
+        className=" w-full pt-16 overflow-hidden lg:p-14 max-w-[1500px] mx-auto"
         onClick={appContext?.removeAllDisplay}
       >
         <Cookies />
@@ -81,9 +81,11 @@ function App() {
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/careers/:jobId" element={<ViewJob />} />
             <Route path="/project" element={<ProjectCard />} />
+            <Route path="*" element={<NotFound />} />
             <Route path="/works" element={<Works />}>
               <Route path="/works/:id" element={<AllWorks />} />
             </Route>
@@ -96,9 +98,7 @@ function App() {
           </Routes>
         </Suspense>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/sideBar" element={<SideBar />} />
-          <Route path="*" element={<NotFound />} />
         </Routes>
         <ToastContainer />
       </main>

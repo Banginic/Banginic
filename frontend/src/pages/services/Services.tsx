@@ -19,7 +19,7 @@ function Services() {
           From Strategy to Execution. Everything You Need to Succeed Online.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 place-items-center gap-5 mx-auto mt-10 2xl:px-30">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 place-items-center gap-5 mx-auto mt-10 ">
           {services.map((skill, index) => {
             return (
               <motion.article
@@ -29,7 +29,9 @@ function Services() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 key={index}
                 className={` bg-white
-                 dark:bg-black border border-gray-300/50 dark:border-gray-800/50 w-sm h-82 lg:w-xl rounded-lg p-8`}
+                 dark:bg-black border border-gray-300/50 dark:border-gray-800/50
+                 shadow-accent/50 hover:shadow-lg
+                  w-sm h-82 lg:w-xl rounded-lg p-8 trans`}
               >
                 <span className="flex gap-2 md:gap-5 items-center w-full md:w-52 mb-1  ">
                   <p className="font-bold text-xl md:text-2xl"></p>
@@ -49,7 +51,7 @@ function Services() {
               </motion.article>
             );
           })}
-          <button className="bg-black border hover:scale-105 trans text-white px-6 py-2 rounded-full cursor-pointer mx-auto my-8">
+          <button className="bg-black border shadow-accent/50 hover:shadow-md hover:opacity-80 trans text-white px-6 py-2 rounded-full cursor-pointer mx-auto my-8">
             Let's get started
           </button>
         </div>

@@ -14,7 +14,7 @@ function Messages() {
   }
   const { navigate } = useContext(AppContext);
   const { isError, isLoading, data, refetch } = useFetch(
-    "Messages",
+    "messages",
     returnFn
   );
 

@@ -5,7 +5,7 @@ function Footer() {
   return (
     <section 
     id="footer"
-    className=" rounded-t-xl lg:w-[95%] mx-auto  bg-neutral-200/50 dark:bg-gray-900/50 text-whit px-5 pt-10 boder-t-2">
+    className=" rounded-t-xl lg:w-[95%] mx-auto  bg-accent/10 dark:bg-gray-900/50 text-whit px-5 pt-10 boder-t-2">
       <div className="flex flex-col md:flex-row gap-10 md:justify-around pb-10">
         <div className="flex flex-col gap-5  ">
           <Logo textSize="font-bold text-3xl lg:text-4xl" logoSize="size-10 " />

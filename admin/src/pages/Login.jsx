@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Logo } from '../components/exportComp'
 import axios from 'axios'
 import AppContext from '../context/AppContext'
+// import { lock, call, person, email } from '../assets/assest'
 import { toast } from 'react-toastify'
 
 function Login() {

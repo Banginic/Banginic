@@ -13,7 +13,7 @@ function useMutate(mutationFn, mutationKey, invalidationKey, link) {
       toast.error(error.message);
     },
     onSuccess: (data) => {
-      toast.success(data.message);
+      console.log(data);
     },
 
     onSettled: () => {

@@ -75,6 +75,6 @@ export const deleteMessage = asyncHandler(async (req, res) => {
       .json({ succss: false, message: "Message not found" });
   await MessageModel.findByIdAndDelete(messageId);
   return res
-    .status(200)
+    .status(203)
     .json({ success: true, message: "Message deleted successfully" });
 });
