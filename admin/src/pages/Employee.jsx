@@ -14,8 +14,6 @@ function Employee() {
     "employee",
     returnFn
   );
-  console.log(data);
-  
 
   if (isLoading) return <Loading />;
 

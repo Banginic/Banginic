@@ -67,10 +67,10 @@ function Jobs() {
                 <td>{index + 1}</td>
                 <td>{job.title}</td>
                 <td>{job.location}</td>
-                <td>{job.postedDate}</td>
+                <td>{new Date(job.postedDate).toLocaleDateString('en-GB')}</td>
                 <td
                   onClick={() => navigate(`/view-job/${job._id}`)}
-                  className="bg-green-300 hover:opacity-80 cursor-pointer text-green-700 px-4 py-1 rounded"
+                  className="bg-black hover:opacity-80 cursor-pointer text-green-300 px-4 py-1 rounded"
                 >
                   View
                 </td>

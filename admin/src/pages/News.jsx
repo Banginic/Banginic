@@ -1,46 +1,60 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useFetch from "../hooks/useFetch";
-import createNews from "../utils/CreateNews";
 import { Loading } from "../components/exportComp";
-import fetchNews from "../utils/fetchNews";
 import useMutate from "../hooks/useMutate";
-import deleteNews from "../utils/deleteNews";
+import myFetch from "../utils/myFetch";
 
 function News() {
-  const [result, setResult] = useState({});
   const [news, setNews] = useState({ subject: "", body: "" });
-  const { isLoading, data, isError, refetch } = useFetch(
-    "News",
-    fetchNews,
-    "id=null",
-    news
-  );
+  function fetchNews() {
+    const fetchDetails = {
+      method: "get",
+      endpoint: "/api/v2/news/list",
+    };
+    return myFetch(fetchDetails);
+  }
+  function createNews() {
+    const fetchDetails = {
+      method: "post",
+      endpoint: "/api/v2/news/create",
+      body: news,
+    };
+    return myFetch(fetchDetails);
+  }
+  function deleteNews() {
+    const fetchDetails = {
+      method: "delete",
+      endpoint: "/api/v2/news/delete",
+      body: "",
+      id: data.news[0]._id,
+    };
+    return myFetch(fetchDetails);
+  }
+
+  const { isLoading, data, isError, refetch } = useFetch("News", fetchNews);
+
   const {
     isPending,
     error,
     mutate: create,
-  } = useMutate(createNews, "CREATE NEWS", "NewsID=null", news);
-  useEffect(() => {
-    if (data) {
-      setResult(data.news[0]);
-    }
-  }, [data]);
+  } = useMutate(createNews, `News`, "News");
 
-  const {
-    error: deleteErr,
-    mutate: deleteData,
-  } = useMutate(deleteNews, "Delete NEWS", result && result._id, "news=null");
+  const { error: deleteError, mutate: deleteData } = useMutate(
+    deleteNews,
+    `News`,
+    "News"
+  );
 
   const disabledBTN = news.body.length < 5 || news.body.length < 15;
-  const disabledDelete = isLoading || ! result
+  const disabledDelete = isLoading || isPending || !data.news[0];
 
-  if (isLoading || isPending ) return <Loading />;
+  if (isLoading || isPending) return <Loading />;
 
-  if (isError || error || deleteErr)
+  if (isError || error || deleteError)
     return (
       <div className="h-screen grid place-items-center text-center">
         <div>
-          <h2 className="heading3">Error fetching Newa</h2>
+          <h2 className="heading3">Error fetching News</h2>
           <p>Please try again later</p>
           <button
             className="bg-gray-200 hover:bg-gray-300 mt-1 px-4 py-1 rounded cursor-pointer"
@@ -66,6 +80,7 @@ function News() {
         </div>
       )}
       <form
+        className="border w-sm lg:w-xl mx-auto mt-8 p-4 rounded border-gray-200 bg-indigo-50/50"
         onSubmit={(e) => {
           e.preventDefault();
           create();
@@ -76,14 +91,14 @@ function News() {
           return () => clearTimeout(timer);
         }}
       >
-        <div className="w-sm mx-auto mt-8 lg:w-lg 2xl:w-2xl">
+        <div className="mx-auto mt-8 w-full">
           <label htmlFor="sunject" className="mx-1">
             Subject
           </label>
           <input
             type="text"
             required
-            className="border mt-1 w-sm lg:w-lg 2xl:w-2xl mx-auto flex  py-1 px-4 rounded-md border-gray-400"
+            className="border mt-1 w-full mx-auto flex  py-1 px-4 rounded-md border-gray-400"
             maxLength={15}
             placeholder="Subject"
             name="subject"
@@ -92,12 +107,12 @@ function News() {
             id="subject"
           />
         </div>
-        <div className="w-sm mx-auto mt-4 lg:w-lg 2xl:w-2xl">
+        <div className=" mx-auto mt-4 w-full">
           <label htmlFor="discount" className="mx-1">
             Body
           </label>
           <textarea
-            className="border mt-1 w-sm lg:w-lg 2xl:w-2xl mx-auto flex p-4 rounded-md border-gray-400"
+            className="border mt-1 w-full mx-auto flex p-4 rounded-md border-gray-400"
             rows={2}
             required
             maxLength={80}
@@ -114,11 +129,11 @@ function News() {
             type="submit"
             className="bg-green-700 text-white text-sm  px-4 py-1 rounded cursor-pointer hover:bg-green-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
-            Change News
+            Post News
           </button>
           {data.news && (
             <button
-            disabled={disabledDelete}
+              disabled={disabledDelete}
               onClick={() => deleteData()}
               type="button"
               className="bg-red-700 text-white text-sm  px-4 py-1 rounded cursor-pointer hover:bg-red-600 disabled:bg-gray-400 disabled:cursor-not-allowed"

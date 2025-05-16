@@ -25,7 +25,6 @@ export const createJobApplication = asynMiddleware(async (req, res) => {
       .status(400)
       .json({ success: false, message: "You Have Already Applied" });
 
-
   //  Save cv and get URL from cloudinary
   const fileBuffer = req.file.buffer;
   const base64String = fileBuffer.toString("base64");
@@ -55,14 +54,16 @@ export const createJobApplication = asynMiddleware(async (req, res) => {
 
 // GET ALL APPLICATIONS -> /api/v2/jobs/applications/list
 export const getJobApplications = asynMiddleware(async (req, res) => {
-  const jobs = await NewEmployee.find({});
+  const jobApplications = await NewEmployee.find({});
 
-  if (!jobs)
+  if (!jobApplications)
     return res
       .status(200)
       .json({ success: true, message: "No Job Applications Available" });
 
-  return res.status(200).json({ success: true, message: "All Applicatons" });
+  return res
+    .status(200)
+    .json({ success: true, message: "All Applicatons", jobApplications });
 });
 
 // GET A SINGLE APPLICATION -> /api/v2/jobs/applications/single/:applicationId
@@ -74,10 +75,8 @@ export const getJobApplication = asynMiddleware(async (req, res) => {
       .status(400)
       .json({ success: true, message: "Please provide Application ID" });
 
-  const application = await NewEmployee.findById(applicationId).json({
-    success: true,
-    message: "Please provide Application ID",
-  });
+  const application = await NewEmployee.findById(applicationId);
+
   if (!application)
     return res.status(404).json({
       success: false,
@@ -97,10 +96,7 @@ export const deleteJobApplications = asynMiddleware(async (req, res) => {
       .status(400)
       .json({ success: true, message: "Please provide Application ID" });
 
-  const application = await NewEmployee.findById(applicationId).json({
-    success: true,
-    message: "Please provide Application ID",
-  });
+  const application = await NewEmployee.findById(applicationId);
   if (!application)
     return res.status(404).json({
       success: false,

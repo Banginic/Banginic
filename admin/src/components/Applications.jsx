@@ -1,50 +1,57 @@
 import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
+import { useFetch } from "./exportComp";
+import { Loading } from "../components/exportComp";
+import myFetch from "../utils/myFetch";
 
 function Applications() {
   const { navigate } = useContext(AppContext);
-  const applications = [
-    {
-      id: 123,
-      fullName: "Boiris ayama",
-      emailAddress: "email@gmail.com",
-      phone: "234342343",
-      job: "Junior software developer",
-      jobId: 123,
-      cvPath: "lcaohhdfhdfhdfhfd",
-      createdAt: "23-34-3433",
-    },
-    {
-      id: 1234,
-      fullName: "Boiris ayama",
-      emailAddress: "email@gmail.com",
-      phone: "234342343",
-      job: "Junior software developer",
-      jobId: 123,
-      cvPath: "lcaohhdfhdfhdfhfd",
-      createdAt: "23-34-3433",
-    },
-    {
-      id: 1235,
-      fullName: "Boiris ayama",
-      emailAddress: "email@gmail.com",
-      phone: "234342343",
-      job: "Junior software developer",
-      jobId: 123,
-      cvPath: "lcaohhdfhdfhdfhfd",
-      createdAt: "23-34-3433",
-    },
-  ];
-  
-  if (applications.length < 1)
+  function returnFn() {
+    const fetchDetails = {
+      method: "get",
+      endpoint: "/api/v2/jobs/applications/list",
+    };
+    return myFetch(fetchDetails);
+  }
+  const { isLoading, isError, data, refetch } = useFetch(
+    "job-applications",
+    returnFn
+  );
+
+  if (isLoading) return <Loading />;
+
+  if (isError) {
     return (
-      <div className="mt-8 min-w-sm lg:w-2xl mx-auto">
+      <div className="grid h-screen place-items-center text-center">
         <div>
-          <h3 className="heading4 text-center">No Job Availble Application</h3>
-          <p className="text-center">Post a Job advert</p>
+          <h2 className="heading4">Error fetching jobs</h2>
+          <p>Please try again later</p>
+          <button
+            className="cursor-pointer hover:bg-slate-300 px-4 py-1 rounded trans"
+            onClick={() => refetch()}
+          >
+            Retry
+          </button>
         </div>
       </div>
     );
+  }
+
+  if (data?.jobApplications.length < 1)
+    return (
+      <div className="mt-8 min-w-sm lg:w-2xl mx-auto">
+        <div>
+          <h3 className="heading4 text-center">No Job Application Availble</h3>
+          <button
+            onClick={() => navigate("/job-form")}
+            className="text-center font-bold px-6 text-indigo-600 py-1.5 hover:bg-black mx-auto border rounded cursor-pointer flex mt-4 "
+          >
+            Post a Job advert
+          </button>
+        </div>
+      </div>
+    );
+
   return (
     <div className="mt-8 min-w-sm lg:w-2xl mx-auto">
       <h1 className=" mb-1 mano heading4">Job Applications</h1>
@@ -52,22 +59,27 @@ function Applications() {
         <thead>
           <tr className="flex gap-4 justify-around bg-gray-200 py-2">
             <th>SN</th>
-            <th>NAME</th>
             <th>JOB TITLE</th>
+            <th>NAME</th>
             <th>APPLY DATE</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {applications.map((application, index) => (
-            <tr key={index + 1} className="flex justify-between items-center px-2 py-3 hover:bg-indigo-100/50 border border-indigo-100">
+          {data?.jobApplications.map((application, index) => (
+            <tr
+              key={index + 1}
+              className="flex justify-between items-center px-2 py-3 hover:bg-indigo-100/50 border border-indigo-100"
+            >
               <td>{index + 1}</td>
               <td>{application.fullName}</td>
               <td>{application.job}</td>
-              <td>{application.createdAt}</td>
+              <td className="text-green-500">
+                {new Date(application.createdAt).toLocaleDateString("en-GB")}
+              </td>
               <td
-                onClick={() => navigate(`/view-application/${application.id}`)}
-                className="bg-green-300 hover:opacity-80 cursor-pointer text-green-700 px-4 py-1.5 rounded"
+                onClick={() => navigate(`/view-application/${application._id}`)}
+                className="bg-black hover:opacity-80 cursor-pointer text-green-300 px-4 py-1.5 rounded"
               >
                 View
               </td>

@@ -4,20 +4,22 @@ import { queryClient } from "../main";
 import { toast } from "react-toastify";
 import AppContext from "../context/AppContext";
 
-function useMutate(mutationFn, mutationKey) {
- const { setJobs } = useContext(AppContext)
+function useMutate(mutationFn, mutationKey, invalidationKey, link) {
+  const { navigate } = useContext(AppContext);
   return useMutation({
     mutationKey,
-    mutationFn: mutationFn,
+    mutationFn,
     onError: (error) => {
-      toast.error(error);
+      toast.error(error.message);
     },
     onSuccess: (data) => {
-      if(data.jobs){
-        setJobs(data.jobs)
-      }
       toast.success(data.message);
-      queryClient.invalidateQueries(mutationKey);
+    },
+
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: [invalidationKey] });
+      const timer = setTimeout(navigate(link), 2000);
+      return () => clearTimeout(timer);
     },
   });
 }

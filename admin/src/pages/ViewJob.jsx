@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import myFetch from "../utils/myFetch";
 import useFetch from "../hooks/useFetch";
 import { Loading, Back } from "../components/exportComp";
+import useMutate from "../hooks/useMutate";
 
 function ViewJob() {
   const { jobId } = useParams();
@@ -11,10 +12,18 @@ function ViewJob() {
     const endpoint = "/api/v2/jobs/single";
     return myFetch({ method: "get", endpoint, body: "", id: jobId });
   }
+  async function deleteFn() {
+    const endpoint = "/api/v2/jobs/delete";
+    return myFetch({ method: "delete", endpoint, body: "", id: jobId });
+  }
 
   const { isLoading, isError, data } = useFetch(`Job: ${jobId}`, returnFn);
+  const {
+    mutate,
+    isPending: pendingDelete,
+  } = useMutate(deleteFn, "jobs", "jobs", '/job-applications');
 
-  if (isLoading) {
+  if (isLoading || pendingDelete) {
     return <Loading />;
   }
   if (isError)
@@ -69,7 +78,10 @@ function ViewJob() {
           </div>
         </div>
         <div className="mt-8">
-          <button className="p-4 py-2 rounded-sm cursor-pointer hover:bg-red-300 bg-red-200 text-red-900">
+          <button
+            onClick={() => mutate()}
+            className="p-4 py-2 rounded-sm cursor-pointer hover:bg-red-300 bg-red-200 text-red-900"
+          >
             Delete Job
           </button>
         </div>
