@@ -1,4 +1,6 @@
 async function validateEmployee(req, res, next){
+  console.log(req.body);
+  console.log(req.file);
   
     
     try{

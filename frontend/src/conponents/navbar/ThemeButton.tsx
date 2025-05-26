@@ -3,15 +3,15 @@ import { AppContext } from "../../context/AppProvider";
 import styles from "./navbar.module.css";
 
 function ThemeButton() {
-  const { toggleTheme, theme } = useContext(AppContext);
+  const appContext = useContext(AppContext);
   return (
     <div
-      onClick={toggleTheme}
+      onClick={appContext?.toggleTheme}
       className={` ${styles.theme_icon} rounded-full  md:block hover`}
       title="change theme"
       aria-label="Toggle theme"
     >
-      {theme === "dark" ? (
+      {appContext?.theme === "dark" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="fill-[var(--secondary-color)]"

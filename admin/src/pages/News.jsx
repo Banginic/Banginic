@@ -68,7 +68,7 @@ function News() {
     );
 
   return (
-    <div className="min-h-screen mt-12 2xl:mt-20">
+    <div className="min-h-screen mt-8 2xl:mt-20">
       <h1 className="heading3 text-center mano">NEWS</h1>
       {data.news.length > 0 && (
         <div className=" bg-green-100 w-sm lg:w-lg 2xl:w-2xl p-4 rounded mx-auto mt-8">

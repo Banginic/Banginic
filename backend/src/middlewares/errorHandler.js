@@ -1,4 +1,6 @@
 function errorHandler(err, req, res, next) {
+  console.log(err);
+  
   if (err.code === 11000) {
     console.log("Duplicate key error: ", err.keyValue);
     const message = Object.values(err.keyValue)

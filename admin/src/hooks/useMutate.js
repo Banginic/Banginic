@@ -10,9 +10,12 @@ function useMutate(mutationFn, mutationKey, invalidationKey, link) {
     mutationKey,
     mutationFn,
     onError: (error) => {
+      console.log(error);
+
       toast.error(error.message);
     },
     onSuccess: (data) => {
+      toast.success(data?.message);
       console.log(data);
     },
 

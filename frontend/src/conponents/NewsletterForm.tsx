@@ -1,6 +1,7 @@
 import axios from "axios";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
+import type { FormEvent } from "react";
 
 function NewsletterForm() {
   const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -25,12 +26,12 @@ function NewsletterForm() {
     const body = { emailAddress: newSignee.email };
     try {
       const { data } = await axios.post(
-        baseUrl + "/api/v2/newsletters/create",
+        baseUrl + "/api/v2/newsletters-subscription/create",
         body
       );
+
       if (!data.success) {
-      toast.warning(data.message);
-      return
+        return toast.warning(data.message);
       }
       return toast.success(data.message);
     } catch (error: unknown) {

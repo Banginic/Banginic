@@ -10,6 +10,7 @@ const AllWorks = lazy(() => import("../pages/works/workRender/AllWorks"));
 const WorkDetails = lazy(() => import("../pages/works/WorkDetails"));
 const ViewJob = lazy(() => import('../pages/ViewJob') ) 
 const Careers = lazy(() => import('../conponents/footerLinks/Careers'))
+const Employees = lazy(() => import('../conponents/Employees'))
 const ApplyJob = lazy(() => import('./ApplyJob'))
 
 export {
@@ -23,5 +24,6 @@ export {
   ViewJob,
   Careers,
   ApplyJob,
+  Employees,
   TestimonialForm,
 };

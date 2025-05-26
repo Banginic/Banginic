@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppProvider";
+import { toast } from "react-toastify";
 
 type News = {
   subject: string;
@@ -9,9 +10,11 @@ type News = {
 function News() {
   const [news, setNews] = useState<News | null>(null);
   const [error, setError] = useState("");
-  console.log(error);
 
   const appContext = useContext(AppContext);
+  if (error) {
+    toast.warning(error);
+  }
   useEffect(() => {
     async function fetchNews() {
       try {

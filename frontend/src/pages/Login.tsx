@@ -1,10 +1,17 @@
-import { FormEvent, useContext, useState } from "react";
-import { Logo, useTitle } from "../conponents/exportComp";
-import { apple_logo, google_logo, call, email, lock, person } from "../assets/assets";
+import type { FormEvent } from "react";
+import { useContext, useState } from "react";
+import { Logo } from "../conponents/exportComp";
+import {
+  apple_logo,
+  google_logo,
+  call,
+  email,
+  lock,
+  person,
+} from "../assets/assets";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { AppContext } from "../context/expContext";
-
 
 function Login() {
   const appContext = useContext(AppContext);
@@ -28,7 +35,6 @@ function Login() {
       rememberMe: false,
     });
   }
-  useTitle({ title: formState });
 
   function toggleFormState() {
     if (formState === "Login") {
@@ -89,6 +95,7 @@ function Login() {
         toast.success(message);
         setLoading(false);
         localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
         appContext?.setUser(user);
         return setTimeout(() => appContext?.navigate("/"), 1000);
       }
@@ -136,8 +143,7 @@ function Login() {
             Full Name{" "}
           </label>
           <div className="border rounded-full py-2 flex items-center px-3 gap-2 border-gray-400 dark:border-gray-800">
-            <img src={person} width={25} alt="" />
-            {" "}
+            <img src={person} width={25} alt="" />{" "}
             <input
               type="text"
               placeholder="Full Name"
@@ -220,7 +226,7 @@ function Login() {
           />
           <span
             onClick={togglePassword}
-            className="absolute right-3 top-1 cursor-pointer "
+            className="absolute right-3 top-2.5 lg:top-1 cursor-pointer "
           >
             {passwordIcon}
           </span>

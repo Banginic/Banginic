@@ -1,4 +1,4 @@
-import { Loading } from "../../conponents/exportComp";
+import CareerSkeleton from "../skeletons/CareerSkeleton";
 import { Link } from "react-router-dom";
 import fetchData from "../../libs/fetchData";
 import { useQuery } from "@tanstack/react-query";
@@ -33,7 +33,7 @@ function Careers() {
 
 
   if (isLoading) {
-    return <Loading />;
+    return <CareerSkeleton />;
   }
   if (isError) {
     return (

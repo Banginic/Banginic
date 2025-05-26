@@ -1,13 +1,46 @@
-
+import { useContext } from "react";
+import { person } from "../assets/assets";
+import { AppContext } from "../context/AppProvider";
 
 function User() {
+  const appContext = useContext(AppContext);
 
   return (
-    <section className='text-center text-[var(--secondary-color)] cursor-pointer'>
-      <div className="size-16 rounded-full m-auto bg-slate-600 ">
-        <img alt="logo" className="object-cover" />
-      </div>
-      <p>Username</p>
+    <section className="text-center p-2 rounded bg-gray-100/50 dark:bg-gray-900/50 ">
+      {localStorage.getItem("token") ? (
+        <div className="flex flex-col items-center gap-2  py-2">
+          <img
+            title="Visit profile"
+            alt="logo"
+            src={person}
+            className="size-12 rounded-full cursor-pointer bg-gray-200 dark:bg-900"
+          />
+          <p className="flex gap-2 text-accent">
+            <span>Hello!</span>
+            <span>Boris</span>
+          </p>
+          <button
+            title="Log out"
+            onClick={() => {
+              localStorage.clear();
+              appContext?.navigate("/");
+            }}
+            className="px-6 py-2 rounded bg-red-400 text-red-200 cursor-pointer hover:bg-red-500"
+          >
+            Log out
+          </button>
+        </div>
+      ) : (
+        <div className="flex gap-4 p-4 items-center justify-center text-sm">
+          <button
+            onClick={() => appContext?.navigate("/login")}
+            title="Login page"
+            className="cursor-pointer px-6 rounded py-2 bg-black text-white dark:bg-gray-800 hover:opacity-90 trans"
+          >
+            Login / Create account
+          </button>
+        </div>
+      )}
     </section>
   );
 }

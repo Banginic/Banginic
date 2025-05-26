@@ -7,7 +7,7 @@ function Hero() {
     <div
       className={`h-screen flex overflow-hidden flex-col md:flex-row ${styles.translate} sm:pt-[5rem] p-2 lg:pt-0   items-center md:items-start lg:px-14 `}
     >
-      <div className=" grid lg:w-[70%] text-3xl px-10 2xl:px-24 ">
+      <div className=" grid lg:w-[70%] text-3xl px-10 ">
         <motion.h1
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -52,7 +52,7 @@ function Hero() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           src="./assets/icons/dot_image.png"
-          className="lg:pl-14 absolute md:static  right-0 w-[550px] md:w-[600px] borde lg:h-[400px] "
+          className="lg:pl-14 absolute md:static  right-0 w-[550px] md:w-[600px] borde lg:h-[400px] 2xl:h-[450px] 2xl:w-[650px]"
           alt="hero image"
         />
       </div>

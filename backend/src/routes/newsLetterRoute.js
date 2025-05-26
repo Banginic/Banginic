@@ -1,15 +1,17 @@
-import { Router } from 'express'
-import { createNewsLetter, getNewsLetters } from '../controllers/newsLetter.controllers.js'
-import isAdmin from '../middlewares/isAdmin.js'
+import { Router } from "express";
+import isAdmin from "../middlewares/isAdmin.js";
+import {
+  createNewsLetter,
+  getNewsLetters,
+  deleteNewsLetter,
+} from "../controllers/newsLetter.controllers.js";
 
+const newsletterRouter = Router();
 
+newsletterRouter.post("/create", isAdmin, createNewsLetter);
 
-const newsLetterRouter = Router();
+newsletterRouter.get("/list", isAdmin, getNewsLetters);
 
+newsletterRouter.delete("/delete/:newsletterId", isAdmin, deleteNewsLetter);
 
-newsLetterRouter.post('/create', createNewsLetter )
-
-newsLetterRouter.get('/list', isAdmin, getNewsLetters)
-
-
-export default (newsLetterRouter)
+export default newsletterRouter;

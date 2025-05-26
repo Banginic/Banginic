@@ -3,15 +3,12 @@ import { useLocation, NavLink } from "react-router-dom";
 import { navlinks } from "../assets/assest";
 import { Logo } from "./exportComp";
 import AppContext from "../context/AppContext";
+import User from "./User";
+import NewsLetter from "./navbarLinks/NewsLetter";
 
 function Navbar() {
-  const {
-    removeAllDisplay,
-    setShowSidebar,
-    isLoggedIn,
-    setIsLoggedIn,
-    navigate,
-  } = useContext(AppContext);
+  const { removeAllDisplay, setShowSidebar, isLoggedIn } =
+    useContext(AppContext);
   const [location, setLocation] = useState("");
   const path = useLocation();
   useEffect(() => {
@@ -19,7 +16,7 @@ function Navbar() {
   }, [path]);
   return (
     <nav className="h-16 lg:h-20 flex items-center justify-between lg:justify-around p-5 bg-gray-50">
-      <Logo logoSize={"size-8 lg:size-12"} textSize={"heading3"} />
+      <Logo logoSize={"size-8 lg:size-12"} textSize={"heading4"} />
 
       {/* SMALL SCREEN */}
       <div className={`md:hidden ${!isLoggedIn && "hidden"}`}>
@@ -44,7 +41,7 @@ function Navbar() {
       </div>
       {/* LARGE SCREEN */}
       <div className="hidde md:flex gap-4 text-sm">
-        <ul className={`${!isLoggedIn ? "hidden" : "hidden md:flex gap-8"}`}>
+        <ul className={`${!isLoggedIn ? "hidden" : "hidden md:flex gap-8"} text-gray-800 font-medium`}>
           {navlinks.map((link) => (
             <NavLink
               key={link.name}
@@ -58,23 +55,9 @@ function Navbar() {
               <li key={link.link}>{link.name}</li>
             </NavLink>
           ))}
+        <NewsLetter />
         </ul>
-        <div className=" flex items-center gap-4 px-6">
-          {isLoggedIn && (
-            <button
-              onClick={() => {
-                localStorage.clear();
-                setIsLoggedIn(false);
-                setTimeout(() => {
-                  navigate("/login");
-                }, 1000);
-              }}
-              className="px-8 py-2 bg-red-300 text-red-700 cursor-pointer rounded shadow hover:opacity-80 trans"
-            >
-              Log out
-            </button>
-          )}
-        </div>
+        <User />
       </div>
     </nav>
   );

@@ -4,19 +4,32 @@ import useMutate from "../hooks/useMutate";
 import myFetch from "../utils/myFetch";
 
 function JobApplicationForm() {
-  const endpoint = "/api/v2/jobs/create";
   const [newJob, setNewJob] = useState({
     title: "",
     location: "",
     description: "",
   });
-  const { isLoading, isError, mutate } = useMutate(myFetch, "Create job");
+  function returnFn() {
+    const fetchDetails = {
+      method: "post",
+      endpoint: "/api/v2/jobs/create",
+      body: newJob,
+      id: "",
+    };
+    return myFetch(fetchDetails);
+  }
+
+  const { isLoading, isError, mutate } = useMutate(
+    returnFn,
+    "create job",
+    "jobs"
+  );
   const disabledBTN =
     newJob.description.length < 15 || newJob.location.length < 5;
 
   async function handleFormSubmit(event) {
     event.preventDefault();
-    mutate({ method: "post", endpoint, body: newJob, id: "" });
+    mutate();
     return setTimeout(() => {
       setNewJob({
         title: "",

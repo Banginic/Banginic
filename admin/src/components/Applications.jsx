@@ -20,11 +20,11 @@ function Applications() {
 
   if (isLoading) return <Loading />;
 
-  if (isError) {
+  if (isError || !data?.success) {
     return (
       <div className="grid h-screen place-items-center text-center">
         <div>
-          <h2 className="heading4">Error fetching jobs</h2>
+          <h2 className="heading4">Error fetching job applications</h2>
           <p>Please try again later</p>
           <button
             className="cursor-pointer hover:bg-slate-300 px-4 py-1 rounded trans"

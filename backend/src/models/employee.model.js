@@ -24,7 +24,7 @@ const employeeSchema = mongoose.Schema({
     motivation:{
         type:String,
         minLength:3,
-        maxLength:250,
+        maxLength:350,
         required:true
     },
     socialLinks:{

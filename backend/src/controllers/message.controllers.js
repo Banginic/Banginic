@@ -5,6 +5,9 @@ import asyncHandler from "../middlewares/asyncMiddleware.js";
 // CREATE MESSAGE: /api/v2/messages/create
 export const createMessage = asyncHandler(async (req, res) => {
   const { fullName, emailAddress, phoneNumber, service, message } = req.body;
+
+  const existMessage = await MessageModel.findOne({ emailAddress, service, message})
+  if(existMessage) return res.json({ success: false, message: 'Message already available', statusCode: 400})
   
   const newMessage = await MessageModel.create({
     fullName,
@@ -16,9 +19,9 @@ export const createMessage = asyncHandler(async (req, res) => {
   await newMessage.save();
   const existUser = await UserModel.findOne({ email: emailAddress });
   if (existUser) {
-    await UserModel.findByIdAndUpdate(existUser._id, {
-      $push: { messages: newMessage._id },
-    });
+    existUser.messages.push(newMessage._id)
+    await existUser.save()
+    
   }
    
   return res.status(201).json({
@@ -50,8 +53,7 @@ export const getMessage = asyncHandler(async (req, res) => {
    
   if (!messageId)
     return res
-      .status(400)
-      .json({ succss: false, message: "Invalid messageId" });
+      .json({statusCode: 400, succss: false, message: "Invalid messageId" });
   const message = await MessageModel.findById(messageId);
   if (!message)
     return res

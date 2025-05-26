@@ -8,7 +8,7 @@ import {
 function NewsLetters() {
   const [pageState, setPageState] = useState("create");
   return (
-    <div className="min-h-screen mt-12">
+    <div className="min-h-screen mt-8">
       <h1 className="heading3 text-center mano">NEWSLETTERS</h1>
       <div className="grid ">
         <div className=" bg-gray-100 min-w-sm inline-flex mt-8 p-4 rounded gap-4 mx-auto">
@@ -16,7 +16,7 @@ function NewsLetters() {
             onClick={() => setPageState("create")}
             className={`py-2 px-6 shadow-red-500 ${
               pageState === "create" ? "shadow-lg" : ""
-            } bg-gray-500 text-gray-100 rounded hover:bg-gray-400 cursor-pointer`}
+            } bg-black text-gray-100 rounded hover:bg-gray-400 cursor-pointer`}
           >
             Create Newsletter
           </button>

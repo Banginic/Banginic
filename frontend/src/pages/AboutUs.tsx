@@ -1,38 +1,11 @@
 import { motion } from "framer-motion";
-import { image1 } from "../assets/assets";
 import { SocialLinks, useTitle } from '../conponents/exportComp'
+import { Employees } from "../conponents/lazyLoading";
 
 function AboutUs() {
   useTitle({title: 'About us'})
-  // const employees = [
-  //   {
-  //     image: "",
-  //     name: "Boris Ayam Ndoh",
-  //     positon: "CEO & Founder",
-  //     qualificaion: "Bsc. Pharmaceutical Scs, Senior Devops",
-  //     motivation:
-  //       "Boris Ayam Ndoh is a visionary leader with 10+ years of experience in software development and tech innovation.",
-  //   },
-  //   {
-  //     image: "",
-  //     name: "Boris Ayam Ndoh",
-  //     positon: "CEO & Founder",
-  //     qualificaion: "Bsc. Pharmaceutical Scs, Senior Devops",
-  //     motivation:
-  //       "Boris Ayam Ndoh is a visionary leader with 10+ years of experience in software development and tech innovation.",
-  //   },
-  //   {
-  //     image: "",
-  //     name: "Boris Ayam Ndoh",
-  //     positon: "CEO & Founder",
-  //     qualificaion: "Bsc. Pharmaceutical Scs, Senior Devops",
-  //     motivation:
-  //       "Boris Ayam Ndoh is a visionary leader with 10+ years of experience in software development and tech innovation.",
-  //   },
-  // ];
-  const links = 
-    {  facebook_url: "https://facebook.com", instagram_url: "https://facebook.com", twitter_url: "https://facebook.com"  }
-    
+
+ 
   
  
 
@@ -42,14 +15,14 @@ function AboutUs() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className=" px-5 2xl:px-42 min-h- mb-[3rem] "
+      className=" px-5 2xl:px-20 min-h- mb-[3rem] "
     >
       <h1 className="mano heading3 text-center">ABOUT US</h1>
       <p className="text-center text-black/80 dark:text-white/60">
         Driven by Passion. Built on Code. Focused on You.
       </p>
-      <div className="flex flex-col md:flex-row my-12 mx-auto">
-        <div className="md:w-1/2 p-4 lg:p-8 border border-gray-200 dark:bg-black dark:border-gray-800 bg-white rounded-xl">
+      <div className="flex flex-col lg:flex-row  my-12 mx-auto ">
+        <div className="lg:w-1/2 p-4 lg:p-8 border border-gray-200 shadow-accent/30 shadow-2xl dark:bg-black dark:border-gray-800 bg-white rounded-xl">
           <h2 className="heading4 mano mb-2">Who Are We</h2>
           <p className="paragraph1 text-gray-500 text-start text-sm">
             We are passionate about crafting software solutions that transform
@@ -77,67 +50,7 @@ function AboutUs() {
             </ul>
           </div>
         </div>
-        <div className="md:w-1/2 h-92 my-20 md:mt-0 relative">
-          <article
-            className="bg-white dark:bg-black dark:border border-gray-700 w-sm md:w-80 lg:w-sm min-h-92
-            mx-auto rounded-lg shadow-md p-4 text-center "
-          >
-            <motion.img
-              initial={{ opacity: 0, y: 0 }}
-              whileInView={{ opacity: 1, y: -20 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="size-52 -translate-y-10 bg-red-100 rounded-full mx-auto"
-              src={image1}
-              alt={`photo`}
-            />
-            <div className="-translate-y-10">
-              <h3 className="text-lg font-bold mt-4  ">{"Boris Ayam Ndoh"}</h3>
-              <p className="  mano text-gray-600 dark:text-gray-400">
-                {"CEO & Founder"}
-              </p>
-              <p className="text-accent">
-                {"Bsc. Pharmaceutical Scs, Senior Devops"}
-              </p>
-              <p className="paragraph2 text-gray-500 my-2 ">
-                {
-                  "Boris Ayam Ndoh is a visionary leader with 10+ years of experience in software development and tech innovation."
-                }
-              </p>
-            </div>
-            <div className="flex justify-center py-2">
-              <SocialLinks links = {links} />
-            </div>
-          </article>
-          <div className="flex gap-1 absolute bottom-4 left-1/2 -translate-x-1/2">
-            <span className="size-3 w-6 rounded-full bg-neutral-500 cursor-pointer"></span>
-            <span className="size-3 rounded-full bg-neutral-500"></span>
-            <span className="size-3 rounded-full bg-neutral-500"></span>
-            <span className="size-3 rounded-full bg-neutral-500"></span>
-          </div>
-          <span className="absolute hidden md:grid top-1/2 left-5 bg-neutral-400/10 hover:bg-neutral-400/20 w-14 rounded h-8 trans place-items-center cursor-pointer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              className="fill-gray-300 dark:fill-gray-800 dark:hover:fill-white size-full hover:fill-black trans"
-            >
-              <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
-            </svg>
-          </span>
-          <span className="absolute top-1/2 right-5 bg-neutral-400/10 hover:bg-neutral-400/20 w-14 rounded h-8 trans hidden md:grid place-items-center cursor-pointer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              className="fill-gray-300 rotate-180 dark:fill-gray-800 dark:hover:fill-white size-full hover:fill-black trans"
-            >
-              <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
-            </svg>
-          </span>
-        </div>
+        <Employees />
       </div>
     </motion.section>
   );

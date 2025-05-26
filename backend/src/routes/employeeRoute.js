@@ -8,7 +8,7 @@ const employeeRouter = Router()
 
 employeeRouter.post('/create', upload.single('photo'), isAdmin, validateEmployee, createEmployee)
 
-employeeRouter.get('/list', isAdmin, getEmployees)
+employeeRouter.get('/list', getEmployees)
 
 employeeRouter.get('/single/:employeeId', isAdmin, getEmployee)
 

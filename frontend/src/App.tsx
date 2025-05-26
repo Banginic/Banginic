@@ -32,6 +32,7 @@ import {
 } from "./conponents/footerLinks/exportFooterLinks";
 import { ToastContainer } from "react-toastify";
 import ProjectCard from "./conponents/ProjectCard";
+import useAuthorized from "./hooks/useAuthorized";
 
 function App() {
   const appContext = useContext(AppContext);
@@ -40,22 +41,25 @@ function App() {
     ? "translate-x-0"
     : "-translate-x-full";
 
-  document.addEventListener("visibilitychange", () => {});
+  // document.addEventListener("visibilitychange", () => {});
 
-  window.addEventListener("scroll", () => {
-    // return appContext?.removeAllDisplay();
-  });
+  // window.addEventListener("scroll", () => {
+  //   // return appContext?.removeAllDisplay();
+  // });
+
+  // Auth client
+  useAuthorized();
 
   return (
     <div
       className={`relative ${
         appContext?.theme === "dark" ? "dark-bg" : "light-bg"
-      } text-black dark:text-light min-h-screen `}
+      } text-black dark:text-light min-h-screen relative`}
       // onScroll={() => handleAppScroll()}
     >
       <News />
       <aside
-        className={`${showSideBar} md:hidden  absolute top-0 left-0 z-50 h-[100dvh] w-3/4  trans  overflow-hidden`}
+        className={`${showSideBar} md:hidden absolute top-0 bottom-0 left-0 z-50 h-[100dvh] w-3/4  trans  overflow-hidden`}
       >
         {<SideBar />}
       </aside>
@@ -77,29 +81,31 @@ function App() {
         <ScrollToTop />
         <Suspense fallback={<Loading />}>
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/testimonial-form" element={<TestimonialForm />} />
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/careers/:jobId" element={<ViewJob />} />
             <Route path="/project" element={<ProjectCard />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/sideBar" element={<SideBar />} />
+            <Route path="/workDetails/:projectId" element={<WorkDetails />} />
+
+            {/* Nested Route Fix */}
             <Route path="/works" element={<Works />}>
-              <Route path="/works/:id" element={<AllWorks />} />
+              <Route path=":id" element={<AllWorks />} />
             </Route>
-            <Route path="/workDetails/:id" element={<WorkDetails />} />
 
             {/* FOOTER LINKS */}
             <Route path="/careers" element={<Careers />} />
             <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
             <Route path="/termsAndCon" element={<TermsAndCon />} />
+
+            {/* Fallback route */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-        <Routes>
-          <Route path="/sideBar" element={<SideBar />} />
-        </Routes>
         <ToastContainer />
       </main>
       <footer className="">

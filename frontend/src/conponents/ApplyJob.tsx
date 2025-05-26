@@ -1,9 +1,11 @@
-import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import Logo from "./Logo";
 import { toast } from "react-toastify";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { AppContext } from "../context/AppProvider";
+import Spiner from "./Spiner";
 
 interface Props {
   jobId: string | undefined;
@@ -109,7 +111,7 @@ function ApplyJob(props: Props) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-sm border mx-auto mt-12 lg:mt-8 border-gray-200 bg-white/50 shadow dark:border-gray-800/50 dark:bg-gray-900/50 rounded-lg p-6 text-sm"
+      className="w-sm border mx-auto shadow-accent/20 shadow-xl mt-12 lg:mt-8 border-gray-200 bg-white/50 dark:border-gray-800/50 dark:bg-gray-900/50 rounded-lg p-6 text-sm"
     >
       <Logo textSize="heading4" logoSize="size-8" />
       <p className="text-neutral-500">
@@ -200,9 +202,13 @@ function ApplyJob(props: Props) {
       <button
         type="submit"
         disabled={disableBTN}
-        className="bg-black dark:bg-accent text-white text-sm py-2 cursor-pointer hover:opacity-90 trans px-6 w-full rounded-xl mt-4 disabled:bg-gray-400"
+        className="bg-black disabled:cursor-not-allowed flex justify-center items-center dark:bg-accent text-white text-sm py-2 cursor-pointer hover:opacity-90 trans px-6 w-full rounded-xl mt-4 disabled:bg-gray-400 dark:disabled:bg-gray-800"
       >
-        {isPending ? "Applying..." : "Apply"}
+       {
+            isPending ? <span className="flex items-center gap-2 "> 
+              <Spiner />
+               Appying... </span> : 'Apply'
+          }
       </button>
       <p className="text-red-500 text-center h-5 mt-1">{error}</p>
     </form>

@@ -35,8 +35,10 @@ function Messages() {
         </div>
       </div>
     );
+    
+    
   return (
-    <div className="h-screen mt-12 2xl:mt-20">
+    <div className="h-screen mt-8 2xl:mt-20">
       <h1 className="heading3 mano text-center my-4">MESSAGES</h1>
       {!data.messages ? (
         <div className="grid place-items-center">
@@ -46,7 +48,7 @@ function Messages() {
           </p>
         </div>
       ) : (
-        <table className="border rounded border-gray-300 mx-auto w-sm lg:w-xl text-sm ">
+        <table className="border mt-8 rounded border-gray-300 mx-auto w-sm lg:w-xl text-sm ">
           <thead>
             <tr className="flex gap-4 justify-around py-2 bg-gray-200">
               <th>SN</th>
@@ -61,14 +63,14 @@ function Messages() {
               <tr
                 key={index}
                 title="View message"
-                className="flex gap-4 text-gray-600 justify-around my-2 bg-gray-50  py-2 items-center"
+                className="flex gap-4 text-gray-600 hover:bg-accent/20 justify-around my-2 bg-gray-50  py-2 items-center"
               >
                 <td>{index + 1}</td>
                 <td>{message.fullName}</td>
                 <td>{message.service}</td>
-                <td>{message.date || new Date().getFullYear()}</td>
+                <td className="text-accent">{new Date(message.createdAt).toLocaleDateString('en-GB')}</td>
                 <td
-                  className="bg-green-300 py-1.5 text-green-800 text-sm px-4 hover:bg-green-200 cursor-pointer rounded"
+                  className="bg-black py-1 text-white text-sm px-4 hover:opacity-80 cursor-pointer rounded"
                   onClick={() => navigate(`/message/${message._id}`)}
                 >
                   View

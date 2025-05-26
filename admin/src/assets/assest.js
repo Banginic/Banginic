@@ -12,13 +12,23 @@ import person from './person.png'
 import person_Placeholder from './person_Placeholder.png'
 
 export const navlinks = [
-    { name: "Home", link: "/" },
+    
+    { name: "Message", link: "/message" },
+    { name: "Projects", link: "/projects" },
+    { name: "Employees", link: "/employee" },
+    { name: "Jobs / Applications", link: "/job-applications" },
+    { name: "News", link: "/news" },
+    { name: "Testimonials", link: "/testimonials" },
+  ];
+export const sidebarLinks = [
+    
     { name: "Message", link: "/message" },
     { name: "Projects", link: "/projects" },
     { name: "Employees", link: "/employee" },
     { name: "Jobs / Applications", link: "/job-applications" },
     { name: "News", link: "/news" },
     { name: "Newsletters", link: "/newsletters" },
+    { name: "Testimonials", link: "/testimonials" },
   ];
   export const metaData = {
     name: 'Banginic'

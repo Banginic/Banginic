@@ -18,6 +18,7 @@ const JobApplicationForm = lazy (() => import('../pages/JobApplicationForm'))
 const JobApplications = lazy (() => import('../pages/JobApplications'))
 const NewsLetterForm = lazy(( ) => import('./NewsLetterForm'))
 const ViewNewsletters = lazy(( ) => import('./ViewNewsletters'))
+const Testimonials = lazy(( ) => import('../pages//Testimonials'))
 const NewsLetterSubscribers = lazy(( ) => import('./NewsLetterSubscribers'))
 const Jobs = lazy(( ) => import('./Jobs'))
 const Applications = lazy(( ) => import('./Applications'))
@@ -38,6 +39,7 @@ export {
   Messages,
   Login,
   Jobs,
+  Testimonials,
   EmployeeForm,
   AddNews,
   AddEmployee,

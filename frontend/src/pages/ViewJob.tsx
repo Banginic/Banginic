@@ -4,8 +4,7 @@ import { useParams } from "react-router-dom";
 import Back from "../conponents/Back";
 import { useQuery } from "@tanstack/react-query";
 import fetchData from "../libs/fetchData";
-
-import { Loading } from "../conponents/exportComp";
+import CareerDetails from "../conponents/skeletons/CareerDetailSkeleton";
 
 interface Job {
   success: boolean;
@@ -37,7 +36,7 @@ function ViewJob() {
   });
 
   if (isLoading) {
-    return <Loading />;
+    return <CareerDetails />;
   }
   if (isError) {
     return (
@@ -69,7 +68,7 @@ function ViewJob() {
       <h1 className="heading3 text-center">VIEW JOB</h1>
       <div className=" mb-12 lg:flex mt-8 gap-4 lg:justify-around trans">
         <div
-          className={`border bg-white/50 dark:bg-black border-gray-200 dark:border-gray-900 rounded-lg p-4 w-sm md:w-lg lg:w-2xl mx-auto ${
+          className={`border bg-white/50 shadow-accent/20 shadow-xl dark:bg-black border-gray-200 dark:border-gray-900 rounded-lg p-4 w-sm md:w-lg lg:w-2xl mx-auto ${
             showForm ? "lg:mx-0" : ""
           } mt-8`}
         >
@@ -106,7 +105,7 @@ function ViewJob() {
           <button
             onClick={() => setShowForm(!showForm)}
             title="Click to apply"
-            className="border px-6 py-2 hover:scale-105  text-sm rounded mx-4 my-4 cursor-pointer"
+            className="border px-6 py-2 border-gray-400 hover:scale-105 text-sm rounded mx-4 my-4 cursor-pointer"
           >
             {showForm ? "Hide form" : " Apply for this Job"}
           </button>

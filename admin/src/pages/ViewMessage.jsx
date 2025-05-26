@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import AppContext from "../context/AppContext";
 import { Loading, useFetch } from "../components/exportComp";
-import deleteMessage from '../utils/deleteMessage'
 import useMutate from "../hooks/useMutate";
 import myFetch from "../utils/myFetch";
 

@@ -11,7 +11,7 @@ function ContactCard() {
     {
       icon: location,
       type: "Address",
-      details: "Akwa Douala Cameroon BP 12432",
+      details: "Douala Cameroon BP 12432",
     },
     {
       icon: location,
@@ -28,7 +28,7 @@ function ContactCard() {
     window.open(url, "blank");
   }
   return (
-    <div className="shadow-lg text-sm bg-white dark:bg-gray-950/50  grid gap-1 lg:gap-2 p-8 lg:h-[270px] max-w-150 rounded-md grid-items-center">
+    <div className="shadow-accent/20 shadow-lg text-sm bg-white dark:bg-gray-950/50  grid gap-1 lg:gap-2 p-8 lg:h-[270px] max-w-150 rounded-md grid-items-center">
       <button
         title="click to whatsApp"
         className=" px-3 text-start cursor-pointer text-sm flex items-center gap-4.5 hover:bg-gray-200/50 hover:dark:bg-gray-800/50 trans rounded w-[300px] mb-1 hover:underline"
@@ -45,7 +45,7 @@ function ContactCard() {
       >
         {" "}
        <img src={call} width={30} alt="" />
-        +237 653 775 159
+        +237 672 640 914
       </a>
       <a
         href={emailLink}

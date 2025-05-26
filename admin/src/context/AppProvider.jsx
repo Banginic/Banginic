@@ -9,10 +9,7 @@ function AppProvider({ children }) {
     const [showSidebar, setShowSidebar] = useState(false);
     
     const token = localStorage.getItem('Admin-token') || null
-    const [ messages, setMessages ] = useState([])
-    const [ employees, setEmployees ] = useState([])
-    const [ projects, setProjects ] = useState([])
-    const [ jobs, setJobs ] = useState([])
+
     const [ user, setUser ] = useState( null)
     const [ isLoggedIn, setIsLoggedIn ] = useState(localStorage.getItem('isLoggedIn') || false)
 
@@ -29,16 +26,12 @@ function AppProvider({ children }) {
         baseUrl,
         navigate,
         token,
-        messages,
         isLoggedIn, setIsLoggedIn,
-        setMessages,
         user, setUser,
-        jobs, setJobs,
          setRun, removeAllDisplay,
          showNavbar, setShowNavbar,
          showSidebar, setShowSidebar,
-         projects, setProjects,
-         employees, setEmployees,
+      
           run
     }
   return (

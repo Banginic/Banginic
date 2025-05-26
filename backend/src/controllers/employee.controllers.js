@@ -10,8 +10,7 @@ export const createEmployee = asyncHandler(async (req, res) => {
   const existEmployee = await EmployeeModel.findOne({ fullName });
   if (existEmployee)
     return res
-      .status(400)
-      .json({ success: false, message: "Employee already exist" });
+      .json({ statusCode: 400, success: false, message: "Employee already exist" });
 
   //  Save photo and get URL from cloudinary
   const fileBuffer = req.file.buffer;
@@ -41,7 +40,9 @@ export const getEmployees = asyncHandler(async (req, res) => {
   if (!employees)
     return res.json({
       success: true,
+      statusCode: 200,
       message: "No Employee found, Please add Employee",
+      employees: null
     });
 
   return res.status(200).json({ success: true, message: "", employees });

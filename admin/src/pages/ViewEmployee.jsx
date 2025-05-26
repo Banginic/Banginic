@@ -54,7 +54,21 @@ function ViewEmployee() {
     queryFn: returnFn,
   });
 
-  if (!data) return null;
+ if (isError || !data?.success )
+    return (
+      <div className="h-screen grid place-items-center text-center">
+        <div>
+          <h2 className="heading3">Error fetching employee</h2>
+          <p>Please try again later</p>
+          <button
+            className="bg-gray-200 hover:bg-gray-300 mt-1 px-4 py-1 rounded cursor-pointer"
+            onClick={() => refetch()}
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
   const { fullName, position, qualification, motivation, socialLinks, photo } =
     data.employee;
   const myArray = Object.entries(socialLinks).map(([name, url]) => ({

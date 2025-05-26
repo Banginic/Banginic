@@ -1,16 +1,9 @@
-import multer from 'multer'
+import multer from "multer";
 
-// INCASE to store file statically
-const storage = multer.diskStorage({
-    destination: (req, file, cb) =>{   
-        cb(null, multer.memoryStorage())
-    }, 
-    filename: (req, file, cb ) => {
-        console.log('file:', file);
-        cb(null, file.fieldname + '-' + file.originalname.split(' ')[0] + '.png')
-    }
-})
+import cloudinary from "./cloudinary.js";
 
-const upload = multer({storage: multer.memoryStorage()})
+const upload = multer({ storage: multer.memoryStorage() });
 
-export default upload
+
+
+export default upload;

@@ -4,11 +4,6 @@ export {default as Home} from "./home/Home"
 export {default as Navbar} from "./navbar/Navbar"
 export {default as Counter} from "./home/Counter";
 export {default as ColorLines} from "./home/ColorLines"
-
-
-
-
-
 export {default as NotFound} from "../pages/NotFound"
 export {default as Works} from "../pages/works/workDisplay/Works"
 // WORKS tabs
@@ -17,6 +12,10 @@ export {default as WorkDetails} from "../pages/works/WorkDetails"
 
 // Images
 // export {default as imageExp} from "../assets/images/imageEpx"
+
+//skeleton
+export { default as RecentProjectSkeleton } from './skeletons/RecentProjectSkeleton' 
+
 
 // HOOKES
 export { default as useTitle } from '../hooks/useTitle'

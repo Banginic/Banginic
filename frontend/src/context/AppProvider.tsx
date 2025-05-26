@@ -1,12 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { WorkContext } from "./WorkProvider";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import type { NavigateFunction } from "react-router-dom";
 
-interface User{
-  fullName:string,
-  email:string,
-  phone:string,
-  password:string
+interface User {
+  fullName: string;
+  email: string;
+  phone: string;
+  messages: string[];
 }
 export interface AppContextType {
   setShowSidebar: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,56 +15,60 @@ export interface AppContextType {
   removeAllDisplay(): void;
   theme: "light" | "dark" | string;
   toggleTheme(): void;
-  showNavbar: boolean,
+  showNavbar: boolean;
   showSidebar: boolean;
-  baseUrl:string;
-  user:User;
-  setUser: React.Dispatch<React.SetStateAction< User | null>>;
-  navigate: NavigateFunction
+  baseUrl: string;
+  user: User | null;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+  navigate: NavigateFunction;
 }
 
-export const AppContext = createContext<AppContextType | undefined>();
+export const AppContext = createContext<AppContextType | undefined>(undefined);
 
 type PropsType = {
   children: React.ReactNode;
 };
 
-function AppProvider({ children}: PropsType) {
- 
-  const navigate = useNavigate()
-  const baseUrl = import.meta.env.VITE_BASE_URL
+function AppProvider({ children }: PropsType) {
+  const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const workContext = useContext(WorkContext);
- const [ user, setUser ] = useState<User | null>(null)
-  const [ showNavbar, setShowNavbar ] = useState(false)
-  const [ toggleNavbar, setToggleNavbar ] = useState(false)
+  const [user, setUser] = useState<User | null>(null);
+  const [showNavbar, setShowNavbar] = useState(false);
+  const [toggleNavbar, setToggleNavbar] = useState(false);
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
-  const [theme, setTheme] = useState<"dark" | "light" | string>('');
-  const [ token, setToken ] = useState(() =>localStorage.getItem('token') || null)
+  const [theme, setTheme] = useState<"dark" | "light" | string>("");
+  const [token, setToken] = useState(
+    () => localStorage.getItem("token") || null
+  );
 
-  const storedTheme = localStorage.getItem('theme')
-  const preferedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem("theme");
+  const preferedTheme = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
 
   //  CHECK FOR PREFERS THEME
-  function themeFunction(){
-    document.documentElement.classList.toggle('dark', 
-      storedTheme === 'dark' || (!storedTheme && preferedTheme)
-    )
+  function themeFunction() {
+    document.documentElement.classList.toggle(
+      "dark",
+      storedTheme === "dark" || (!storedTheme && preferedTheme)
+    );
   }
   function toggleTheme() {
     if (storedTheme && storedTheme === "dark") {
-    setTheme('light')
+      setTheme("light");
       localStorage.removeItem("theme");
       localStorage.setItem("theme", "light");
       document.documentElement.classList.toggle("dark");
     } else {
-    setTheme('dark')
+      setTheme("dark");
       localStorage.setItem("theme", "dark");
       document.documentElement.classList.toggle("dark");
     }
   }
-  
+
   useEffect(() => {
-   themeFunction()
+    themeFunction();
   }, []);
 
   //  STORE THEME TO LOCAL STORAGE ON CHANGE
@@ -73,7 +78,6 @@ function AppProvider({ children}: PropsType) {
   }, [theme]);
 
   function toggleSideBar() {
-    console.log('toggler');
     setShowSidebar(!showSidebar);
   }
   const removeAllDisplay = () => {
@@ -81,22 +85,17 @@ function AppProvider({ children}: PropsType) {
       setShowSidebar(false);
     }
     workContext?.handleRenderDetails();
-    
   };
-  document.addEventListener("scroll", () => {
-    setShowSidebar(false)
-    setToggleNavbar(prev => !prev)
-    
-  });
+
   useEffect(() => {
     const offSet = pageYOffset;
-    removeAllDisplay()
+    removeAllDisplay();
     if (offSet < 5) {
       return setShowNavbar(false);
     }
     if (offSet > 500) {
       return setShowNavbar(true);
-  }
+    }
   }, [toggleNavbar]);
 
   const values = {
@@ -108,9 +107,11 @@ function AppProvider({ children}: PropsType) {
     toggleTheme,
     showNavbar,
     baseUrl,
-    user, setUser,
-    navigate
-    
+    user,
+    setUser,
+    navigate,
+    token,
+    setToken,
   };
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 }

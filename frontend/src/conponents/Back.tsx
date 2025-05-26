@@ -20,7 +20,7 @@ function Back({ link, name }: Props) {
           >
             <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
           </svg>
-          <p className="text-sm">{name}</p>
+          <span className="text-sm">{name}</span>
         </p>
       </Link>
     </div>

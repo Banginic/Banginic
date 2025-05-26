@@ -28,11 +28,14 @@ import {
   AddProjects,
   JobApplicationForm,
   NewsLetters,
+  NewsLetterForm, NewsLetterSubscribers, ViewNewsletters,
+  Testimonials
 } from "./components/LazyExports";
 import AppContext from "./context/AppContext";
 import JobApplications from "./pages/JobApplications";
 import ViewJobApplication from "./pages/ViewJobApplication";
 import ViewJob from "./pages/ViewJob";
+import NotFound from "./components/NotFound";
 
 function App() {
   const { showNavbar } = useContext(AppContext);
@@ -63,7 +66,7 @@ function App() {
             <Route path="/newsletters" element={<NewsLetters />} />
             <Route path="/message/:messageId" element={<ViewMessage />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/:projectId" element={<ViewProject />} />
+            <Route path="/view/:projectId" element={<ViewProject />} />
             <Route path="/news" element={<News />} />
             <Route path="/testimonial" element={<Testimonial />} />
             <Route path="/employee" element={<Employee />} />
@@ -76,6 +79,11 @@ function App() {
             <Route path="/job-form" element={<JobApplicationForm />} />
             <Route path="/view-application/:applicationId" element={<ViewJobApplication />} />
             <Route path="/" element={<Home />} />
+            <Route path="/view-newsletters" element={<ViewNewsletters />} />
+            <Route path="/newsletter-form" element={<NewsLetterForm />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/newsletters-subcribers" element={<NewsLetterSubscribers />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
        

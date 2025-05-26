@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Logo } from "../components/exportComp";
 import { platforms } from "../assets/assest";
 import { toast } from "react-toastify";
@@ -10,7 +10,7 @@ import { queryClient } from "../main";
 
 function AddEmployee() {
   const { navigate } = useContext(AppContext);
-
+  const [body, setBody] = useState();
   const [error, setError] = useState("");
   const [changedFields, setChangedFields] = useState({});
   const [photo, setPhoto] = useState();
@@ -38,21 +38,11 @@ function AddEmployee() {
       return obj;
     }, {});
 
-  const formData = new FormData();
-  formData.append("fullName", employee.fullName);
-  formData.append("position", employee.position);
-  formData.append("qualification", employee.qualification);
-  formData.append("motivation", employee.motivation);
-  formData.append("socialLinks", JSON.stringify(changedValues));
-  if (photo) {
-    formData.append("photo", photo);
-  }
-
   function mutationFn() {
     const fetchDetails = {
       method: "post",
       endpoint: "/api/v2/employees/create",
-      body: formData,
+      body: body,
       id: "",
     };
     return myFetch(fetchDetails);
@@ -60,8 +50,6 @@ function AddEmployee() {
   const { isPending, mutate } = useMutation({
     mutationFn,
     onSuccess: (data) => {
-
-      
       toast.success(data.message);
       queryClient.invalidateQueries({ queryKey: ["employee"] });
       const timer = setTimeout(navigate("/employee"), 2000);
@@ -69,7 +57,7 @@ function AddEmployee() {
     },
     onError: (error) => {
       console.error(error);
-      
+
       setError(error.message);
     },
   });
@@ -114,11 +102,26 @@ function AddEmployee() {
   async function useHandleFormSubmit(event) {
     event.preventDefault();
     setError("");
-
-   await mutate();
-    clearForm();
+    const formData = new FormData();
+    formData.append("fullName", employee.fullName);
+    formData.append("position", employee.position);
+    formData.append("qualification", employee.qualification);
+    formData.append("motivation", employee.motivation);
+    formData.append("socialLinks", JSON.stringify(changedValues));
+    if (photo) {
+      formData.append("photo", photo);
+    }
+    setBody(formData);
   }
-
+  useEffect(() => {
+    async function postEmployee() {
+      await mutate();
+    }
+    postEmployee();
+    return () => {
+      clearForm();
+    };
+  }, [body]);
   return (
     <div className="min-h-screen my-12 text-sm">
       <h1 className="heading3 mano text-center">ADD EMPLOYEE</h1>
@@ -181,7 +184,7 @@ function AddEmployee() {
               type="text"
               className="w-full outline-none border-none bg-transparent"
               minLength={3}
-              maxLength={25}
+              maxLength={50}
               required
               value={employee.position}
               onChange={handleValuesChange}
@@ -199,7 +202,7 @@ function AddEmployee() {
               type="text"
               className="w-full outline-none border-none bg-transparent"
               minLength={3}
-              maxLength={25}
+              maxLength={50}
               required
               value={employee.qualification}
               onChange={handleValuesChange}

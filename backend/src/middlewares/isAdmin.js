@@ -21,7 +21,7 @@ async function isAdmin(req, res, next) {
 
     if (admin.email !== ADMIN_EMAIL)
       return res.status(401).json({ success: false, message: "UNAUTHORIZED3" });
-    req.admin = admin
+    
     next();
   } catch (ex) {
     next(ex);

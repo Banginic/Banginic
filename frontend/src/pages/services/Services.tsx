@@ -13,9 +13,9 @@ function Services() {
       >
         <h1 className="heading3 mano">SERVICES</h1>
         <p className="text-black/80 dark:text-white/60">
-          Services Built to Elevate Your Brand
+          Services Built to Elevate Your Brand.
         </p>
-        <p className=" text-black/80 dark:text-white/60">
+        <p className=" text-black/80 dark:text-white/60 px-4">
           From Strategy to Execution. Everything You Need to Succeed Online.
         </p>
 

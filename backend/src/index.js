@@ -13,7 +13,10 @@ import projectRouter from './routes/projectRoute.js'
 import newsRouter from './routes/newsRoute.js'
 import jobRouter from './routes/JobRoute.js'
 import newEmployeeRouter from './routes/newEmployeeRouter.js'
-import newsLetterRouter from './routes/NewsLetterRoute.js'
+import newsLetterSubscribersRouter from './routes/newsLetterSubscribersRoute.js'
+import newsletterRouter from './routes/newsLetterRoute.js'
+import errorMiddleware from './middlewares/error.middleware.js'
+import authClientRoute from './routes/authClientRoute.js'
 
 if(!JWT_SECRET){
     console.log('FATAL, NO JWT SECRET');
@@ -38,18 +41,24 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.urlencoded('true'))
 
 // Route
+// app.use((req, res, next) => {
+//   req.setTimeout(15000); // 20s for incoming request
+//   next();
+// });
+app.use('/api/v2/client/me', authClientRoute)
 app.use('/api/auth', authRouter)
 app.use('/api/v2/messages', messageRouter)
 app.use('/api/v2/employees', employeeRouter)
 app.use('/api/v2/projects', projectRouter)
-app.use('/api/v2/testimony', testimonyRouter)
+app.use('/api/v2/testimonials', testimonyRouter)
 app.use('/api/v2/news', newsRouter)
 app.use('/api/v2/jobs', jobRouter)
 app.use('/api/v2/jobs/applications', newEmployeeRouter)
-app.use('/api/v2/newsletters', newsLetterRouter)
+app.use('/api/v2/newsletters-subscription', newsLetterSubscribersRouter)
+app.use('/api/v2/newsletters', newsletterRouter)
 
 // Error handler
-app.use(errorHandler)
+app.use(errorMiddleware)
 
 // config
 connectToDB()

@@ -7,7 +7,7 @@ const testimonyRouter = Router()
 
 testimonyRouter.post('/create', validateTesimony,  createTestimony)
 
-testimonyRouter.post('/list', getTestimonies)
+testimonyRouter.get('/list', getTestimonies)
 
 testimonyRouter.delete('/delete/:testimonyId', isAdmin, deleteTestimony)
 

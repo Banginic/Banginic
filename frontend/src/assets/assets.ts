@@ -241,8 +241,8 @@ export const sidebarLinks = [
   {name:"Services", pathname: "/services", icon:"/icons/sidebar_icons/design_services.png"},
   {name:"Works", pathname: "/works/all", icon:"/icons/sidebar_icons/works_space.png"},
   {name:"Capabilities", pathname: "/capabilities", icon:"/icons/sidebar_icons/dashboard.png"},
-  {name:"About us", pathname: "/about-us", icon:"/icons/sidebar_icons/folded_hands.png"},
-  {name:"Contact us", pathname: "/contact-us", icon:"/icons/sidebar_icons/contact.png"},
+  {name:"About", pathname: "/about-us", icon:"/icons/sidebar_icons/folded_hands.png"},
+  {name:"Contact", pathname: "/contact-us", icon:"/icons/sidebar_icons/contact.png"},
   {name:"Careers", pathname: "/careers", icon:"/icons/sidebar_icons/contact.png"}
 ]
 export  const servicesDetails = [

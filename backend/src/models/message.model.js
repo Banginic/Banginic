@@ -12,6 +12,7 @@ const messageSchema = mongoose.Schema({
         minLength:8,
         maxLength:25,
         required:true,
+        unique: false
     },
     phoneNumber:{
         type:String,
@@ -30,7 +31,7 @@ const messageSchema = mongoose.Schema({
         maxLength:250,
         required:true
     },
-},{ timestamps: true, minimize:false } )
+},{ timestamps: true } )
 
 const MessageModel = mongoose.model('Message', messageSchema)
 

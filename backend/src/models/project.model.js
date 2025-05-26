@@ -24,15 +24,10 @@ const projectSchema = mongoose.Schema({
         type:String,
         minLength:3,
         maxLength:25,
-        required:true,
-        unique:true
+        required:true
+    
     },
-    client:{
-        type:String,
-        minLength:3,
-        maxLength:25,
-        required:true,
-    },
+ 
     designer:{
         type:String,
         minLength:3,
@@ -55,9 +50,9 @@ const projectSchema = mongoose.Schema({
         type:Array,
         minLength:1,
         maxLength:4,
-        required:true,
+        // required:true,
     },
-}, { timestamps: true })
+}, { timestamps: true, minimize: false })
 
 // use time stamp as the production date in the frontend
 

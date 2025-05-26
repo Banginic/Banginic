@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { navlinks } from "../assets/assest";
+import { sidebarLinks } from "../assets/assest";
 import { NavLink } from "react-router-dom";
 import AppContext from "../context/AppContext";
 
@@ -20,7 +20,7 @@ function Sidebar() {
       className={`fixed top-0 left-0 h-full w-full bg-gray-50  z-50 trans p-5 ${
         showSidebar ? "translate-x-0" : "-translate-x-full"
       }
-    `}
+   lg:hidden `}
     >
       <button
         onClick={() => {
@@ -41,7 +41,7 @@ function Sidebar() {
         </svg>
       </button>
       <ul className="mt-10 flex flex-col gap-2 w-full">
-        {navlinks.map((link) => (
+        {sidebarLinks.map((link) => (
           <NavLink
             onClick={() => removeAllDisplay()}
             key={link.name}

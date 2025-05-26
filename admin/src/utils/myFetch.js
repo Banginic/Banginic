@@ -12,7 +12,7 @@ async function myFetch(props) {
     if (method === "post" && body) {
         
       const { data } = await axios.post(
-        baseUrl + endpoint , body, { headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}`} });
+        baseUrl + endpoint , body, {timeout: 20000, headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}`} });
       return data;
     }
     // Get single item
@@ -38,7 +38,9 @@ async function myFetch(props) {
     }
   } catch (ex) {
     if(ex instanceof Error){
-    return toast.warning('Please Login again')
+      console.log(ex);
+      
+    return toast.warning(ex.message)
     }
     toast.error(ex.message)
     localStorage.clear()

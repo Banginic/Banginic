@@ -1,11 +1,48 @@
-
 import { motion } from "framer-motion";
-import { image2 } from "../../../assets/assets";
 import styles from "./recent_works.module.css";
 import { Link } from "react-router-dom";
+import myFetch from "../../../libs/myFetch";
+import useFetch from "../../../hooks/useFetch";
+import { RecentProjectSkeleton } from "../../../conponents/exportComp";
+import { useContext } from "react";
+import { AppContext } from "../../../context/AppProvider";
+import { placeholdeImage } from "../../../assets/assets";
+
 
 function RecentWorks() {
+  const appContext = useContext(AppContext);
+  function fetchFunction() {
+    const fetchDetails = {
+      method: "get",
+      endpoint: "/api/v2/projects/list",
+      body: "",
+      id: "",
+    };
+    return myFetch(fetchDetails);
+  }
+  const { isLoading, isError, data, refetch } = useFetch(
+    fetchFunction,
+    "3_projects"
+  );
 
+
+  if (isLoading) return <RecentProjectSkeleton />;
+
+  if (isError || !data?.success)
+    return (
+      <div className="h-[30vh] lg:h-screen grid place-items-center text-center">
+        <div>
+          <h2 className="heading3">Error fetching Projects</h2>
+          <p>Please try again later</p>
+          <button
+            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 mt-1 px-4 py-1 rounded cursor-pointer"
+            onClick={() => refetch()}
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
   return (
     <section className={` ${styles.rounded} mt-24 lg:my-[var(--xl-margin)]`}>
       <div className="flex flex-col justify-center text-center">
@@ -24,72 +61,47 @@ function RecentWorks() {
       </div>
 
       {/* PROJECTS */}
-       <div className="grid grid-cols-1 mt-12 md:grid-cols-2 xl:grid-cols-3 md:gap-4 lg:gap-12 justify-self-center-safe 2xl:gap-24">
-      <article className="rounded-lg shadow-accent/50 hover:shadow-lg trans mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8">
-        <img
-          src={image2}
-          className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
-          alt=""
-        />
-        <div className="p-4 bg-white dark:bg-gray-900/50">
-          <h2 className="font-bold text-xl mt-4 mb-2">Task Management App</h2>
-          <p className="text-gray-500">
-            A productive app for managing tasks, projects and team collaboration
-            with real-time update
-          </p>
-          <button
-          title="View Project"
-           className="my-4 text-bold md:w-30 text-nowrap md:hover:w-35 shadow-md border border-gray-500 px-5 text-sm rounded-full py-1.5 flex items-center gap-2 cursor-pointer trans hover:bg-black hover:text-white">
-            <p>View Project</p>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" className="rotate-180 size-4 fill-accent" ><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>          </button>
-        </div>
-      </article>
-      <article className="rounded-lg mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8">
-        <img
-          src={image2}
-          className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
-          alt=""
-        />
-        <div className="p-4 bg-white dark:bg-gray-900/50">
-          <h2 className="font-bold text-xl mt-4 mb-2">Task Management App</h2>
-          <p className="text-gray-500">
-            A productive app for managing tasks, projects and team collaboration
-            with real-time update
-          </p>
-          <button
-          title="View Project"
-           className="my-4 text-bold border px-5 border-gray-500 text-sm rounded-full py-1.5 flex items-center gap-2 cursor-pointer trans hover:bg-black hover:text-white">
-            <p>View Project</p>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" className="rotate-180 size-4 fill-accent" ><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>          </button>
-        </div>
-      </article>
-      <article className="rounded-lg mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8">
-        <img
-          src={image2}
-          className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
-          alt=""
-        />
-        <div className="p-4 bg-white dark:bg-gray-900/50">
-          <h2 className="font-bold text-xl mt-4 mb-2">Task Management App</h2>
-          <p className="text-gray-500">
-            A productive app for managing tasks, projects and team collaboration
-            with real-time update
-          </p>
-          <button
-          title="View Project"
-           className="my-4 text-bold border px-5 text-sm rounded-full py-1.5 flex items-center gap-2 cursor-pointer trans hover:bg-black hover:text-white">
-            <p>View Project</p>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" className="rotate-180 size-4 fill-accent" ><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>          </button>
-        </div>
-      </article>
-      
-      
-     
-    </div>
-      <div
-        className="mx-auto my-12 flex "
-        title="View more projects"
-      >
+      <div className="grid grid-cols-1 mt-12 md:grid-cols-2 xl:grid-cols-3 md:gap-4 lg:gap-12 justify-self-center-safe 2xl:gap-24">
+        {data?.projects.slice(0, 3).map((project) => (
+          <article
+            key={project._id}
+            className="rounded-lg shadow-accent/50 w-sm h-105 trans mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8"
+          >
+            <img
+              src={
+                project.photos.length > 0 ? project.photos[0] : placeholdeImage
+              }
+              className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
+              alt="Project photo"
+            />
+            <div className="p-4 bg-white dark:bg-gray-900/50 h-full">
+              <h2 className="font-bold text-xl mt-4 mb-2">
+                {project.projectName}
+              </h2>
+              <p className="text-gray-500">{project.description}</p>
+              <button
+                onClick={() =>
+                  appContext?.navigate(`/workDetails/${project._id}`)
+                }
+                title="View Project"
+                className="my-4 text-bold md:w-30 text-nowrap md:hover:w-35 shadow-md border border-gray-500 px-5 text-sm rounded-full py-1.5 flex items-center gap-2 cursor-pointer trans hover:bg-black hover:text-white"
+              >
+                <p>View Project</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  className="rotate-180 size-4 fill-accent"
+                >
+                  <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+                </svg>{" "}
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div className="mx-auto my-12 flex " title="View more projects">
         <Link
           to="/works/all"
           className="flex justify-center items-center  mx-auto"
@@ -99,11 +111,11 @@ function RecentWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="gap-2 items-center px-6 rounded-full  trans py-2 text-sm border-gray-500 font-bold cursor-pointer hover:text-white hover:bg-black mx-auto flex border shadow-md  "
+            className="gap-2 items-center px-6 rounded-full lg:w-43 hover:w-52  text-nowrap overflow-hidden trans py-2 text-sm border-gray-500 font-bold cursor-pointer hover:text-white hover:bg-black mx-auto flex border shadow-md  "
             color=""
           >
-            <p className="size-full flex justify-center items-center gap-2">
-             View More Projects
+            <p className="size-full flex items-center gap-2">
+              View More Projects
             </p>
             <svg
               xmlns="http://www.w3.org/2000/svg"

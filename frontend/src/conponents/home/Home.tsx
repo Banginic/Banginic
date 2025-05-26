@@ -22,15 +22,17 @@ function Home() {
     <section
    
     >
+      
       <Hero />
       <div className="md:pt-7 lg:px-1">
         <ColorLines />
         <AboutUs />
+        <button>{}</button>
       </div>
       <Counter />
       <Services />
-      <Partners />
       <RecentWorks />
+      <Partners />
       <Skills />
       <Testimonials />
       <ContactUs />
