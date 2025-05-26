@@ -1,13 +1,8 @@
 import React from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { toast } from "react-toastify";
 import myFetch from "../utils/myFetch";
 import Loading from "../components/Loading";
-
-const deleteTestimonial = async (id) => {
-  await axios.delete(`/api/testimonials/${id}`);
-};
 
 const Testimonials = () => {
   function fetchData() {
@@ -27,6 +22,16 @@ const Testimonials = () => {
     queryFn: fetchData,
   });
 
+  const deleteTestimonial = async (id) => {
+    const fetchDetails = {
+      method: "delete",
+      endpoint: "/api/v2/testimonials/delete",
+      body: "",
+      id: id,
+    };
+    return myFetch(fetchDetails);
+  };
+
   const { mutate: removeTestimonial } = useMutation({
     mutationFn: deleteTestimonial,
     onSuccess: (data) => {
@@ -34,6 +39,7 @@ const Testimonials = () => {
       queryClient.invalidateQueries({ queryKey: ["testimonials"] });
     },
   });
+  console.log(data);
 
   if (isLoading) return <Loading />;
 
@@ -55,7 +61,7 @@ const Testimonials = () => {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-6 max-w-4xl mx-auto min-h-screen">
       <h2 className="heading3 mano text-center mb-4">Manage Testimonials</h2>
       {data?.testimonies.length === 0 ? (
         <div className="min-h-[80vh] grid place-items-center">
@@ -63,18 +69,31 @@ const Testimonials = () => {
         </div>
       ) : (
         <ul className="space-y-4">
-          {data.map((testimonial) => (
+          {data?.testimonies.map((testimonial) => (
             <li
               key={testimonial._id}
               className="p-4 bg-gray-100 rounded-lg flex justify-between items-center"
             >
-              <div>
-                <p className="text-lg font-semibold">{testimonial.name}</p>
+              <div className="text-sm ">
+                <p className=" flex gap-2">
+                  <span className="text-gray-600">Client name</span>
+                  <span>{testimonial.clientName}</span>
+                </p>
+                <p className="flex gap-2 mb-1">
+                  <span className="text-gray-600">Project</span>
+                  <span>{testimonial.projectName}</span>
+                </p>
+                <p className=" font-semibold text-green-500 mb-2">
+                  {new Date(testimonial.createdAt).toLocaleDateString("en-GB")}
+                </p>
+                <p className="text-lg font-semibold">
+                  {testimonial.isVerified}
+                </p>
                 <p className="text-gray-600">{testimonial.message}</p>
               </div>
               <button
                 onClick={() => removeTestimonial(testimonial._id)}
-                className="text-red-600 hover:text-red-800 font-semibold"
+                className="text-red-600 hover:text-red-800 border px-4 py-2 rounded hover:bg-red-200 text-sm font-semibold cursor-pointer"
               >
                 Delete
               </button>

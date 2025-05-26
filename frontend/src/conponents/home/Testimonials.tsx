@@ -1,10 +1,16 @@
-import { useContext } from "react";
-import { happyCustomer } from "../../assets/assets";
+import { useContext, useState } from "react";
+import { happyCustomer, person, star } from "../../assets/assets";
 import { motion } from "framer-motion";
 import { AppContext } from "../../context/AppProvider";
+import myFetch from "../../libs/myFetch";
+import useFetch from "../../hooks/useFetch";
+import Loading from "../Loading";
+import StarRating from "../StarRating";
+
 
 
 function Testimonials() {
+   const [index, setIndex] = useState(0);
  const appContext = useContext(AppContext)
  function handleTestify(){
   if(!appContext?.user){
@@ -12,9 +18,53 @@ function Testimonials() {
   }
  appContext?.navigate("/testimonial-form")
  }
+
+ function returnFn(){
+  const fetchDetails = {
+    method:'get',
+    endpoint: '/api/v2/testimonials/list',
+    body:'',
+    id:''
+  }
+  return myFetch(fetchDetails)
+ };
+
+ const { isError, isLoading, data, refetch } = useFetch(returnFn, 'testimonials')
+ 
+ 
+ if (isLoading) return <Loading />;
+
+ 
+   if (isError )
+     return (
+       <div className=" h-[30vh] lg:h-screen grid place-items-center text-center">
+         <div>
+           <h2 className="heading3">Error Fetching Testimonies</h2>
+           <p>Please try again later</p>
+           <button
+             className="bg-gray-200 hover:bg-gray-300 mt-1 px-4 py-1 rounded cursor-pointer"
+             onClick={() => refetch()}
+           >
+             Retry
+           </button>
+         </div>
+       </div>
+     );
+
+     // Handle next and preview
+     
+  const handleNext = () => {
+    setIndex((prev) => (prev + 1) % data?.testimonies.length);
+  };
+
+  const handlePrev = () => {
+    setIndex((prev) => (prev - 1 + data?.testimonies.length) % data?.testimonies.length);
+  };
+
+  const current = data?.testimonies[index];
+
   return (
     <div
-    
      className=" p-4 py-8"
      >
        <motion.h4
@@ -33,7 +83,7 @@ function Testimonials() {
         viewport={{once: true, amount:0.2}}
         transition={{ duration: 0.6, delay: 0.5 }}
         className=" md:w-[300px] lg:w-1/3 h-[250px] ">
-          <img src={happyCustomer} alt="" className="size-full rounded shadow-xl" />
+          <img src={ happyCustomer} alt="" className="size-full rounded shadow-xl" />
         </motion.div>
         <motion.div className="relative rounded md:w-1/2 mt-24 md:mt-0 "
          initial={{ opacity: 0, x: 20 }}
@@ -44,18 +94,16 @@ function Testimonials() {
           <article className="bg-white shadow-lg border mx-auto border-gray-200 dark:border-gray-950 rounded-lg  dark:bg-gray-900/50 relative p-5 md:w-xs lg:w-sm h-110">
             <div className="flex items-center justify-between p-3">
               <img
-                src=""
+                src={current.photo || person}
                 alt=""
                 className="size-12 lg:size-12 bg-blue-300 rounded-full shadow"
               />
-              <span className="text-2xl">****</span>
+              <StarRating rating={current.rating} />
             </div>
             <p className="text-lg mt-4 p-4 text-center text-gray-500 italic ">
-              <span className="text-lg text-accent">" </span>
-              Boris did an amazing job for us. Our website was delivered on time
-              and everything was as thought  <span className="text-accent text-lg">"</span>
+              { current.message}
             </p>
-            <p className="text-accent text-center mt-5">Daisy's Kitchen</p>
+            <p className="heading4 mano text-gray-800 text-center mt-5">{current.projectName}</p>
             <div className="grid">
               <button 
               onClick={handleTestify}
@@ -64,16 +112,17 @@ function Testimonials() {
               </button>
             </div>
           </article>
-            <div className="flex gap-1 absolute bottom-5 left-1/2 -translate-x-1/2">
-              <span className="size-3 w-6 rounded-full bg-neutral-500 cursor-pointer"></span>
-              <span className="size-3 rounded-full bg-neutral-500"></span>
-              <span className="size-3 rounded-full bg-neutral-500"></span>
-              <span className="size-3 rounded-full bg-neutral-500"></span>
-            </div>
-            <span className="absolute top-1/2 left-0 bg-neutral-400/10 hover:bg-neutral-400/20 w-14 rounded h-8 trans grid place-items-center cursor-pointer">
+           
+            <span
+            onClick={handlePrev}
+            title="Previous testimony"
+             className="absolute top-1/2 left-0 bg-neutral-400/10 hover:bg-neutral-400/20 w-14 rounded h-8 trans grid place-items-center cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" className="fill-gray-300 dark:fill-gray-800 dark:hover:fill-white size-full hover:fill-black trans" ><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
             </span>
-            <span className="absolute top-1/2 right-0 bg-neutral-400/10 hover:bg-neutral-400/20 w-14 rounded h-8 trans grid place-items-center cursor-pointer">
+            <span
+            onClick={handleNext}
+            title="Next testimony"
+             className="absolute top-1/2 right-0 bg-neutral-400/10 hover:bg-neutral-400/20 w-14 rounded h-8 trans grid place-items-center cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" className="fill-gray-300 rotate-180 dark:fill-gray-800 dark:hover:fill-white size-full hover:fill-black trans" ><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
             </span>
         </motion.div>

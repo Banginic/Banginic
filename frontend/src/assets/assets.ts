@@ -24,6 +24,7 @@ import email from './email_gray.png'
 import lock from './lock_gray.png'
 import moon from './moon.png'
 import sun from './sun.png'
+import star from './star.png'
 
 
 
@@ -32,7 +33,7 @@ export const metaData = {
  description: 'Banginic is a creative company that focuses on creating beautiful and functional websites and applications.',
 }
 export { image1, image2 }
-export { placeholdeImage, vision, call, person, moon, sun, location, email, lock, whatsApp_logo, githup,google_logo, apple_logo, download, happyCustomer, manyHands,instagram, facebook, linkedin, twitter }
+export { placeholdeImage, vision, call, person, star, moon, sun, location, email, lock, whatsApp_logo, githup,google_logo, apple_logo, download, happyCustomer, manyHands,instagram, facebook, linkedin, twitter }
 export const skillsLinks = [
     { name: "All",path: "all" },
     { name: "Website",path: "/works/websites" },
