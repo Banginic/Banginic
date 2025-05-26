@@ -1,6 +1,7 @@
 import TestimonyModel from "../models/testimony.model.js";
 import UserModel from "../models/user.Model.js";
 import asyncHandler from "../middlewares/asyncMiddleware.js";
+import cloudinary from "../config/cloudinary.js";
 
 // CREATE TESTIMONY api/v2/testimony/create
 export const createTestimony = asyncHandler(async (req, res) => {
@@ -17,13 +18,21 @@ export const createTestimony = asyncHandler(async (req, res) => {
       .status(400)
       .json({ success: false, message: "Sorry! testimony already exist." });
 
+        //  Save photo and get URL from cloudinary
+        const fileBuffer = req.file.buffer;
+        const base64String = fileBuffer.toString("base64");
+        const dataURI = `data:${req.file.mimetype};base64,${base64String}`;
+        const photoUrl = await cloudinary.uploader.upload(dataURI, {
+          folder:'testimonies'
+        });
+
   const newTestimony = await TestimonyModel.create({
     clientName,
     projectName,
     emailAddress,
     message,
     rating,
-    photo,
+    photo:photoUrl.secure_url || '',
     isVerified: existUser ? true : false,
   });
   await newTestimony.save();

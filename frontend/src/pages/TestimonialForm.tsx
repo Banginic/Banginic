@@ -1,9 +1,10 @@
-import {  FormEvent, useContext, useState } from "react";
-
+import { useContext, useState } from "react";
+import type { FormEvent} from "react";
 import { download, vision } from "../assets/assets";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { AppContext } from "../context/AppProvider";
 import { toast } from "react-toastify";
+
 
 interface Testimony {
   clientName: string;
@@ -11,17 +12,19 @@ interface Testimony {
   projectName: string;
   message: string;
   rating: string;
+  photo: File | null
 }
 function TestimonialForm() {
   const appContext = useContext(AppContext);
-  const [photo, setPhoto] = useState(null);
   const [testimony, setTestimony] = useState<Testimony>({
     clientName: "",
     emailAddress: "",
     projectName: "",
     message: "",
     rating: "",
+    photo: null
   });
+
 
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -51,7 +54,7 @@ function TestimonialForm() {
     setFormError({ photo: false });
     try {
       // check photo size
-      if (photo && photo.size > 3 * 1024 * 1024) {
+      if (testimony.photo && testimony.photo?.size > 3 * 1024 * 1024) {
         setFormError({ photo: true });
         return setError("Photo is more than 3Mb.");
       }
@@ -61,22 +64,29 @@ function TestimonialForm() {
       formData.append("emailAddress", testimony.emailAddress);
       formData.append("message", testimony.message);
       formData.append("rating", testimony.rating);
-      if (photo) {
-        formData.append("photo", photo);
+      if (testimony.photo) {
+        formData.append("photo", testimony.photo);
       }
 
       const { data } = await axios.post(
-        appContext?.baseUrl + "/api/v2/testimony/create",
+        appContext?.baseUrl + "/api/v2/testimonials/create",
         formData
       );
+      console.log(data);
+      
       const { success, message } = data;
       if (success) {
         toast.success(message);
         return setTimeout(() => appContext?.navigate("/"), 1000);
       }
       setError(message);
-    } catch (ex) {
-      setError(ex.response.data.message);
+    } catch (ex:unknown) {
+      if(ex instanceof Error){
+        toast.error(ex.message)
+      }
+      if(ex instanceof AxiosError){
+        toast.error(ex.response?.data.message)
+      }
     } finally {
       setLoading(false);
       clearForm()
@@ -110,7 +120,7 @@ function TestimonialForm() {
               type="file"
               accept="image/*"
               name="photo"
-              onChange={(e) => setPhoto(e.target?.files[0])}
+              onChange={(e) => setTestimony({ ...testimony, photo: e.target?.files![0] })}
               hidden
               id="image"
             />
@@ -119,7 +129,7 @@ function TestimonialForm() {
               className="w-full text-nowrap cursor-pointer flex items-center"
             >
               <img
-                src={photo ? URL.createObjectURL(photo) : download}
+                src={testimony.photo ? URL.createObjectURL(testimony.photo) : download}
                 className="object-cover shadow  size-16 border-gray-800 rounded-sm mr-5"
                 alt="image icon"
               />

@@ -26,7 +26,7 @@ export const createEmployee = asyncHandler(async (req, res) => {
     qualification,
     socialLinks: JSON.parse(socialLinks),
     motivation,
-    photo: photoUrl.secure_url,
+    photo: photoUrl.secure_url || '',
   });
   await newEmployee.save();
   return res
