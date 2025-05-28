@@ -1,4 +1,4 @@
-import { createRoot } from "react-dom/client";
+import React, { createRoot } from "react-dom/client";
 import "./index.css";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorFallback from "./components/ErrorFallback";

@@ -1,3 +1,4 @@
+import React from "react";
 const ErrorFallback = ({ error }) => (
   <div
     style={{ textAlign: "center", padding: "2rem" }}

@@ -1,4 +1,4 @@
-import { Suspense, useContext } from "react";
+import React, { Suspense, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'

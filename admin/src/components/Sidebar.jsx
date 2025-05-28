@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { sidebarLinks } from "../assets/assest";
 import { NavLink } from "react-router-dom";
 import AppContext from "../context/AppContext";
