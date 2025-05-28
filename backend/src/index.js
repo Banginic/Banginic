@@ -40,10 +40,9 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.urlencoded('true'))
 
 // Route
-// app.use((req, res, next) => {
-//   req.setTimeout(15000); // 20s for incoming request
-//   next();
-// });
+app.get('/', (req, res, next) => {
+  res.status(200).json({ success:200, message: "Donnot border Boss! I am fine", status: 200})
+});
 app.use('/api/v2/client/me', authClientRoute)
 app.use('/api/auth', authRouter)
 app.use('/api/v2/messages', messageRouter)
