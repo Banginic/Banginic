@@ -96,22 +96,22 @@ const { isLoading, data, isError, refetch} = useQuery<TestimonialsTypes>({
           <article className="bg-white shadow-lg border mx-auto border-gray-200 dark:border-gray-950 rounded-lg  dark:bg-gray-900/50 relative p-5 md:w-xs lg:w-sm h-110">
             <div className="flex items-center justify-between p-3">
               <img
-                src={current.photo || person}
+                src={current?.photo || person}
                 alt=""
                 className="size-[64px] lg:size-[80px] bg-blue-300 rounded-full shadow"
               />
-              <StarRating rating={current.rating} />
+              <StarRating rating={current?.rating} />
             </div>
             <p className="text-lg mt-4 p-4 text-center text-gray-500 italic ">
               <span className="text-accent text-xl right-5">
                 &ldquo;
               </span>
-              { current.message}
+              { current?.message}
               <span className="text-accent text-xl right-5">
                 &ldquo;
               </span>
             </p>
-            <p className="heading4 mano text-gray-800 text-center mt-5">{current.projectName}</p>
+            <p className="heading4 mano text-gray-800 text-center mt-5">{current?.projectName}</p>
             <div className="grid">
               <button 
               onClick={handleTestify}

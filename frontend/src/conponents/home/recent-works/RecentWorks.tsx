@@ -69,7 +69,7 @@ function RecentWorks() {
           >
             <img
               src={
-                project.photos.length > 0 ? project.photos[0] : placeholdeImage
+                project?.photos.length > 0 ? project?.photos[0] : placeholdeImage
               }
               className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
               alt="Project photo"
