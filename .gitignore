@@ -1,6 +1,4 @@
 node_modules
 *.local
-*.config.js
-*.config.ts
 .gitignore
 .env
