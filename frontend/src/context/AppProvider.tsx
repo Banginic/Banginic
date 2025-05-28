@@ -40,7 +40,7 @@ function AppProvider({ children }: PropsType) {
   const [showNavbar, setShowNavbar] = useState(false);
   const [toggleNavbar, setToggleNavbar] = useState(false);
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
-  const [theme, setTheme] = useState<"dark" | "light" | string>("");
+  const [theme, setTheme] = useState<"dark" | "light" | string >("");
   const [token, setToken] = useState(
     () => localStorage.getItem("token") || null
   );
