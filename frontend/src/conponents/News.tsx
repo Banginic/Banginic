@@ -16,7 +16,7 @@ function News() {
     toast.warning(error);
   }
   useEffect(() => {
-    async function fetchNews() {
+    async function fetchNews() { 
       try {
         const { data } = await axios.get(
           appContext?.baseUrl + "/api/v2/news/list"
@@ -41,7 +41,7 @@ function News() {
   return (
     <div>
       {news && (
-        <article className="borde py-2 text-center p-2 text-sm bg-black text-accent flex justify-center gap-4 items-center border-l-10">
+        <article className="borde py-2 text-center p-2 text-sm bg-gradient-to-b from-light dark:bg-gradient-to-b dark:from-gray-800 text-accent flex justify-center gap-4 items-center border-l-10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"

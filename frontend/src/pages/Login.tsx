@@ -12,6 +12,7 @@ import {
 import { toast } from "react-toastify";
 import axios from "axios";
 import { AppContext } from "../context/expContext";
+import { useLocation } from "react-router-dom";
 
 function Login() {
   const appContext = useContext(AppContext);
@@ -19,6 +20,7 @@ function Login() {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(" ");
   const [viewPassword, setViewPassword] = useState("password");
+  const location = useLocation()
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -36,6 +38,7 @@ function Login() {
     });
   }
 
+  const fromPath = location.state?.from?.pathname || '/'
   function toggleFormState() {
     if (formState === "Login") {
       setError("");
@@ -97,7 +100,7 @@ function Login() {
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(user));
         appContext?.setUser(user);
-        return setTimeout(() => appContext?.navigate("/"), 1000);
+        return setTimeout(() => appContext?.navigate(fromPath, { replace: true}), 1000);
       }
 
       // SIGNUP
@@ -115,7 +118,7 @@ function Login() {
       setLoading(false);
       localStorage.setItem("token", token);
       appContext?.setUser(user);
-      return setTimeout(() => appContext?.navigate("/"), 1000);
+      return setTimeout(() => appContext?.navigate(fromPath, { replace: true}), 1000);
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(error.message);

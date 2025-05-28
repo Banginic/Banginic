@@ -1,14 +1,15 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { WorkContext } from "./WorkProvider";
 import { useNavigate } from "react-router-dom";
 import type { NavigateFunction } from "react-router-dom";
 
-interface User {
-  fullName: string;
-  email: string;
-  phone: string;
-  messages: string[];
-}
+
 export interface AppContextType {
   setShowSidebar: React.Dispatch<React.SetStateAction<boolean>>;
   toggleSideBar(): void;
@@ -18,8 +19,8 @@ export interface AppContextType {
   showNavbar: boolean;
   showSidebar: boolean;
   baseUrl: string;
-  user: User | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+  user: string | null;
+  setUser: React.Dispatch<React.SetStateAction<string | null>>;
   navigate: NavigateFunction;
 }
 
@@ -33,7 +34,9 @@ function AppProvider({ children }: PropsType) {
   const navigate = useNavigate();
   const baseUrl = import.meta.env.VITE_BASE_URL;
   const workContext = useContext(WorkContext);
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<string | null>(
+    () => localStorage.getItem("user") || null
+  );
   const [showNavbar, setShowNavbar] = useState(false);
   const [toggleNavbar, setToggleNavbar] = useState(false);
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
@@ -86,6 +89,17 @@ function AppProvider({ children }: PropsType) {
     }
     workContext?.handleRenderDetails();
   };
+  const handleScroll = useCallback(() => {
+    setToggleNavbar((prev) => !prev);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
   useEffect(() => {
     const offSet = pageYOffset;

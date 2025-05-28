@@ -22,6 +22,7 @@ import {
   News,
   Cookies,
   NotFound,
+  RequireAuth
 } from "./conponents/exportComp";
 import { Routes, Route } from "react-router-dom";
 import { AppContext } from "./context/AppProvider";
@@ -54,12 +55,12 @@ function App() {
     <div
       className={`relative ${
         appContext?.theme === "dark" ? "dark-bg" : "light-bg"
-      } text-black dark:text-light min-h-screen relative`}
+      } text-black dark:text-light ${appContext?.showSidebar ? 'h-screen overflow-hidden' : ''} min-h-screen relative`}
       // onScroll={() => handleAppScroll()}
     >
       <News />
       <aside
-        className={`${showSideBar} md:hidden absolute top-0 bottom-0 left-0 z-50 h-[100dvh] w-3/4  trans  overflow-hidden`}
+        className={`${showSideBar} md:hidden absolute top-0 bottom-0 left-0 z-50 h-[110dvh] w-[80%]  trans  overflow-hidden`}
       >
         {<SideBar />}
       </aside>
@@ -82,12 +83,12 @@ function App() {
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/testimonial-form" element={<TestimonialForm />} />
+            <Route path="/testimonial-form" element={<RequireAuth children={<TestimonialForm />} />} />
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/login" element={<Login />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/careers/:jobId" element={<ViewJob />} />
+            <Route path="/careers/:jobId" element={<RequireAuth children={<ViewJob />} />} />
             <Route path="/project" element={<ProjectCard />} />
             <Route path="/sideBar" element={<SideBar />} />
             <Route path="/workDetails/:projectId" element={<WorkDetails />} />

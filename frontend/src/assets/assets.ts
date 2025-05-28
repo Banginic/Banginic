@@ -30,6 +30,7 @@ import star from './star.png'
 
 export const metaData = {
   name:'Banginic',
+  githup_url: 'https://github.com/BinaryDigitz',
  description: 'Banginic is a creative company that focuses on creating beautiful and functional websites and applications.',
 }
 export { image1, image2 }
@@ -232,12 +233,12 @@ export const services = [
 },
 ]
 export const socialMediaLinks = {
-  githup_url:'https/github/binaryDigits',
-  facebook_url:'https/github/binaryDigits',
-  linkedin_url:'https/github/binaryDigits',
-  instagram_url:'https/github/binaryDigits',
-  whatsApp_url:'https/github/binaryDigits',
-  twitter_url:'https/github/binaryDigits',
+  githup:'https/github/binaryDigits',
+  facebook:'https/github/binaryDigits',
+  linkedin:'https/github/binaryDigits',
+  instagram:'https/github/binaryDigits',
+  whatsApp:'https/github/binaryDigits',
+  twitter:'https/github/binaryDigits',
 }
 export const sidebarLinks = [
   {name:"Home", pathname: "/", icon:"/icons/sidebar_icons/home.png"},

@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
-import { happyCustomer, person, star } from "../../assets/assets";
+import { happyCustomer, person} from "../../assets/assets";
 import { motion } from "framer-motion";
 import { AppContext } from "../../context/AppProvider";
 import myFetch from "../../libs/myFetch";
-import useFetch from "../../hooks/useFetch";
 import Loading from "../Loading";
 import StarRating from "../StarRating";
-
+import { useQuery } from "@tanstack/react-query";
+import type { TestimonialsTypes } from "../../models/types";
 
 
 function Testimonials() {
@@ -18,24 +18,26 @@ function Testimonials() {
   }
  appContext?.navigate("/testimonial-form")
  }
-
- function returnFn(){
+function returnFn<TestimonialsTypes>(){
   const fetchDetails = {
     method:'get',
-    endpoint: '/api/v2/testimonials/list',
+    endpoint:'/api/v2/testimonials/list',
     body:'',
     id:''
   }
-  return myFetch(fetchDetails)
- };
-
- const { isError, isLoading, data, refetch } = useFetch(returnFn, 'testimonials')
+  return myFetch<TestimonialsTypes>(fetchDetails)
+}
+ 
+const { isLoading, data, isError, refetch} = useQuery<TestimonialsTypes>({
+  queryKey: ['Testimony'],
+  queryFn: returnFn
+})
  
  
  if (isLoading) return <Loading />;
 
  
-   if (isError )
+   if (isError || !data?.testimonies)
      return (
        <div className=" h-[30vh] lg:h-screen grid place-items-center text-center">
          <div>
@@ -96,12 +98,18 @@ function Testimonials() {
               <img
                 src={current.photo || person}
                 alt=""
-                className="size-12 lg:size-12 bg-blue-300 rounded-full shadow"
+                className="size-[64px] lg:size-[80px] bg-blue-300 rounded-full shadow"
               />
               <StarRating rating={current.rating} />
             </div>
             <p className="text-lg mt-4 p-4 text-center text-gray-500 italic ">
+              <span className="text-accent text-xl right-5">
+                &ldquo;
+              </span>
               { current.message}
+              <span className="text-accent text-xl right-5">
+                &ldquo;
+              </span>
             </p>
             <p className="heading4 mano text-gray-800 text-center mt-5">{current.projectName}</p>
             <div className="grid">

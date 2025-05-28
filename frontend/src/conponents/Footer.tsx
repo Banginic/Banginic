@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { socialMediaLinks, footLinks, metaData } from "../assets/assets";
 import { SocialLinks, Logo, NewsletterForm } from "./exportComp";
 
@@ -12,13 +13,13 @@ function Footer() {
           <SocialLinks links={socialMediaLinks} />
           <article className="my-5 flex flex-col gap-2 ">
             {footLinks.map((link, index) => (
-              <a
+              <Link
                 key={index}
-                href={link.pathname}
+                to={link.pathname}
                 className="opacity-80 hover:underline text-neutral-900 dark:text-accent"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </article>
         </div>

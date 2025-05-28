@@ -1,31 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Back, Loading } from "../../conponents/exportComp";
-import { projects, placeholdeImage } from "../../assets/assets";
-import type { ProjectDetails } from "../../models/projectTypes";
+import { placeholdeImage } from "../../assets/assets";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import myFetch from "../../libs/myFetch";
-import useFetch from "../../hooks/useFetch";
-
-interface Project {
-  _id: string;
-  approach: string;
-  category: string;
-  createdAt: Date;
-  description: string;
-  designer: string;
-  photos: string[] | [];
-  projectName: string;
-  story: string;
-  updatedAt: string;
-  url: string;
-}
-interface FetchProps {
-  message: string;
-  success: boolean;
-  statusCode: number;
-  projects: Project;
-}
+import type { SingleProject } from "../../models/types";
+import { useQuery } from "@tanstack/react-query";
 
 function WorkDetails() {
   const { projectId } = useParams();
@@ -37,15 +17,15 @@ function WorkDetails() {
       body: "",
       id: projectId || "",
     };
-    return myFetch<FetchProps>(fetchDetails);
+    return myFetch<SingleProject>(fetchDetails);
   }
 
-  const { isLoading, isError, data, refetch } = useFetch(
-    fetchFunction,
-    `project: ${projectId}`
-  );
+  const { isLoading, data, isError, refetch } = useQuery<SingleProject>({
+    queryKey: [`project: ${projectId}`],
+    queryFn: fetchFunction,
+  });
 
-  const [project, setProject] = useState<ProjectDetails[]>([]);
+  // const [project, setProject] = useState<SingleProject | null >( null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const length = 3;
@@ -59,16 +39,6 @@ function WorkDetails() {
   function toggelIndex(index: number) {
     setActiveIndex(index);
   }
-  useEffect(() => {
-    const result = projects.filter((item) => item.id === projectId);
-    setProject(result);
-
-    // AUTO IN INCREAMENT ....................
-    // const intervaL = setInterval(() => {
-    //   setActiveIndex( activeIndex === length ? 0 : activeIndex + 1)
-    // }, 5000);
-    // return () => clearInterval(intervaL)
-  }, [projectId, activeIndex]);
 
   if (isLoading) return <Loading />;
 

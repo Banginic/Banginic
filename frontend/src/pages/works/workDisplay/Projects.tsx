@@ -4,55 +4,32 @@ import { placeholdeImage, skillsLinks } from "../../../assets/assets";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { AppContext } from "../../../context/AppProvider";
-import { useTitle, Loading, RecentProjectSkeleton } from '../../../conponents/exportComp'
-import useFetch from "../../../hooks/useFetch";
+import { RecentProjectSkeleton } from "../../../conponents/exportComp";
 import myFetch from "../../../libs/myFetch";
-
-
-
-interface Project{
-  _id:string;
-  approach: string;
-  category: string;
-  createdAt: Date;
-  description: string;
-  designer:string;
-  photos: string[] | [];
-  projectName: string;
-  story:string;
-  updatedAt:string;
-  url:string
-
-}
-interface FetchProps{
-  message: string;
-  success: boolean;
-  statusCode: number;
-  projects: Project[]
-}
+import type { ProjectTypes, Project } from "../../../models/types";
+import { useQuery } from "@tanstack/react-query";
 
 function Works() {
-  const [ selectedFilter, setSelectedFilter ] = useState('all')
-  const [ projects, setProjects ] = useState< Project[] | null >(null)
+  const [selectedFilter, setSelectedFilter] = useState("All");
+  const [projects, setProjects] = useState<Project[] | null>(null);
+  const appContext = useContext(AppContext);
 
-   function fetchFunction() {
+  function fetchFunction() {
     const fetchDetails = {
       method: "get",
       endpoint: "/api/v2/projects/list",
       body: "",
       id: "",
     };
-    return myFetch<FetchProps>(fetchDetails);
+    return myFetch<ProjectTypes>(fetchDetails);
   }
-  const { isLoading, isError, data, refetch } = useFetch(
-    fetchFunction,
-    "projects"
-  );
 
+  const { isLoading, data, isError, refetch } = useQuery<ProjectTypes>({
+    queryKey: ["projects"],
+    queryFn: fetchFunction,
+  });
 
-  useTitle({ title: 'Projects'})
- const appContext = useContext(AppContext)
-
+  // useTitle({ title: 'Projects'}
 
   function handleActiveTabs({ isActive }: { isActive: boolean }) {
     const active = isActive
@@ -66,26 +43,28 @@ function Works() {
     );
   }
 
-  
   // Set seletcted category
- useEffect(() => {
-  function changeSelection(){
-    if(selectedFilter !== 'All'){
-      const filter = data?.projects.filter(project => project.category === selectedFilter)
-      return setProjects(filter)
+  useEffect(() => {
+    function changeSelection() {
+      if (data?.projects && selectedFilter !== "All") {
+        const filter = data?.projects.filter(
+          (project) => project.category === selectedFilter
+        );
+        return setProjects(filter);
+      }
+      if (data?.projects) {
+        return setProjects(data?.projects);
+      }
     }
-    return setProjects(data.projects)
-  }
-  if( data){ 
-    changeSelection()
-  }
-  return () => {}
-  
- },[selectedFilter]);
+    if (data?.projects) {
+      changeSelection();
+    }
+    return () => {};
+  }, [selectedFilter]);
 
   if (isLoading) return <RecentProjectSkeleton />;
 
-  if (isError || !data?.success )
+  if (isError)
     return (
       <div className="h-screen grid place-items-center text-center">
         <div>
@@ -100,6 +79,18 @@ function Works() {
         </div>
       </div>
     );
+  if (!data?.projects || data?.projects.length < 1)
+    return (
+      <div className="h-screen grid place-items-center text-center">
+        <div>
+          <h2 className="heading3">No Projects</h2>
+          <p>Please try again later</p>
+        </div>
+      </div>
+    );
+
+  const result = projects || data?.projects;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -131,17 +122,21 @@ function Works() {
             const pathName = link.path;
             return (
               <NavLink
-              onClick={() =>setSelectedFilter(name)}
-               key={index} to={pathName} className={handleActiveTabs}>
+                onClick={() => setSelectedFilter(name)}
+                key={index}
+                to={pathName}
+                className={handleActiveTabs}
+              >
                 {name}
               </NavLink>
             );
           })}
         </ul>
       </section>
-       {/* PROJECTS */}
+
+      {/* PROJECTS */}
       <div className="grid grid-cols-1 mt-12 md:grid-cols-2 xl:grid-cols-3 md:gap-4 lg:gap-12 justify-self-center-safe 2xl:gap-24">
-        {projects && projects.map((project) => (
+        {result.map((project) => (
           <article
             key={project._id}
             className="rounded-lg shadow-accent/50  trans mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8"

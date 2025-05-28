@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ApplyJob } from "../conponents/lazyLoading";
 import { useParams } from "react-router-dom";
 import Back from "../conponents/Back";

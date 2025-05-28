@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import styles from "./recent_works.module.css";
 import { Link } from "react-router-dom";
 import myFetch from "../../../libs/myFetch";
-import useFetch from "../../../hooks/useFetch";
 import { RecentProjectSkeleton } from "../../../conponents/exportComp";
 import { useContext } from "react";
 import { AppContext } from "../../../context/AppProvider";
 import { placeholdeImage } from "../../../assets/assets";
-
+import { useQuery } from "@tanstack/react-query";
+import type { ProjectTypes } from "../../../models/types";
 
 function RecentWorks() {
   const appContext = useContext(AppContext);
@@ -18,13 +18,13 @@ function RecentWorks() {
       body: "",
       id: "",
     };
-    return myFetch(fetchDetails);
+    return myFetch<ProjectTypes>(fetchDetails);
   }
-  const { isLoading, isError, data, refetch } = useFetch(
-    fetchFunction,
-    "3_projects"
-  );
 
+  const { isLoading, data, isError, refetch } = useQuery<ProjectTypes>({
+    queryKey: ["3_projects"],
+    queryFn: fetchFunction,
+  });
 
   if (isLoading) return <RecentProjectSkeleton />;
 
@@ -65,7 +65,7 @@ function RecentWorks() {
         {data?.projects.slice(0, 3).map((project) => (
           <article
             key={project._id}
-            className="rounded-lg shadow-accent/50 w-sm h-105 trans mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8"
+            className="rounded-lg relative shadow-accent/50 w-sm max-h-[500px] lg:min-h-[460px] trans mx-auto lg:mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8"
           >
             <img
               src={
@@ -78,7 +78,9 @@ function RecentWorks() {
               <h2 className="font-bold text-xl mt-4 mb-2">
                 {project.projectName}
               </h2>
-              <p className="text-gray-500">{project.description}</p>
+              <p className="text-gray-500 overflow-hidden truncat h-20">
+                {project.description}
+              </p>
               <button
                 onClick={() =>
                   appContext?.navigate(`/workDetails/${project._id}`)

@@ -39,22 +39,23 @@ const myFetch = async <T>(props: Props, ): Promise< T > => {
     }
 
     // Get all items
-  else if (method === "get" && !id ) {
+  
       const { data } = await axios.get<T>(
         baseUrl + endpoint,  { headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}`} });
-      return data;
-    }
+      return data as T;
+    
 
     
   } catch (ex: unknown) {
     if(ex instanceof Error){
-    // toast.warning(ex.message)
+    toast.warning(ex.message)
+       throw ex; // rethrow non-Axios errors
+       
     }
     if( ex instanceof AxiosError){
-        // toast.error(ex.response?.data.message)
+        toast.error(ex.response?.data.message)
+        throw new Error(ex.response?.data?.message || 'Unknown Axios error');
     }
-    
-    
     throw ex
 }
 }

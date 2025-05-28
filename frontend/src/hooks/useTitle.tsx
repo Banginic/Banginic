@@ -36,6 +36,18 @@ const appContext = useContext(AppContext)
       else if (pathname.startsWith("/news", 0)) {
         window.document.title = "News | Banginc";
       }
+      // else if (pathname.startsWith("/services", 0)) {
+      //   window.document.title = "Services | Banginc";
+      // }
+      // else if (pathname.startsWith("/about", 0)) {
+      //   window.document.title = "About | Banginc";
+      // }
+      // else if (pathname.startsWith("/career", 0)) {
+      //   window.document.title = "Careers | Banginc";
+      // }
+      else if (pathname.startsWith("/work", 0)) {
+        window.document.title = "Projects | Banginc";
+      }
     }
 
     handleTitle();

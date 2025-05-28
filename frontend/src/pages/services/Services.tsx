@@ -43,7 +43,7 @@ function Services() {
                   </p>
                 </span>
                 <p className="text-sm subheading text-black/80 dark:text-white/60 mb-4 text-start px-2">
-                  {skill.subtitle}
+                  {skill.title}
                 </p>
                 <p className="paragraph1 text-md text-start text-gray-500 px-2">
                   {skill.desription}

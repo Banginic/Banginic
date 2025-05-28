@@ -22,7 +22,7 @@ function User() {
           <button
             title="Log out"
             onClick={() => {
-              localStorage.clear();
+              window.localStorage.removeItem('user');
               appContext?.navigate("/");
             }}
             className="px-6 py-2 rounded bg-red-400 text-red-200 cursor-pointer hover:bg-red-500"

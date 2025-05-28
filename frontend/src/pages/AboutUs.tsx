@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
-import { SocialLinks, useTitle } from '../conponents/exportComp'
 import { Employees } from "../conponents/lazyLoading";
 
 function AboutUs() {
-  useTitle({title: 'About us'})
 
  
   

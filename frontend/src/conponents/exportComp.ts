@@ -5,9 +5,9 @@ export {default as Navbar} from "./navbar/Navbar"
 export {default as Counter} from "./home/Counter";
 export {default as ColorLines} from "./home/ColorLines"
 export {default as NotFound} from "../pages/NotFound"
-export {default as Works} from "../pages/works/workDisplay/Works"
+export {default as Works} from "../pages/works/workDisplay/Projects"
 // WORKS tabs
-export {default as AllWorks} from "../pages/works/workRender/AllWorks"
+// export {default as AllWorks} from "../pages/works/workRender/AllWorks"
 export {default as WorkDetails} from "../pages/works/WorkDetails"
 
 // Images
@@ -23,7 +23,6 @@ export { default as useTitle } from '../hooks/useTitle'
 // COMPONENT
 export { default as Back} from "./Back"
 export {default as SideBar} from "./Sidebar";
-export { default as WorkCard } from './WorkCard'
 export { default as SocialLinks } from './SocialLinks'
 export { default as Logo } from './Logo'
 export { default as ScrollToTop } from './ScrollToTop'
@@ -35,4 +34,5 @@ export { default as ContactCard } from './ContactCard'
 export { default as Map } from './Map'
 export { default as News } from './News'
 export { default as Cookies } from './Cookies'
+export { default as RequireAuth } from './RequireAuth'
 

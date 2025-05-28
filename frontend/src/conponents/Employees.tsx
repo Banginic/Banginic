@@ -1,8 +1,6 @@
 import SocialLinks from "./SocialLinks";
 import { motion } from "framer-motion";
-
 import myFetch from "../libs/myFetch";
-import { Loading } from "./exportComp";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { person } from "../assets/assets";

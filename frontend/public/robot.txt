@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://banginic.com/sitemap.xml

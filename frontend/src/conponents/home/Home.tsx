@@ -12,11 +12,10 @@ import {
    Hero
    
 } from "./exportHomeComp";
-import { useTitle } from '../../conponents/exportComp'
 
 
 function Home() {
-  useTitle({title: 'Home'})
+
 
   return (
     <section

@@ -1,9 +1,8 @@
-import { ContactCard, ContactForm, Map, useTitle } from "../conponents/exportComp";
+import { ContactCard, ContactForm, Map } from "../conponents/exportComp";
 import { motion } from "framer-motion";
 
 
 function Contact() {
-  useTitle({ title: 'Contact us'})
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
