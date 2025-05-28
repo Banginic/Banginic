@@ -96,7 +96,7 @@ const { isLoading, data, isError, refetch} = useQuery<TestimonialsTypes>({
           <article className="bg-white shadow-lg border mx-auto border-gray-200 dark:border-gray-950 rounded-lg  dark:bg-gray-900/50 relative p-5 md:w-xs lg:w-sm h-110">
             <div className="flex items-center justify-between p-3">
               <img
-                src={current.photo || person}
+                src={current?.photo || person}
                 alt=""
                 className="size-[64px] lg:size-[80px] bg-blue-300 rounded-full shadow"
               />
