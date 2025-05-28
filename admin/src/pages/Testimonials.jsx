@@ -39,7 +39,6 @@ const Testimonials = () => {
       queryClient.invalidateQueries({ queryKey: ["testimonials"] });
     },
   });
-  console.log(data);
 
   if (isLoading) return <Loading />;
 
