@@ -32,7 +32,7 @@ type PropsType = {
 
 function AppProvider({ children }: PropsType) {
   const navigate = useNavigate();
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = 'https://banginic.onrender.com'
   const workContext = useContext(WorkContext);
   const [user, setUser] = useState<string | null>(
     () => localStorage.getItem("user") || null

@@ -14,7 +14,7 @@ const myFetch = async <T>(props: Props, ): Promise< T > => {
 
     
     const { method, endpoint, body = "", id = ""} = props
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = 'https://banginic.onrender.com'
   try {
 
     // create an item
