@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { times } from "underscore";
+
 
 const newsLetterSchema = mongoose.Schema({
     subject: {
