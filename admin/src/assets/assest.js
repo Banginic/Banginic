@@ -9,7 +9,7 @@ import {
   Check,
 } from "lucide-react";
 import person from './person.png'
-import person_Placeholder from './person_Placeholder.png'
+import person_Placeholder from './person_placeholder.png'
 
 export const navlinks = [
     
