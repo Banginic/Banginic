@@ -86,7 +86,7 @@ function Employees() {
   return (
     <div className="my-20 lg:mt-0 relative min-h-[550px] lg:w-1/2">
       <article
-        className="bg-white shadow-accent/50 w-sm md:w-md h-[500px] shadow-lg hover:shadow-xl trans dark:bg-black dark:border border-gray-700  lg:w-sm min-h-92
+        className="bg-white shadow-accent/50 max-w-sm md:w-md h-[500px] shadow-lg hover:shadow-xl trans dark:bg-black dark:border border-gray-700  lg:w-sm min-h-92
             mx-auto rounded-xl p-4 text-center "
       >
         <motion.img
