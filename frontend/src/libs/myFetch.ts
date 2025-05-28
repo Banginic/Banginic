@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 // (method, endpoint, body=null, id=null )
 
@@ -48,13 +48,17 @@ const myFetch = async <T>(props: Props, ): Promise< T > => {
     
   } catch (ex: unknown) {
     if(ex instanceof Error){
-    toast.warning(ex.message)
+    // toast.warning(ex.message)
+    console.log(ex);
+    
        throw ex; // rethrow non-Axios errors
        
     }
     if( ex instanceof AxiosError){
-        toast.error(ex.response?.data.message)
+        // toast.error(ex.response?.data.message)
         throw new Error(ex.response?.data?.message || 'Unknown Axios error');
+        console.log(ex);
+        
     }
     throw ex
 }

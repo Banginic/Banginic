@@ -30,16 +30,23 @@ process.on("uncaughtException", (ex) => {
 });
 
 const app = express();
-
+const allowedOrigins =[
+      "https://banginic-7.onrender.com",
+      "https://banginic-admin.onrender.com",
+      "http://localhost:5173",
+      "http://localhost:5174",
+  ]
 // Middlewares
-app.use(
-  cors([
-    "http://localhost:5173",
-    "http://localhost:5174",
-    "https://banginic-7.onrender.com",
-    "https://banginic-admin.onrender.com",
-  ])
-);
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true); // Allow the request
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true // If using cookies, sessions, or auth headers
+}));
 app.use(cookieParser());
 app.use(express.json());
 app.use(morgan("dev"));
