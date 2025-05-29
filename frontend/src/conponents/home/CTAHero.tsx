@@ -14,8 +14,8 @@ function CTAHero() {
       </Link>
       <Link to="/works/all">
         <button
-          className="text-sm flex gap-2 justify-center items-center p-3 px-6  lg:text-[17px]  rounded-full
-        shadow-md trans bg-gray-900/90 text-white cursor-pointer hover:bg-black/80  trans"
+          className="text-sm flex gap-2 justify-center items-center p-3 px-6 lg:text-[17px] rounded-full
+        shadow-md trans bg-gray-950 dark:bg-gray-800/90 text-white cursor-pointer hover:bg-black/80  trans"
         >
           Projects
           <svg

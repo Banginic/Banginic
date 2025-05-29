@@ -29,11 +29,11 @@ function Partners() {
           return (
             <div
               key={index}
-              className="flex justify-center items-center opacity-50 gap-9 p-2 h-52 w-52 rounded-md overflow-hidden"
+              className="grid place-items-center opacity-50 gap-9 p-2 h-52 w-52 rounded-md overflow-hidden "
             >
               
               <LazyLoadImage
-                className=" w-[50%] h-[50% ] opacity-80"
+                className=" w-[50%] h-[50% ] opacity-80 mx-auto"
                 alt={placeholdeImage}
                 effect="blur"
                 aria-label="Trusted by image"

@@ -11,8 +11,8 @@ function AboutUs() {
       className={` p-5 overflow-hidden flex flex-col md:flex-row items-center lg:h-[400px] rounded-lg gap-10  mt-8`}
     >
       <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         className=" h-[250px] md:h-[300px] md:min-w-[350px] lg:min-w-[500px]  overflow-hidden "
@@ -32,8 +32,8 @@ function AboutUs() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, delay: 0.3 }}
         className=" flex flex-col justify-center shadow-lg bg-white md:h-[400px] lg:h-[350px]  dark:bg-black/30 p-5 lg:px-8 py-10 mb-7 rounded-lg "

@@ -31,8 +31,8 @@ function Qualities() {
                lg:h-[300px] text-center m-auto rounded-md pt-[var(--sm-padding)] trans"
             >
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="service_image flex-3 size-[8rem] w-34 md:h-[14rem] mt-8 m-auto rounded-md over-flow-hidden"

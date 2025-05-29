@@ -71,9 +71,9 @@ function ContactForm() {
       </div>
       <div>
         <label htmlFor="fullName" className="p-1">
-          Full Name
+          Full name
         </label>
-        <div className="border border-gray-400 dark:border-gray-700 mt-1 rounded-2xl flex items-center px-4 gap-3 py-2 mb-4">
+        <div className="border border-gray-400 dark:border-gray-600 mt-1 rounded-2xl flex items-center px-4 gap-3 py-2 mb-4">
          <img src={person} width={25} alt=" person icon" aria-label="person icon" />
           <input
             type="text"
@@ -92,9 +92,9 @@ function ContactForm() {
 
       <div>
         <label htmlFor="EmailAddress" className="p-1">
-          Email Address
+          Email address
         </label>
-        <div className="border border-gray-400 dark:border-gray-700 mt-1 rounded-2xl flex items-center px-4 gap-3 py-2 mb-4">
+        <div className="border border-gray-400 dark:border-gray-600 mt-1 rounded-2xl flex items-center px-4 gap-3 py-2 mb-4">
           <img src={email} width={25} alt="" />
           <input
             type="email"
@@ -114,9 +114,9 @@ function ContactForm() {
       </div>
       <div>
         <label htmlFor="PhoneNumber" className="p-1">
-          Phone Number
+          Phone number
         </label>
-        <div className="border border-gray-400 dark:border-gray-700 mt-1 px-4 rounded-2xl flex items-center gap-3 py-2 mb-4">
+        <div className="border border-gray-400 dark:border-gray-600 mt-1 px-4 rounded-2xl flex items-center gap-3 py-2 mb-4">
           <img src={call} width={25} alt=" call icon" aria-label="phone icon" />
           <input
             type="tel"
@@ -129,16 +129,16 @@ function ContactForm() {
             onChange={(e) =>
               setClient({ ...client, phoneNumber: e.target.value })
             }
-            placeholder="+1 234 4233 2433"
+            placeholder="+237 674 144 233"
           />
         </div>
       </div>
       <div className=" ">
         <label htmlFor="services" className="p-1">
-          Select Service
+          Select service
         </label>
         <select
-          className="border bg-white cursor-pointer dark:bg-black/80 border-gray-400 dark:border-gray-700 mt-1  shadow w-full rounded-full  py-2 px-3  mb-4 "
+          className="border bg-white cursor-pointer dark:bg-black/80 border-gray-400 dark:border-gray-600 mt-1  shadow w-full rounded-full  py-2 px-3  mb-4 "
           id="services"
           value={client.service}
           required
@@ -166,9 +166,9 @@ function ContactForm() {
             onChange={(e) => setClient({ ...client, message: e.target.value })}
             cols={30}
             rows={4}
-            placeholder="Message"
+            placeholder="Message "
             className="  
-                w-full border  border-gray-400 dark:border-gray-700 mt-1   rounded-lg px-3 py-2 "
+                w-full border  border-gray-400 dark:border-gray-600 mt-1 rounded-lg px-3 py-2 "
           ></textarea>
         </div>
       </div>
