@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import myFetch from "../libs/myFetch";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { person } from "../assets/assets";
 import AboutUSkeleton from "./skeletons/AboutUSkeleton";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { person } from "../assets/assets";
 
 interface Employee {
   _id: string;
@@ -41,7 +43,6 @@ function Employees() {
   };
 
   const { isLoading, refetch, data, isError } = useEmployeesQuery();
-  console.log(data);
 
   const employee = data?.employees[currentIndex];
 
@@ -81,7 +82,6 @@ function Employees() {
       prev === data?.employees?.length - 1 ? 0 : prev + 1
     );
   };
-  
 
   return (
     <div className="my-20 lg:mt-0 relative min-h-[550px] lg:w-1/2">
@@ -89,15 +89,25 @@ function Employees() {
         className="bg-white shadow-accent/50 max-w-sm md:w-md h-[500px] shadow-lg hover:shadow-xl trans dark:bg-black dark:border border-gray-700  lg:w-sm min-h-92
             mx-auto rounded-xl p-4 text-center "
       >
-        <motion.img
+        <motion.div
           initial={{ opacity: 0, y: 0 }}
           whileInView={{ opacity: 1, y: -20 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           className="size-52 -translate-y-10 bg-red-100 rounded-full mx-auto"
-          src={employee?.photo ? employee?.photo : person}
-          alt={`photo`}
-        />
+        >
+          <LazyLoadImage
+            className="size-full"
+            alt={person}
+            effect="blur"
+             loading="lazy"
+            aria-label={`Employee ${employee?.fullName} photo`}
+            wrapperProps={{
+              style: { transition: "1s" },
+            }}
+            src={employee?.photo ? employee?.photo : person}
+          />
+        </motion.div>
         <div className="-translate-y-10">
           <h3 className="text-lg font-bold mt-4  ">{employee?.fullName}</h3>
           <p className=" mano text-gray-600 dark:text-gray-400">

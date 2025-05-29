@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../../context/AppProvider";
 import styles from "./navbar.module.css";
-import { moon, sun } from "../../assets/assets";
+import { moon, placeholdeImage, sun } from "../../assets/assets";
 
 function ThemeButton() {
   const appContext = useContext(AppContext);
@@ -13,9 +13,9 @@ function ThemeButton() {
       aria-label="Toggle theme"
     >
       {appContext?.theme === "dark" ? (
-        <img src={sun} width={35} alt="light theme" />
+        <img src={sun} width={35} alt={placeholdeImage} loading="lazy" aria-label="Theme photo" />
       ) : (
-        <img src={moon} width={26} alt="dark theme" />
+        <img src={moon} width={26} alt={placeholdeImage} loading="lazy" aria-label="Theme photo"/>
       )}
     </div>
   );

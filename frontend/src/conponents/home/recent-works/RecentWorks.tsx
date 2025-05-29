@@ -7,6 +7,8 @@ import { useContext } from "react";
 import { AppContext } from "../../../context/AppProvider";
 import { placeholdeImage } from "../../../assets/assets";
 import { useQuery } from "@tanstack/react-query";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import type { ProjectTypes } from "../../../models/types";
 
 function RecentWorks() {
@@ -67,12 +69,19 @@ function RecentWorks() {
             key={project._id}
             className="rounded-lg relative shadow-accent/50 w-sm max-h-[500px] lg:min-h-[460px] trans mx-auto lg:mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8"
           >
-            <img
-              src={
-                project?.photos.length > 0 ? project?.photos[0] : placeholdeImage
-              }
+            <LazyLoadImage
               className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
-              alt="Project photo"
+              alt={placeholdeImage}
+              effect="blur"
+              aria-label="Project image"
+              wrapperProps={{
+                style: { transition: "1s" },
+              }}
+              src={
+                project?.photos.length > 0
+                  ? project?.photos[0]
+                  : placeholdeImage
+              }
             />
             <div className="p-4 bg-white dark:bg-gray-900/50 h-full">
               <h2 className="font-bold text-xl mt-4 mb-2">

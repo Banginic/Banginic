@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { servicesDetails } from "../../../assets/assets" 
+import { servicesDetails, placeholdeImage } from "../../../assets/assets";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function Qualities() {
   return (
@@ -29,32 +31,40 @@ function Qualities() {
                lg:h-[300px] text-center m-auto rounded-md pt-[var(--sm-padding)] trans"
             >
               <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-               className="service_image flex-3 size-[8rem] w-34 md:h-[14rem] mt-8 m-auto rounded-md over-flow-hidden">
-                <img
-                  src={service.icon}
-                  alt={`${service.title} icon`}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="service_image flex-3 size-[8rem] w-34 md:h-[14rem] mt-8 m-auto rounded-md over-flow-hidden"
+              >
+                <LazyLoadImage
                   className="rounded-lg size-full"
+                  alt={placeholdeImage}
+                  effect="blur"
+                  aria-label="Services image"
+                  wrapperProps={{
+                    style: { transition: "1s" },
+                  }}
+                  src={service.icon}
                 />
               </motion.div>
               <div className=" md:w-2/3 text-center md: mx-3 h-[80%] rounded-md ">
                 <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                 className="heading3 pt-3 p-2 ">
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 1 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="heading3 pt-3 p-2 "
+                >
                   {service.title}
                 </motion.p>
                 <motion.p
-                initial={{ opacity: 0,  }}
-                whileInView={{ opacity: 1, }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                 className="px-2 paragraph1 text-gray-600 dark:text-gray-400 lg:tracking-wider text-center ">
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="px-2 paragraph1 text-gray-600 dark:text-gray-400 lg:tracking-wider text-center "
+                >
                   {service.details}
                 </motion.p>
               </div>

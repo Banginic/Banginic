@@ -244,7 +244,6 @@ export const sidebarLinks = [
   {name:"Home", pathname: "/", icon:"/icons/sidebar_icons/home.png"},
   {name:"Services", pathname: "/services", icon:"/icons/sidebar_icons/design_services.png"},
   {name:"Works", pathname: "/works/all", icon:"/icons/sidebar_icons/works_space.png"},
-  {name:"Services", pathname: "/services", icon:"/icons/sidebar_icons/dashboard.png"},
   {name:"About", pathname: "/about-us", icon:"/icons/sidebar_icons/folded_hands.png"},
   {name:"Contact", pathname: "/contact-us", icon:"/icons/sidebar_icons/contact.png"},
   {name:"Careers", pathname: "/careers", icon:"/icons/sidebar_icons/contact.png"}

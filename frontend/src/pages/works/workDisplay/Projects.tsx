@@ -8,6 +8,8 @@ import { RecentProjectSkeleton } from "../../../conponents/exportComp";
 import myFetch from "../../../libs/myFetch";
 import type { ProjectTypes, Project } from "../../../models/types";
 import { useQuery } from "@tanstack/react-query";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function Works() {
   const [selectedFilter, setSelectedFilter] = useState("All");
@@ -141,12 +143,18 @@ function Works() {
             key={project._id}
             className="rounded-lg shadow-accent/50  trans mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8"
           >
-            <img
+            <LazyLoadImage
+              className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
+              alt={placeholdeImage}
+              effect="blur"
+              aria-label={`Project photo`}
+               loading="lazy"
+              wrapperProps={{
+                style: { transition: "1s" },
+              }}
               src={
                 project.photos.length > 0 ? project.photos[0] : placeholdeImage
               }
-              className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
-              alt="Project photo"
             />
             <div className="p-4 bg-white dark:bg-gray-900/50">
               <h2 className="font-bold text-xl mt-4 mb-2">

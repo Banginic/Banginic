@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import styles from "./home.module.css";
 import { BgAnimation, CTAHero } from "./exportHome";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { placeholdeImage } from "../../assets/assets";
 
 function Hero() {
   return (
@@ -33,29 +36,36 @@ function Hero() {
             digital products.
           </motion.p>
           <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true, amount: 0.2 }}
-           transition={{ duration: 0.6, delay: 0.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
           >
             <CTAHero />
           </motion.div>
         </div>
       </div>
-      <div
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
         className={`w-[320px] absolute md:static opacity-80 h-[400px] md:w-[600px] md:h-[300px] lg:h-[500px] lg:w-[500px] 
          md:opacity-85  m-auto md:m-0 top-[30rem] lg:mt-10 right-10 trans
       hover:border-purple-800 `}
       >
-        <motion.img initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          src="./assets/icons/dot_image.png"
+        <LazyLoadImage
           className="lg:pl-14 absolute md:static  right-0 w-[550px] md:w-[600px] borde lg:h-[400px] 2xl:h-[450px] 2xl:w-[650px]"
-          alt="hero image"
+          alt={placeholdeImage}
+          effect="blur"
+          aria-label="Hero image"
+          loading="eager"
+          wrapperProps={{
+            style: { transition: "1s" },
+          }}
+          src="./assets/icons/dot_image.png"
         />
-      </div>
+      </motion.div>
 
       <BgAnimation />
     </div>

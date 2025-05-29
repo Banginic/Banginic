@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { placeholdeImage } from "../../assets/assets";
 
 function Skills() {
   const frameworks = [
@@ -21,8 +24,8 @@ function Skills() {
     <motion.section
       className=" p-5 relative bg-white shadow overflow-hidden dark:bg-gray-900 rounded-md w-full py-8 mx-auto"
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity:1, y:0}}
-      viewport={{once: true, amount:0.2}}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: 0.5 }}
     >
       <h4 className="mano text-center heading3 py-2 mb-12">
@@ -32,12 +35,12 @@ function Skills() {
       <div className="pointer-events-none absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-10" />
 
       <motion.div
-       className="flex relative gap-10 whitespace-nowrap overflow-hidden animate-scroll group:hover:[animation-play-state:paused]  w-full "
-       initial={{ opacity: 0.2, y: 25 }}
-      whileInView={{ opacity:1, y:0}}
-      viewport={{once: true, amount:0.2}}
-      transition={{ duration: 0.6, delay: 1 }}
-       >
+        className="flex relative gap-10 whitespace-nowrap overflow-hidden animate-scroll group:hover:[animation-play-state:paused]  w-full "
+        initial={{ opacity: 0.2, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, delay: 1 }}
+      >
         {cards &&
           cards.map((skill, index) => {
             return (
@@ -46,12 +49,17 @@ function Skills() {
                   className="bg-gray-100 dark:bg-gray-800/10 cursor-pointer flex flex-col items-center gap-3 shadow-lg hover:bg-blue-900/20 trans
              rounded-lg w-[140px] md:w-[160px] h-[160px] md:lg-[180px] pt-[var(--md-padding)] "
                 >
-                  <img
-                    src={skill.icon}
-                    alt={skill.name}
+                  <LazyLoadImage
                     className=" size-[60px] "
+                    alt={placeholdeImage}
+                    effect="blur"
+                    aria-label="framework image"
+                     loading="lazy"
+                    wrapperProps={{
+                      style: { transition: "1s" },
+                    }}
+                    src={skill.icon}
                   />
-
                   <p className="">{skill.percent}</p>
                 </div>
                 <p className="pt-4 text-accent">{skill.name}</p>
@@ -59,7 +67,7 @@ function Skills() {
             );
           })}
       </motion.div>
-      <style >{`
+      <style>{`
         @keyframes scroll {
           0% {
             transform: translateX(0%);

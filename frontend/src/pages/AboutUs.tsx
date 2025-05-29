@@ -22,7 +22,7 @@ function AboutUs() {
       <div className="flex flex-col lg:flex-row  my-12 mx-auto ">
         <div className="lg:w-1/2 p-4 lg:p-8 border border-gray-200 shadow-accent/30 shadow-2xl dark:bg-black dark:border-gray-800 bg-white rounded-xl">
           <h2 className="heading4 mano mb-2">Who Are We</h2>
-          <p className="paragraph1 text-gray-500 text-start text-sm">
+          <p className="paragraph1 text-gray-600 dark:text-gray-400 text-start text-sm">
             We are passionate about crafting software solutions that transform
             ideas into reality. Our team of skilled developers, designers, and
             problem-solvers work together to create seamless digital
@@ -30,7 +30,7 @@ function AboutUs() {
           </p>
           <div className={` mx-auto mt-8`}>
             <h3 className="heading4 mano ">Our Mission</h3>
-            <p className=" paragraph1 text-gray-500">
+            <p className=" paragraph1 text-gray-600 dark:text-gray-400">
               We craft high-quality, scalable software solutions tailored to
               your business needs. With a commitment to excellence and a passion
               for innovation, we help companies unlock their full potential
@@ -40,7 +40,7 @@ function AboutUs() {
           </div>
           <div className={` mx-auto mt-8`}>
             <h3 className="heading4 mano ">What Sets Us Apart</h3>
-            <ul className=" paragraph1 text-gray-500">
+            <ul className=" paragraph1 text-gray-600 dark:text-gray-400">
               <li>Client-first mindset</li>
               <li>Clean, maintainable code</li>
               <li>Attention to design and usability</li>

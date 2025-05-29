@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import myFetch from "../../libs/myFetch";
 import type { SingleProject } from "../../models/types";
 import { useQuery } from "@tanstack/react-query";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function WorkDetails() {
   const { projectId } = useParams();
@@ -73,14 +75,21 @@ function WorkDetails() {
         <div className="display m-auto relative top-0 lg:flex gap-10 md:px-5 justify-around">
           <div className="relative md:w-[400px] h-1/2 lg:w-[800px] lg:h-[500px] mx-auto overflow-hidden">
             <div className="min-h-[400px] w-full">
-              <img
+              
+              <LazyLoadImage
+                className=" group min-h-[320px]  md:min-h-[400px] lg:max-w-[700px] translate-y-5 cursor-pointer shadow-accent/20 shadow-lg  m-auto bg-black rounded-sm object-contai"
+                alt={placeholdeImage}
+                effect="blur"
+                aria-label="project image"
+                 loading="lazy"
+                wrapperProps={{
+                  style: { transition: "1s" },
+                }}
                 src={
                   !data?.project.photos
                     ? placeholdeImage
                     : data?.project.photos[activeIndex]
                 }
-                alt="same project img"
-                className=" group min-h-[320px]  md:min-h-[400px] lg:max-w-[700px] translate-y-5 cursor-pointer shadow-accent/20 shadow-lg  m-auto bg-black rounded-sm object-contai"
               />
             </div>
             <span
