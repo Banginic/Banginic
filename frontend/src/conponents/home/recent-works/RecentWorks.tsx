@@ -54,7 +54,7 @@ function RecentWorks() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <h3 className="heading3 mano">RECENT PROJECTS</h3>
+          <h3 className="heading3 montserrat">RECENT PROJECTS</h3>
           <p className="paragraph1 text-gray-600 dark:text-gray-400 px-2">
             These recent projects reflect our commitment to clean code,
             thoughtful design, and real results

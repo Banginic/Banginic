@@ -16,9 +16,9 @@ function Hero() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-2  md:mt-0 text-4xl xl:text-5xl font-bold 2xl:text-[4.5rem] w- z-10 text-left  title-image"
+          className="mt-2  md:mt-0 text-4xl xl:text-5xl font-bold 2xl:text-[4.5rem] w- z-10 text-left  title-image "
         >
-          <span>
+          <span className="montserrat leading-11 lg:leading-14 2xl:leading-17">
             Building Bold
             <span className="text-accent"> Digital Experiences </span>
             That Work Everywhere.

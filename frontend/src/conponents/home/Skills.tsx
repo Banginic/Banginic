@@ -28,7 +28,7 @@ function Skills() {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: 0.5 }}
     >
-      <h4 className="mano text-center heading3 py-2 mb-12">
+      <h4 className="montserrat text-center heading3 py-2 mb-12">
         Software and framework we use
       </h4>
       <div className="pointer-events-none absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10" />

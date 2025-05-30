@@ -45,8 +45,8 @@ function AboutUs() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-col gap-1 mb-3"
         >
-          <span className="heading3">{metaData.name}</span>
-          <span className="heading4 text-accent mano">
+          <span className="heading3 montserrat">{metaData.name}</span>
+          <span className="heading4 text-accent">
             MORE THAN JUST A NAME
           </span>
         </motion.h3>

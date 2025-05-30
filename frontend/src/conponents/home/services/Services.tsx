@@ -15,7 +15,7 @@ function Qualities() {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="text-center p-5 border-t"
       >
-        <h3 className="heading3 mano pt-1 lg:pt-4">SERVICES</h3>
+        <h3 className="heading3 pt-1 lg:pt-4 montserrat">SERVICES</h3>
         <p className="paragraph1 pt-2 opacity-80">
           We blend, design and code to create websites and mobile apps that not
           only look stunning but also function seamlessly across devices. It’s
@@ -54,7 +54,7 @@ function Qualities() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="heading3 pt-3 p-2 "
+                  className="heading3 pt-3 p-2 mano"
                 >
                   {service.title}
                 </motion.p>

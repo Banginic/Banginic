@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Outfit:wght@100..900&family=Prata&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Courgette&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Prata&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
 *{
@@ -48,7 +49,9 @@
 
     --button-gradient:linear-gradient(to right, rgb(163, 12, 128),  #fff);
   }
-
+.montserrat{
+    font-family: 'Montserrat', 'Outfit', sans-serif, UI;
+}
 .italics{
   font-family: 'Courgette', 'Outfit', sans-serif, UI;
 }
