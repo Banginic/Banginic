@@ -141,11 +141,11 @@ function Login() {
         </p>
       </div>
       {formState !== "Login" && (
-        <div className="mb-2">
+        <div className="mb-b">
           <label htmlFor="fullName" className="block text-start text-sm mb-1">
             Full Name{" "}
           </label>
-          <div className="border rounded-full py-2 flex items-center px-3 gap-2 border-gray-400 dark:border-gray-800">
+          <div className="border rounded-full py-2 flex items-center px-4 gap-2 border-gray-400 dark:border-gray-800">
             <img src={person} width={25} alt="" />{" "}
             <input
               type="text"
@@ -163,7 +163,7 @@ function Login() {
           </div>
         </div>
       )}
-      <div className="mb-2">
+      <div className="mb-4">
         <label htmlFor="email" className="block text-start text-sm mb-1">
           Email{" "}
         </label>
@@ -185,7 +185,7 @@ function Login() {
         </div>
       </div>
       {formState !== "Login" && (
-        <div className="mb-2">
+        <div className="mb-4">
           <label htmlFor="phone" className="block text-start text-sm mb-1">
             Phone{" "}
           </label>
@@ -207,7 +207,7 @@ function Login() {
           </div>
         </div>
       )}
-      <div className="mb-4">
+      <div className={`${formState === 'Login' ? 'mb-4' : 'mb-6'}`}>
         <label htmlFor="password" className="block text-start text-sm mb-1">
           Password
         </label>
@@ -229,14 +229,14 @@ function Login() {
           />
           <span
             onClick={togglePassword}
-            className="absolute right-3 top-2.5 lg:top-1 cursor-pointer "
+            className="absolute right-3 top-2.5 lg:top-2 cursor-pointer "
           >
             {passwordIcon}
           </span>
         </div>
       </div>
       {formState === "Login" && (
-        <div className="flex items-center font-medium text-xs  justify-between mb-4">
+        <div className="flex items-center font-medium text-xs  justify-between mb-6">
           <label
             htmlFor="rememberMe"
             className="cursor-pointer flex items-center gap-2"
@@ -307,7 +307,7 @@ function Login() {
           className="text-xs flex items-center justify-center gap-2 mt-2"
         >
           <span>Already have an account?</span>
-          <span className="text-indigo-700   font-medium cursor-pointer hover:text-indigo-900 hover:underline">
+          <span className="text-indigo-700   text-[16px ] cursor-pointer hover:text-indigo-900 hover:underline">
             Login
           </span>
         </p>

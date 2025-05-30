@@ -97,7 +97,7 @@ function Employees() {
           className="size-52 -translate-y-10 bg-red-100 rounded-full mx-auto"
         >
           <LazyLoadImage
-            className="size-full"
+            className="size-full rounded-full"
             alt={person}
             effect="blur"
              loading="lazy"

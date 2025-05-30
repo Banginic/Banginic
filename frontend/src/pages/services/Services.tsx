@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { services } from "../../assets/assets";
 import { motion } from "framer-motion";
+import { AppContext } from "../../context/AppProvider";
 
 function Services() {
+  const appContext = useContext(AppContext);
   return (
     <section className={``}>
       <motion.div
@@ -51,7 +54,10 @@ function Services() {
               </motion.article>
             );
           })}
-          <button className="bg-black border shadow-accent/50 hover:shadow-md hover:opacity-80 trans text-white px-6 py-2 rounded-full cursor-pointer mx-auto my-8">
+          <button
+            onClick={() => appContext?.navigate("/contact-us")}
+            className="bg-black border shadow-accent/50 hover:shadow-md hover:opacity-80 trans text-white px-6 py-2 rounded-full cursor-pointer mx-auto my-8"
+          >
             Let's get started
           </button>
         </div>

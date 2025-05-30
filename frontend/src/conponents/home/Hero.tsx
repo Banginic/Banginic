@@ -16,11 +16,12 @@ function Hero() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-2  md:mt-0 text-5xl xl:text-7xl font-bold 2xl:text-[5rem] w- z-10 text-left  2xl:w-4/5 title-image"
+          className="mt-2  md:mt-0 text-4xl xl:text-5xl font-bold 2xl:text-[4.5rem] w- z-10 text-left  title-image"
         >
           <span>
-            Your <span className="text-accent"> Business, Online</span> and On
-            Point
+            Building Bold
+            <span className="text-accent"> Digital Experiences </span>
+            That Work Everywhere.
           </span>
         </motion.h1>
 
@@ -32,8 +33,8 @@ function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className={`paragraph1  font-bold 2xl:text-2xl text-left mb-10 md:italics text-neutral-600 dark:text-gray-400 ${styles.translate}`}
           >
-            We help businesses like yours turn ideas into high-performing
-            digital products.
+            We build scalable, speedy, stylish and custom web solutions that last for ever. We
+            turn your ideas into high-performing web applications.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
