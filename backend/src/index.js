@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
-import { JWT_SECRET } from "./config/env.js";
+import { JWT_SECRET, FRONTEND_URL, ADMIN_URL } from "./config/env.js";
 import authRouter from "./routes/authRout.js";
 import connectToDB from "./config/connectToDB.js";
 import messageRouter from "./routes/messageRoute.js";
@@ -16,6 +16,7 @@ import newsLetterSubscribersRouter from "./routes/newsLetterSubscribersRoute.js"
 import newsletterRouter from "./routes/newsLetterRoute.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import authClientRoute from "./routes/authClientRoute.js";
+import sitemapRouter from "./routes/sitemapRoute.js";
 
 if (!JWT_SECRET) {
   console.log("FATAL, NO JWT SECRET");
@@ -31,8 +32,8 @@ process.on("uncaughtException", (ex) => {
 
 const app = express();
 const allowedOrigins =[
-      "https://banginic-1.onrender.com",
-      "https://banginic-admin.onrender.com",
+      FRONTEND_URL,
+      ADMIN_URL,
       "http://localhost:5173",
       "http://localhost:5174",
   ]
@@ -70,6 +71,7 @@ app.use("/api/v2/jobs", jobRouter);
 app.use("/api/v2/jobs/applications", newEmployeeRouter);
 app.use("/api/v2/newsletters-subscription", newsLetterSubscribersRouter);
 app.use("/api/v2/newsletters", newsletterRouter);
+app.use('/sitemap.xml', sitemapRouter)
 
 // Error handler
 app.use(errorMiddleware);
