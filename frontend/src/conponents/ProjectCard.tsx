@@ -1,11 +1,11 @@
-import { image2 } from "../assets/assets";
+
 
 function ProjectCard() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 lg:gap-12 justify-self-center-safe 2xl:gap-24">
       <article className="rounded-lg w-[450px] md:w-sm lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8">
         <img
-          src={image2}
+          src={'image2'}
           className="w-full h-60 xl:h-52 2xl:h-60 border-none outline-none bg-gray-20 group-hover:scale-105 trans"
           alt=""
         />

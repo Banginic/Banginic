@@ -16,7 +16,7 @@ function NavbarLinks() {
     >
       {navLinks.map((link, index) => {
         return (
-          <li key={index} className="pointer clickEvent montserrat">
+          <li key={index} className="pointer clickEvent montserrat ">
             <NavLink
               to={link.pathName}
               title={`Go to ${link.name}`}

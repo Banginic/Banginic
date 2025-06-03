@@ -1,9 +1,4 @@
-import image1 from './image1.jpg'
-import image2 from './image2.jpg'
-import image3 from './image3.jpg'
-import image4 from './image4.jpg'
-import image5 from './image5.jpg'
-import image6 from './image6.jpg'
+
 import vision from './vision.jpg'
 import happyCustomer from './happy-customer.jpg'
 import placeholdeImage from './placeholderImage.jpg'
@@ -26,6 +21,7 @@ import moon from './moon.png'
 import sun from './sun.png'
 import star from './star.png'
 
+import { home, contact_us, about_us, jobs, open_source, tutorial, services_photo, projects } from './photos'
 
 
 export const metaData = {
@@ -33,7 +29,7 @@ export const metaData = {
   githup_url: 'https://github.com/BinaryDigitz',
  description: 'Banginic is a creative company that focuses on creating beautiful and functional websites and applications.',
 }
-export { image1, image2 }
+
 export { placeholdeImage, vision, call, person, star, moon, sun, location, email, lock, whatsApp_logo, githup,google_logo, apple_logo, download, happyCustomer, manyHands,instagram, facebook, linkedin, twitter }
 export const skillsLinks = [
     { name: "All",path: "all" },
@@ -53,143 +49,7 @@ export const contactCard = {
     whatsAppBody:'Hello, Please can you tell me more about your services?'
   }
 }
-export const projects = [ 
-       
-    {
-       "title":"Daisy kitchen",
-      "id":"ux_ui_project1",
-      "name_of_project":"Daisy kitchen",
-      "project_url": "https://youtube.com",
-      "brief_description": "Bakery and Restaurant web app, that accepts online orders, offer delivery services and 24/7 customer serivices",
-      "project_details":{
-        "category":"Web App",
-        "client": "Daisy kitchen",
-        "start_date": "21-04-2024",
-        "designer": "Tobby John"
-      },
-      "project_images":[
-        image1, image2, image3, image4
-      ],
-      "project_description":"lorem we started well and ended well",
-      "the_story": "we encounter some small problems but we fixed them",
-      "our_approach": " we started my contacting the varrious engineer for the projects and get them ready"
-    },
-     {
-      "title":"Forever",
-      "id":"ux_ui_project2",
-      "name_of_project":"Forever",
-      "brief_description": "Ecommerce luxury cloths salling website",
-      "project_url": "https://youtube.comm",
-      "project_details":{
-        "category":"Website",
-        "client": "Forever.org",
-        "start_date": "21-02-2025",
-        "designer": "Boris Ayam Ndoh"
-      },
-      "project_images":[
-        image2, image3, image6, image5
-      ],
-      "project_description":"lorem we started well and ended well",
-      "the_story": "we encounter some small problems but we fixed them",
-      "our_approach": " we started my contacting the varrious engineer for the projects and get them ready"
-    },
-      
-  { 
-     
-      "title":"branding",
-      "id":"branding_project1",
-      "project_img":"branding_image.jpg",
-      "name_of_project":"first Branding",
-      "brief_description": "Project was about precision and information",
-      "project_url": "https://youtube.com",
-      "project_details":{
-        "category":"Branding",
-        "client": "Project Client",
-        "start_date": "21-04-2024",
-        "designer": "Web design"
-      },
-      "project_images":[
-        "branding_project1_img1.jpg",
-        "branding_project1_img2.jpg",
-        "branding_project1_img3.jpg",
-        "branding_project1_img4.jpg"
-      ],
-      "project_description":"lorem we started well and ended well",
-      "the_story": "we encounter some small problems but we fixed them",
-      "our_approach": " we started my contacting the varrious engineer for the projects and get them ready"
-    },
-    {  "title":"branding",
-      "id":"branding_project2",
-      "project_img":"branding_image.jpg",
-      "name_of_project":"Second branding",
-      "brief_description": "Project was about precision and information",
-      "project_url": "https://youtube.com",
-      "project_details":{
-        "category":"Branding",
-        "client": "Project Client",
-        "start_date": "21-04-2024",
-        "designer": "Web design"
-      },
-      "project_images":[
-        "branding_project2_img1.jpg",
-        "branding_project2_img2.jpg",
-        "branding_project2_img3.jpg",
-        "branding_project2_img4.jpg"
-      ],
-      "project_description":"lorem we started well and ended well",
-      "the_story": "we encounter some small problems but we fixed them",
-      "our_approach": " we started my contacting the varrious engineer for the projects and get them ready"
-    },
-  
-  
-    {  "title": "apps",
-      "id":"apps_project1",
-      "project_img":"apps_image.jpg",
-      "name_of_project":"First App",
-      "project_url": "https://youtube.com",
-      "brief_description": "Project was about precision and information",
-      "project_details":{
-        "category":"App design",
-        "client": "Project Client",
-        "start_date": "21-04-2024",
-        "designer": "Boris Ayam"
-      },
-      "project_images":[
-        "apps_project1_img1.jpg",
-        "apps_project1_img2.jpg",
-        "apps_project1_img3.jpg",
-        "apps_project1_img4.jpg"
-      ],
-      "project_description":"lorem we started well and ended well",
-      "the_story": "we encounter some small problems but we fixed them",
-      "our_approach": " we started my contacting the varrious engineer for the projects and get them ready"
-    },
-    {  
-      "title": "apps",
-      "id":"apps_project2",
-      "project_img":"apps_image.jpg",
-      "name_of_project":"Second App",
-      "brief_description": "Project was about precision and information",
-      "project_url": "https://youtube.com",
-      "project_details":{
-        "category":"App design",
-        "client": "Project Client",
-        "start_date": "21-04-2024",
-        "designer": "Boris Ayam"
-      },
-      "project_images":[
-        "apps_project2_img1.jpg",
-        "apps_project2_img2.jpg",
-        "apps_project2_img3.jpg",
-        "apps_project2_img4.jpg"
-      ],
-      "project_description":"lorem we started well and ended well",
-      "the_story": "we encounter some small problems but we fixed them",
-      "our_approach": " we started my contacting the varrious engineer for the projects and get them ready"
-    }
-    
-  
-]
+
 export   const partners = [
   {name: 'canva', img: './assets/partners/canva.png'},
   {name: 'discord', img: './assets/partners/discord.png'},
@@ -241,12 +101,14 @@ export const socialMediaLinks = {
   twitter:'https/github/binaryDigits',
 }
 export const sidebarLinks = [
-  {name:"Home", pathname: "/", icon:"/icons/sidebar_icons/home.png"},
-  {name:"Services", pathname: "/services", icon:"/icons/sidebar_icons/design_services.png"},
-  {name:"Works", pathname: "/works/all", icon:"/icons/sidebar_icons/works_space.png"},
-  {name:"About", pathname: "/about-us", icon:"/icons/sidebar_icons/folded_hands.png"},
-  {name:"Contact", pathname: "/contact-us", icon:"/icons/sidebar_icons/contact.png"},
-  {name:"Careers", pathname: "/careers", icon:"/icons/sidebar_icons/contact.png"}
+  {name:"Home", pathname: "/", icon:home},
+  {name:"Services", pathname: "/services", icon:services_photo},
+  {name:"Projects", pathname: "/works/all", icon:projects},
+  {name:"About", pathname: "/about-us", icon:about_us},
+  {name:"Contact", pathname: "/contact-us", icon:contact_us},
+  {name:"Classes", pathname: "/classes", icon:tutorial},
+  {name:"Assets", pathname: "/assets", icon:open_source},
+  {name:"Careers", pathname: "/careers", icon:jobs}
 ]
 export  const servicesDetails = [
     {icon: "./assets/icons/branding.png", title: "Branding ", details: "We work with businesses to develop a unique identity that resonates with your audience, sets you apart from competitors, and drives lasting success. From strategy to design, we help shape every aspect of your brand to ensure it tells a compelling, cohesive story."},

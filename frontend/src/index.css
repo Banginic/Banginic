@@ -75,7 +75,9 @@
  a.active{
     color: #20b2aa;
     font-weight: bold;
-    padding-inline: 6px;
+  }
+  a:hover{
+    text-shadow: 3px 5px 13px #20b2aa;
   }
   input{
     background-color: inherit;
