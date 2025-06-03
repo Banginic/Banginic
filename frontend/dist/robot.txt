@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://banginic.com/sitemap.xml
+Sitemap: https://banginic-1.onrender.com/sitemap.xml

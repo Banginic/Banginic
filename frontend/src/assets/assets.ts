@@ -21,7 +21,7 @@ import moon from './moon.png'
 import sun from './sun.png'
 import star from './star.png'
 
-import { home, contact_us, about_us, jobs, open_source, tutorial, services_photo, projects } from './photos'
+import { home, contact_us, about_us, jobs, open_source, tutorial, services_photo, projects_photo } from './photos'
 
 
 export const metaData = {
@@ -103,7 +103,7 @@ export const socialMediaLinks = {
 export const sidebarLinks = [
   {name:"Home", pathname: "/", icon:home},
   {name:"Services", pathname: "/services", icon:services_photo},
-  {name:"Projects", pathname: "/works/all", icon:projects},
+  {name:"Projects", pathname: "/works/all", icon:projects_photo},
   {name:"About", pathname: "/about-us", icon:about_us},
   {name:"Contact", pathname: "/contact-us", icon:contact_us},
   {name:"Classes", pathname: "/learning", icon:tutorial},

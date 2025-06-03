@@ -5,13 +5,11 @@ import {
   Works,
   Contact,
   AboutUs,
-  AllWorks,
   Services,
   WorkDetails,
   TestimonialForm,
   ViewJob,
   Careers,
-  LearningForm,
   Learning,
   Assets,
 } from "./conponents/lazyLoading";
@@ -101,7 +99,6 @@ function App() {
 
             {/* Nested Route Fix */}
             <Route path="/works" element={<Works />}>
-              <Route path=":id" element={<AllWorks />} />
             </Route>
 
             {/* FOOTER LINKS */}
