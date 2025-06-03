@@ -31,8 +31,8 @@ function Skills() {
       <h4 className="text-3xl lg:text-4xl text-center font-bold bg-gradient-to-r from-accent via-pink-400 mt-4 to-blue-400 bg-clip-text text-transparent montserrat py-2  mb-12">
         Software and framework we use
       </h4>
-      <div className="pointer-events-none absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10" />
-      <div className="pointer-events-none absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-10" />
+      <div className="pointer-events-none absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-white dark:from-gray-900/20 to-transparent z-10" />
+      <div className="pointer-events-none absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-white dark:from-gray-900/10 to-transparent z-10" />
 
       <motion.div
         className="flex relative gap-10 whitespace-nowrap overflow-hidden animate-scroll group:hover:[animation-play-state:paused]  w-full "

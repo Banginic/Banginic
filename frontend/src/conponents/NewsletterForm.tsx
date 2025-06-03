@@ -49,7 +49,7 @@ function NewsletterForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="text-sm bg-white/50 shadow-md dark:bg-black mt-2 p-5 rounded-lg"
+      className="text- bg-white/50 shadow-md dark:bg-black mt-2 p-5 rounded-lg"
     >
       <div className="mb-5 w-full mx-auto items-center gap-3 flex">
         <label htmlFor="email" className="opacity-60 ">
@@ -57,7 +57,7 @@ function NewsletterForm() {
         </label>
         <input
           type="email"
-          className="lg:ml-3 w-full border bg-transparent border-gray-500 py-1.5 rounded-full px-3"
+          className="lg:ml-3 w-full border bg-transparent border-gray-500 py-3 rounded-lg px-3"
           value={newSignee.email}
           required
           autoComplete="email"
@@ -76,7 +76,7 @@ function NewsletterForm() {
           type="checkbox"
           id="checkbox"
           checked={newSignee.checkbox}
-          className="mr-2  cursor-pointer"
+          className="mr-2  cursor-pointer placeholder:text-pink-200 text-white"
           onChange={() =>
             setNewSignee({ ...newSignee, checkbox: !newSignee.checkbox })
           }
@@ -91,7 +91,7 @@ function NewsletterForm() {
       <button
         disabled={disabled}
         type="submit"
-        className={`btn py-2  px-6 rounded-full disabled:bg-gray-400 bg-black dark:bg-accent text-white  w-24 h-8 text-sm hover:opacity-80 trans `}
+        className={`btn py-3  px-6 rounded-lg disabled:bg-gray-400 bg-black dark:bg-accent text-pink-100  w-29 hover:opacity-80 trans `}
       >
         {isLoading ? "Subscribing..." : "Subscribe"}
       </button>

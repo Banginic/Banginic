@@ -2,11 +2,6 @@ import { motion } from "framer-motion";
 import { Employees } from "../conponents/lazyLoading";
 
 function AboutUs() {
-
- 
-  
- 
-
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -15,22 +10,28 @@ function AboutUs() {
       transition={{ duration: 0.6, delay: 0.3 }}
       className=" px-5 2xl:px-20 min-h- mb-[3rem] "
     >
-      <h1 className="mano heading3 text-center">ABOUT US</h1>
-      <p className="text-center text-black/80 dark:text-white/60">
+      <h1 className="text-4xl text-center md:text-5xl font-bold bg-gradient-to-r from-accent  via-pink-400 to-blue-400 bg-clip-text text-transparent montserrat">
+        ABOUT US
+      </h1>
+      <p className="text-center text-[16px] mt-1">
         Driven by Passion. Built on Code. Focused on You.
       </p>
       <div className="flex flex-col lg:flex-row  my-12 mx-auto ">
-        <div className="lg:w-1/2 p-4 lg:p-8 border border-gray-200 shadow-accent/30 shadow-2xl dark:bg-black dark:border-gray-800 bg-white rounded-xl">
-          <h2 className="heading4 mano mb-2">Who Are We</h2>
-          <p className="paragraph1 text-gray-600 dark:text-gray-400 text-start text-sm">
+        <div className="lg:w-1/2 p-6 lg:p-8  shadow-accent/30 shadow-2xl backdrop-blur-sm bg-black/30 rounded-xl">
+          <h2 className="text-2xl lg:text-3xl text-pink-100 font-bold mb-2">
+            Who Are We
+          </h2>
+          <p className="text-[16px] text-gray-600 dark:text-gray-400 text-start ">
             We are passionate about crafting software solutions that transform
             ideas into reality. Our team of skilled developers, designers, and
             problem-solvers work together to create seamless digital
             experiences. .
           </p>
           <div className={` mx-auto mt-8`}>
-            <h3 className="heading4 mano ">Our Mission</h3>
-            <p className=" paragraph1 text-gray-600 dark:text-gray-400">
+            <h3 className="text-2xl lg:text-3xl text-pink-100 font-bold mb-2">
+              Our Mission
+            </h3>
+            <p className=" text-[16px] text-gray-600 dark:text-gray-400">
               We craft high-quality, scalable software solutions tailored to
               your business needs. With a commitment to excellence and a passion
               for innovation, we help companies unlock their full potential
@@ -39,8 +40,8 @@ function AboutUs() {
             </p>
           </div>
           <div className={` mx-auto mt-8`}>
-            <h3 className="heading4 mano ">What Sets Us Apart</h3>
-            <ul className=" paragraph1 text-gray-600 dark:text-gray-400">
+            <h3 className="text-2xl lg:text-3xl text-pink-100 font-bold mb-2">What Sets Us Apart</h3>
+            <ul className=" text-[16px] text-gray-600 dark:text-gray-400">
               <li>Client-first mindset</li>
               <li>Clean, maintainable code</li>
               <li>Attention to design and usability</li>

@@ -6,7 +6,7 @@ function Footer() {
   return (
     <section 
     id="footer"
-    className=" rounded-t-xl lg:w-[95%] mx-auto  bg-accent/10 dark:bg-gray-900/50 text-whit px-5 pt-10 boder-t-2">
+    className=" rounded-t-xl lg:w-[95%] mx-auto  bg-black px-5 pt-10 boder-t-2">
       <div className="flex flex-col md:flex-row gap-10 md:justify-around pb-10">
         <div className="flex flex-col gap-5  ">
           <Logo textSize="font-bold text-3xl lg:text-4xl" logoSize="size-10 " />
@@ -16,7 +16,7 @@ function Footer() {
               <Link
                 key={index}
                 to={link.pathname}
-                className="opacity-80 hover:underline text-neutral-900 dark:text-accent"
+                className="opacity-80 hover:underline text-pink-100"
               >
                 {link.name}
               </Link>
