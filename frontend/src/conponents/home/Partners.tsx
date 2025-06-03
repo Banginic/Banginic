@@ -13,7 +13,7 @@ function Partners() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, delay: 0.5 }}
-        className="heading3 py-[var(--sm-padding)] pb-[var(--md-padding)] text-center montserrat"
+        className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent via-pink-400 mt-4 to-blue-400 bg-clip-text text-transparent montserratpy-[var(--sm-padding)] pb-[var(--md-padding)] text-center montserrat"
       >
         TURSTED BY
       </motion.h2>

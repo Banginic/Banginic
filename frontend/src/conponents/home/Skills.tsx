@@ -22,13 +22,13 @@ function Skills() {
 
   return (
     <motion.section
-      className=" p-5 relative bg-white shadow overflow-hidden dark:bg-gray-900 rounded-md w-full py-8 mx-auto"
+      className=" p-5 relative backdrop-blur-sm bg-black/20 shadow overflow-hidden  rounded-md w-full py-8 mx-auto"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: 0.5 }}
     >
-      <h4 className="montserrat text-center heading3 py-2 mb-12">
+      <h4 className="text-3xl lg:text-4xl text-center font-bold bg-gradient-to-r from-accent via-pink-400 mt-4 to-blue-400 bg-clip-text text-transparent montserrat py-2  mb-12">
         Software and framework we use
       </h4>
       <div className="pointer-events-none absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10" />
@@ -46,7 +46,7 @@ function Skills() {
             return (
               <div className="text-center" key={index}>
                 <div
-                  className="bg-gray-100 dark:bg-gray-800/10 cursor-pointer flex flex-col items-center gap-3 shadow-lg hover:bg-blue-900/20 trans
+                  className="backdrop-blur-sm bg-purple-400/10 cursor-pointer flex flex-col items-center gap-3 shadow-lg hover:bg-blue-900/20 trans
              rounded-lg w-[140px] md:w-[160px] h-[160px] md:lg-[180px] pt-[var(--md-padding)] "
                 >
                   <LazyLoadImage
@@ -60,9 +60,9 @@ function Skills() {
                     }}
                     src={skill.icon}
                   />
-                  <p className="">{skill.percent}</p>
+                  <p className=" text-2xl">{skill.percent}</p>
                 </div>
-                <p className="pt-4 text-accent">{skill.name}</p>
+                <p className="pt-4 text-pink-200 text-lg">{skill.name}</p>
               </div>
             );
           })}

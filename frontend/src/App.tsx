@@ -54,7 +54,6 @@ function App() {
         
      bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white
          `}
-      
     >
       <News />
       <aside
@@ -66,7 +65,7 @@ function App() {
       <header
         className={`${
           appContext?.showNavbar
-            ? "fixed right-2 left-2 top-2 lg:right-5 lg:left-5 shadow rounded-full bg-white dark:bg-black"
+            ? "fixed right-2 left-2 top-2 lg:right-5 lg:left-5 shadow rounded-full backdrop-blur-lg bg-black/30"
             : ""
         } z-40`}
       >

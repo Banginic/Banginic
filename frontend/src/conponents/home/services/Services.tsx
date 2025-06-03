@@ -54,7 +54,7 @@ function Qualities() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="heading3 pt-3 p-2 mano"
+                  className="text-3xl text-pink-200 font-bold pt-3 p-2 man"
                 >
                   {service.title}
                 </motion.p>
@@ -63,7 +63,7 @@ function Qualities() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
-                  className="px-2 paragraph1 text-gray-600 dark:text-gray-400 lg:tracking-wider text-center "
+                  className="px-2 text-lg text-gray-600 dark:text-gray-400 lg:tracking-wider text-center "
                 >
                   {service.details}
                 </motion.p>
