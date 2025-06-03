@@ -11,6 +11,9 @@ import {
   TestimonialForm,
   ViewJob,
   Careers,
+  LearningForm,
+  Learning,
+  Assets,
 } from "./conponents/lazyLoading";
 import {
   Navbar,
@@ -22,7 +25,7 @@ import {
   News,
   Cookies,
   NotFound,
-  RequireAuth
+  RequireAuth,
 } from "./conponents/exportComp";
 import { Routes, Route } from "react-router-dom";
 import { AppContext } from "./context/AppProvider";
@@ -42,21 +45,16 @@ function App() {
     ? "translate-x-0"
     : "-translate-x-full";
 
-  // document.addEventListener("visibilitychange", () => {});
-
-  // window.addEventListener("scroll", () => {
-  //   // return appContext?.removeAllDisplay();
-  // });
-
   // Auth client
   useAuthorized();
 
   return (
     <div
-      className={`relative ${
-        appContext?.theme === "dark" ? "dark-bg" : "light-bg"
-      } text-black dark:text-light ${appContext?.showSidebar ? 'h-screen overflow-hidden' : ''} min-h-screen relative`}
-      // onScroll={() => handleAppScroll()}
+      className={`relative min-h-screen
+        
+     bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white
+         `}
+      
     >
       <News />
       <aside
@@ -83,14 +81,23 @@ function App() {
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/testimonial-form" element={<RequireAuth children={<TestimonialForm />} />} />
+            <Route
+              path="/testimonial-form"
+              element={<RequireAuth children={<TestimonialForm />} />}
+            />
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/login" element={<Login />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/careers/:jobId" element={<RequireAuth children={<ViewJob />} />} />
+            <Route
+              path="/careers/:jobId"
+              element={<RequireAuth children={<ViewJob />} />}
+            />
             <Route path="/project" element={<ProjectCard />} />
             <Route path="/sideBar" element={<SideBar />} />
+            <Route path="/assets" element={<Assets />} />
+            <Route path="/learning" element={<Learning />} />
+            {/* <Route path="/learning-form" element={<LearningForm />} /> */}
             <Route path="/workDetails/:projectId" element={<WorkDetails />} />
 
             {/* Nested Route Fix */}

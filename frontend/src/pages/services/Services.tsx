@@ -14,11 +14,11 @@ function Services() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="text-center min-h-screen"
       >
-        <h1 className="heading3 mano">SERVICES</h1>
-        <p className="text-black/80 dark:text-white/60">
+        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent via-pink-400 to-blue-400 bg-clip-text text-transparent montserrat">SERVICES</h1>
+        <p className="text-lg">
           Services Built to Elevate Your Brand.
         </p>
-        <p className=" text-black/80 dark:text-white/60 px-4">
+        <p className=" px-4 text-lg">
           From Strategy to Execution. Everything You Need to Succeed Online.
         </p>
 
@@ -31,24 +31,24 @@ function Services() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
                 key={index}
-                className={` bg-white
-                 dark:bg-black border border-gray-300/50 dark:border-gray-800/50
-                 shadow-accent/50 hover:shadow-lg
-                  w-sm h-82 lg:w-xl rounded-lg p-8 trans`}
+                className={` 
+                 d border border-gray-300/50 dark:border-gray-800/50
+                 shadow-accent/50 hover:shadow-lg bg-black/20 backdrop-blur-sm
+                  w-sm min-h-82 lg:w-xl rounded-lg p-8 trans`}
               >
                 <span className="flex gap-2 md:gap-5 items-center w-full md:w-52 mb-1  ">
                   <p className="font-bold text-xl md:text-2xl"></p>
-                  <p className={` heading4  text-start text-nowrap `}>
+                  <p className={` text-3xl font-bold text-purple-400 text-start text-nowrap `}>
                     <span className="mano text-accent text-start mr-2">
-                      {index + 1}
+                      {index + 1}.
                     </span>
                     {skill.title}
                   </p>
                 </span>
-                <p className="text-sm subheading text-black/80 dark:text-white/60 mb-4 text-start px-2">
-                  {skill.title}
+                <p className=" subheading text-black/80 dark:text-white/60 mb-4 text-start px-2">
+                  
                 </p>
-                <p className="paragraph1 text-md text-start text-gray-500 px-2">
+                <p className=" text-start text-gray-50 text-lg px-2">
                   {skill.desription}
                 </p>
               </motion.article>
@@ -56,7 +56,7 @@ function Services() {
           })}
           <button
             onClick={() => appContext?.navigate("/contact-us")}
-            className="bg-black border shadow-accent/50 hover:shadow-md hover:opacity-80 trans text-white px-6 py-2 rounded-full cursor-pointer mx-auto my-8"
+            className=" border shadow-accent/50 hover:shadow-md hover:opacity-80 trans text-white px-6 py-2 rounded-lg cursor-pointer mx-auto my-8"
           >
             Let's get started
           </button>

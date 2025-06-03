@@ -15,8 +15,8 @@ function Qualities() {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="text-center p-5 border-t"
       >
-        <h3 className="heading3 pt-1 lg:pt-4 montserrat">SERVICES</h3>
-        <p className="paragraph1 pt-2 opacity-80">
+        <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent via-pink-400 mt-4 to-blue-400 bg-clip-text text-transparent montserrat">SERVICES</h3>
+        <p className="text-lg pt-2 opacity-80">
           We blend, design and code to create websites and mobile apps that not
           only look stunning but also function seamlessly across devices. It’s
           about more than just pixels

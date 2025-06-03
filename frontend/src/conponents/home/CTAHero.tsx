@@ -6,7 +6,7 @@ function CTAHero() {
       <Link to="/contact-us">
         <button
           className="text-sm font-medium flex gap-2 justify-center items-center py-3 lg:text-[17px] cursor-pointer px-6 hover:bg-accent-tone 
-      rounded-full bg-accent text-white montserrat
+      rounded-lg bg-accent text-white montserrat
      "
         >
           Get in touch
@@ -14,7 +14,7 @@ function CTAHero() {
       </Link>
       <Link to="/works/all">
         <button
-          className="text-sm flex montserrat gap-2 justify-center items-center p-3 px-6 lg:text-[17px] rounded-full
+          className="text-sm flex montserrat gap-2 justify-center items-center p-3 px-6 lg:text-[17px] rounded-lg
         shadow-md trans bg-gray-950 dark:bg-gray-800/90 text-white cursor-pointer hover:bg-black/80  trans"
         >
           Projects

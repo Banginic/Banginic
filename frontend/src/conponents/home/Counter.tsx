@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 function Counter() {
   const counter = [
-    { total: "14", para1: "Years of", para2: "Experience" },
-    { total: "50+", para1: "Projects", para2: "Completed" },
-    { total: "1.5K", para1: "Happy", para2: "Clients" },
-    { total: "14", para1: "Years of", para2: "Experience" },
+    { total: "07", para1: "Years of", para2: "Experience" },
+    { total: "37+", para1: "Projects", para2: "Completed" },
+    { total: "50+", para1: "Happy", para2: "Clients" },
+    { total: "07", para1: "Years of", para2: "Experience" },
   ];
 
   return (
@@ -22,7 +22,7 @@ function Counter() {
             key={index}
             className="flex items-center justify-center gap-2  px-2  "
           >
-            <p className="heading1  text-accent mano">{count.total}</p>
+            <p className="heading1  purple-400 mano">{count.total}</p>
             <span className="">
               <p className="paragraph2 opacity-80 ">{count.para1}</p>
               <p className="paragraph2  opacity-80">{count.para2}</p>

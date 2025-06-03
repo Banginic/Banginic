@@ -45,3 +45,16 @@ success: boolean;
   message:string;
   project: Project
 }
+ export interface CourseType {
+    id:number;
+    title:string;
+    description: string;
+    price: number;
+    startDate: string;
+    duration: string;
+    level:string;
+    students: number;
+    rating: number; 
+    features: string[];
+    image: string
+}

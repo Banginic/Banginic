@@ -16,13 +16,11 @@ function Hero() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-2  md:mt-0 text-4xl xl:text-5xl font-bold 2xl:text-[4.5rem] w- z-10 text-left  title-image "
+          className="mt-2  md:mt-0 text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-accent via-pink-400 to-blue-400 bg-clip-text text-transparent w- z-10 text-left  title-image "
         >
-          <span className="montserrat leading-11 lg:leading-14 2xl:leading-17">
-            Building Bold
-            <span className="text-accent"> Digital Experiences </span>
-            That Work Everywhere.
-          </span>
+         
+            Building Bold Digital Experiences That Work Everywhere.
+        
         </motion.h1>
 
         <div className=" md:w-[70%] lg:w-[80%] mt-4 md:static top-24  md:px-0 z-10 ">
@@ -31,7 +29,7 @@ function Hero() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className={`paragraph1  font-bold 2xl:text-2xl text-left mb-10 md:italics text-neutral-600 dark:text-gray-400 ${styles.translate}`}
+            className={` text-lg opacity-70 text-left mb-10 md:italics  ${styles.translate}`}
           >
             We build scalable, speedy, stylish and custom web solutions that last for ever. We
             turn your ideas into high-performing web applications.

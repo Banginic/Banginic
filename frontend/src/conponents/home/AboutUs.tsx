@@ -50,7 +50,7 @@ function AboutUs() {
             MORE THAN JUST A NAME
           </span>
         </motion.h3>
-        <p className="paragraph1 opacity-80">
+        <p className="text-lg opacity-80">
           where innovation meets excellence in software development. We are a
           passionate team of developers, designers, and problem-solvers
           dedicated to crafting high-quality, tailored solutions that empower
@@ -64,7 +64,7 @@ function AboutUs() {
             transition={{ duration: 0.5, delay: 0.4 }}
             title="Go to about page"
             className="py-2 border shadow-accent/20 hover:shadow-lg bEmplorder-black text-sm dark:border-white shadow-sm px-6 mt-9 my-4 round-md lg:text-lg trans
-           hover:opacity-80 rounded-full cursor-pointer hover:bg-black/50"
+           hover:opacity-80 rounded-lg cursor-pointer hover:bg-black/50"
           >
             Read more about us
           </motion.button>

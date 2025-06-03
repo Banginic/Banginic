@@ -106,7 +106,7 @@ export const sidebarLinks = [
   {name:"Projects", pathname: "/works/all", icon:projects},
   {name:"About", pathname: "/about-us", icon:about_us},
   {name:"Contact", pathname: "/contact-us", icon:contact_us},
-  {name:"Classes", pathname: "/classes", icon:tutorial},
+  {name:"Classes", pathname: "/learning", icon:tutorial},
   {name:"Assets", pathname: "/assets", icon:open_source},
   {name:"Careers", pathname: "/careers", icon:jobs}
 ]

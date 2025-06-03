@@ -10,7 +10,7 @@ function Sidebar() {
 
   return (
     <section
-      className="w-full bg-white dark:bg-black h-screen p-6 relative"
+      className="w-full bg-black/50 backdrop-blur-sm h-screen p-6 relative"
       onClick={() => appContext?.setShowSidebar(false)}
     >
       <User />
@@ -32,7 +32,7 @@ function Sidebar() {
                   loading="lazy"
                   
                 />
-                <p className=" ">{link.name}</p>
+                <p className=" text-lg">{link.name}</p>
               </div>
             </NavLink>
           );

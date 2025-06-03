@@ -12,6 +12,9 @@ const ViewJob = lazy(() => import("../pages/ViewJob"));
 const Careers = lazy(() => import("../conponents/footerLinks/Careers"));
 const Employees = lazy(() => import("../conponents/Employees"));
 const ApplyJob = lazy(() => import("./ApplyJob"));
+const Learning = lazy(() => import("../pages/Learning"));
+const Assets = lazy(() => import("../pages/Assets"));
+const LearningForm = lazy(() => import("../pages/LearningForm"));
 
 export {
   Login,
@@ -24,6 +27,9 @@ export {
   ViewJob,
   Careers,
   ApplyJob,
+  Assets,
+  Learning,
   Employees,
+  LearningForm,
   TestimonialForm,
 };
