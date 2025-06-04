@@ -5,12 +5,12 @@ function Hamburger() {
   const appContext = useContext(AppContext);
   return (
     <span
-      className="clickEvent material-symbols-outlined md:hover:bg-slate-400 text-4xl hover:cursor-pointer hover:opacity-80"
+      className="clickEvent material-symbols-outlined hover:bg-black/20 rounded backdrop:blur-sm text-4xl hover:cursor-pointer hover:opacity-80"
       onClick={appContext?.toggleSideBar}
     >
       <div
         title="Toggle side bar"
-        className={` h-8 hover:bg-gray-200 hover:dark:bg-gray-800 trans grid place-items-center`}
+        className={` h-8  trans grid place-items-center`}
       >
         {!appContext?.showSidebar ? (
           <svg

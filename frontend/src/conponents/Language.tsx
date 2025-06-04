@@ -7,7 +7,7 @@ function Language() {
   const appContext = useContext(AppContext);
 
   return (
-    <section className=" bg-white/20 backdrop:blur-sm relative group  hover:bg-white/20 trans shadow-green-400/20  px-2 py-2 rounded cursor-pointer">
+    <section className=" bg-black/20 backdrop:blur-sm relative group w-15  hover:bg-white/20 trans shadow-green-400/20  px-2 py-2 rounded cursor-pointer">
       <button
         title="Change language"
         className="flex items-center gap-1 cursor-pointer  "
@@ -19,7 +19,7 @@ function Language() {
         />
         <span>{appContext?.lang}</span>
       </button>
-      <div className="absolute hidden group-hover:block border border-gray-300 top-10 -right-1 p-2 w-16 rounded">
+      <div className="absolute hidden group-hover:block bg-black/20 backdrop:blur-sm top-9 -right-1 p-2 w-16 rounded">
         <button
           onClick={() => appContext?.setLang("EN")}
           title="English language"

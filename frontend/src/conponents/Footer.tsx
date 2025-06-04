@@ -25,7 +25,7 @@ function Footer() {
         </div>
 
         <div>
-          <h2 className="p-2 text-sm ">
+          <h2 className="p-2 text-sm text-pink-100">
             SUBSCRIBE TO OUR NEWS LETTER AND GET INFORM
           </h2>
           <NewsletterForm />

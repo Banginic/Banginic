@@ -49,7 +49,7 @@ function NewsletterForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="text- bg-white/50 shadow-md dark:bg-black mt-2 p-5 rounded-lg"
+      className="text- bg-white/50 border border-pink-100/50 shadow-md dark:bg-black mt-2 p-5 rounded-lg"
     >
       <div className="mb-5 w-full mx-auto items-center gap-3 flex">
         <label htmlFor="email" className="opacity-60 ">

@@ -1,5 +1,6 @@
 
 import { NavLink } from "react-router-dom";
+import DeveloperLink from "../DeveloperLink";
 
 
 function NavbarLinks() {
@@ -27,6 +28,7 @@ function NavbarLinks() {
           </li>
         );
       })}
+      <DeveloperLink />
 
       <li className="pointer clickEvent">
         <NavLink to="/contact-us" className="">
