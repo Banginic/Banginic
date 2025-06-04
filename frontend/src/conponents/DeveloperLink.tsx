@@ -16,7 +16,7 @@ function DeveloperLink() {
       >
         <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
       </svg>
-      <div className=" p-2 hidden group-hover:block font-normal w-24 text-left px-3 absolute top-6 rounded bg-black/20 backdrop:blur-sm">
+      <div className=" p-3 hidden group-hover:block font-normal w-28 text-left px-3 absolute top-6 rounded bg-black/20 backdrop:blur-sm">
         <p
           onClick={() => appContext?.navigate("/learning")}
           className="cursor-pointer hover:opacity-70"
@@ -28,6 +28,12 @@ function DeveloperLink() {
           className=" mt-1 cursor-pointer hover:opacity-70"
         >
           Assets
+        </p>
+        <p
+          onClick={() => appContext?.navigate("/careers")}
+          className=" mt-1 cursor-pointer hover:opacity-70"
+        >
+          Careers
         </p>
       </div>
     </li>

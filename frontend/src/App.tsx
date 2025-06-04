@@ -48,14 +48,13 @@ function App() {
 
   return (
     <div
-      className={`relative min-h-screen
-        
+      className={`relative min-h-screen 
      bg-gradient-to-br  from-slate-900 via-purple-900 to-slate-900 text-white 
          `}
     >
       <News />
       <aside
-        className={`${showSideBar} md:hidden absolute top-0 bottom-0 left-0 z-50 h-[110dvh] w-[80%]  trans  overflow-hidden`}
+        className={`${showSideBar} md:hidden fixed top-0 bottom-0 left-0 z-50 h-[110dvh] w-[80%]  trans  overflow-hidden`}
       >
         {<SideBar />}
       </aside>
