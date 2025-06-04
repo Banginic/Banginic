@@ -24,9 +24,9 @@ function Home() {
       
       <Hero />
       <div className="md:pt-7 lg:px-1">
-        <ColorLines />
+        {/* <ColorLines /> */}
         <AboutUs />
-        <button>{}</button>
+   
       </div>
       <Counter />
       <Services />

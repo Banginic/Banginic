@@ -9,7 +9,6 @@ import { WorkContext } from "./WorkProvider";
 import { useNavigate } from "react-router-dom";
 import type { NavigateFunction } from "react-router-dom";
 
-
 export interface AppContextType {
   setShowSidebar: React.Dispatch<React.SetStateAction<boolean>>;
   toggleSideBar(): void;
@@ -22,6 +21,8 @@ export interface AppContextType {
   user: string | null;
   setUser: React.Dispatch<React.SetStateAction<string | null>>;
   navigate: NavigateFunction;
+  lang: string;
+  setLang: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -32,9 +33,9 @@ type PropsType = {
 
 function AppProvider({ children }: PropsType) {
   const navigate = useNavigate();
-  
- // const baseUrl = 'http://localhost:8080'
-  const baseUrl = import.meta.env.VITE_BASE_URL
+
+  // const baseUrl = 'http://localhost:8080'
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const workContext = useContext(WorkContext);
   const [user, setUser] = useState<string | null>(
@@ -43,11 +44,11 @@ function AppProvider({ children }: PropsType) {
   const [showNavbar, setShowNavbar] = useState(false);
   const [toggleNavbar, setToggleNavbar] = useState(false);
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
-  const [theme, setTheme] = useState<"dark" | "light" | string >("");
+  const [theme, setTheme] = useState<"dark" | "light" | string>("");
   const [token, setToken] = useState(
     () => localStorage.getItem("token") || null
   );
-
+  const [lang, setLang] = useState("EN");
   const storedTheme = localStorage.getItem("theme");
   const preferedTheme = window.matchMedia(
     "(prefers-color-scheme: dark)"
@@ -129,6 +130,8 @@ function AppProvider({ children }: PropsType) {
     navigate,
     token,
     setToken,
+    lang,
+    setLang,
   };
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 }

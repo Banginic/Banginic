@@ -8,7 +8,7 @@ import { placeholdeImage } from "../../assets/assets";
 function AboutUs() {
   return (
     <section
-      className={` p-5 overflow-hidden flex flex-col md:flex-row items-center lg:h-[400px] rounded-lg gap-10  mt-8`}
+      className={` p-5 overflow-hidden flex flex-col md:flex-row items-center lg:h-[400px] rounded-lg gap-10 `}
     >
       <motion.div
         initial={{ opacity: 0, y: -20 }}

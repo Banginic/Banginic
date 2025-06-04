@@ -72,13 +72,11 @@
 .hide-scrollbar::-webkit-scrollbar{
  display:none;
 }
- a.active{
+.sidebar a.active{
     color: #20b2aa;
-    font-weight: bold;
+  
   }
-  a:hover{
-    text-shadow: 3px 5px 13px #20b2aa;
-  }
+
   input{
     background-color: inherit;
   }

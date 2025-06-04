@@ -8,7 +8,7 @@ import { placeholdeImage } from "../../assets/assets";
 function Hero() {
   return (
     <div
-      className={`h-screen flex overflow-hidden flex-col md:flex-row ${styles.translate} sm:pt-[5rem] p-2 lg:pt-0 items-center md:items-start lg:px-14 `}
+      className={`h-screen flex overflow-hidden flex-col md:flex-row ${styles.translate} sm:pt-[5rem] p-2 lg:pt-0 items-center md:items-start lg:px-14 2xl:pt-[5rem]`}
     >
       <div className=" grid  lg:w-[70%] text-3xl px-10">
         <motion.h1
@@ -16,7 +16,7 @@ function Hero() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-2 montserrat md:mt-0 text-[2.5rem] md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-accent via-pink-400 to-blue-400 bg-clip-text text-transparent w- z-10   title-image "
+          className="mt-2 montserrat md:mt-0 text-[2.5rem] md:text-5xl lg:text-5xl 2xl:text-6xl font-bold bg-gradient-to-r from-accent via-pink-400 to-blue-400 bg-clip-text text-transparent w- z-10   title-image "
         >
          
             Building Bold Digital Experiences That Work Everywhere.
@@ -29,7 +29,7 @@ function Hero() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className={` text-lg  text-left mb-10 md:italics  ${styles.translate} text-pink-200 `}
+            className={` text-lg  text-left mb-10 md:italics  ${styles.translate} text-pink-100/60 `}
           >
             We build scalable, speedy, stylish and custom web solutions that last for ever. We
             turn your ideas into high-performing web applications.
@@ -54,7 +54,7 @@ function Hero() {
       hover:border-purple-800`}
       >
         <LazyLoadImage
-          className="lg:pl-14 absolute md:static  right-0 w-[550px] md:w-[600px] borde lg:h-[400px] 2xl:h-[450px] 2xl:w-[650px]"
+          className="lg:pl-14 absolute md:static right-0 w-[550px] md:w-[600px] borde lg:h-[400px] 2xl:h-[450px] 2xl:w-[650px]"
           alt={placeholdeImage}
           effect="blur"
           aria-label="Hero image"

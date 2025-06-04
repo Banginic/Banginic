@@ -35,7 +35,7 @@ function User() {
           <button
             onClick={() => appContext?.navigate("/login")}
             title="Login page"
-            className="cursor-pointer px-6 rounded py-2 bg-black text-white dark:bg-gray-800 hover:opacity-90 trans"
+            className="cursor-pointer px-6 rounded py-3 bg-gradient-to-br font-semibold text-[16px] from-pink-400 via-purple-400 to-pink-400 hover:opacity-90 trans"
           >
             Login / Create account
           </button>

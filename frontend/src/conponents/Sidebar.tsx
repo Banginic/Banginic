@@ -10,7 +10,7 @@ function Sidebar() {
 
   return (
     <section
-      className="w-full bg-black/30 backdrop-blur-sm h-screen p-6 relative"
+      className="w-full bg-black/50 backdrop-blur-sm h-screen p-6 relative"
       onClick={() => appContext?.setShowSidebar(false)}
     >
       <User />
@@ -20,6 +20,7 @@ function Sidebar() {
             <NavLink
               to={link.pathname}
               key={index}
+              
               className={`w-[80%]  trans text-center  
             hover:bg-accent/10 hover:dark:bg-accent/10 trans rounded `}
             >
@@ -27,8 +28,7 @@ function Sidebar() {
                 <img
                   src={link.icon}
                   alt={link.icon}
-                  height={25}
-                  width={25}
+                  width={35}
                   loading="lazy"
                   
                 />

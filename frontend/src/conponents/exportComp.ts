@@ -35,4 +35,5 @@ export { default as Map } from './Map'
 export { default as News } from './News'
 export { default as Cookies } from './Cookies'
 export { default as RequireAuth } from './RequireAuth'
+export { default as Language } from './Language'
 

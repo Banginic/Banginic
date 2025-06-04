@@ -18,7 +18,7 @@ function Logo(props: Props) {
         }}
         src="/banginic_logo.png"
       />
-      <p className={`${props.textSize} montserrat`}>Banginic</p>
+      <p className={`${props.textSize} montserrat  `}>Banginic</p>
     </div>
   );
 }
