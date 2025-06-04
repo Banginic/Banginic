@@ -10,9 +10,9 @@ function Learning() {
         const [showEnrollForm, setShowEnrollForm] = useState(false);
     
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-       <header className="bg-black/20 backdrop-blur-sm border-b border-purple-500/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div className="min-h-screen ">
+       <header className="">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-accent via-pink-400 to-blue-400 bg-clip-text text-transparent mb-4">
               WebDev Academy
