@@ -8,7 +8,7 @@ import {
   AboutUs,
   Partners,
   Counter,
-  ColorLines,
+  // ColorLines,
    Hero
    
 } from "./exportHomeComp";

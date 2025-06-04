@@ -13,7 +13,7 @@ function AboutUs() {
       <h1 className="text-4xl text-center md:text-5xl font-bold bg-gradient-to-r from-accent  via-pink-400 to-blue-400 bg-clip-text text-transparent montserrat">
         ABOUT US
       </h1>
-      <p className="text-center text-[16px] mt-1">
+      <p className="text-center text-[16px] mt-1 text-pink-50/60 ">
         Driven by Passion. Built on Code. Focused on You.
       </p>
       <div className="flex flex-col lg:flex-row  my-12 mx-auto ">

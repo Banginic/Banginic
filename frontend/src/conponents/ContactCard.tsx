@@ -16,7 +16,7 @@ function ContactCard() {
     {
       icon: location,
       type: "Address",
-      details: "Paphos Cyprus 8025",
+      details: "White Bear Lake, MN USA BP 23421",
     },
   ];
   function sendWhatsAppMessage() {

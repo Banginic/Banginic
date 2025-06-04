@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { WorkContext } from "../../context/expContext";
-import { Hamburger, Logo, NavbarLinks, ThemeButton } from "./exportNavbar";
+import { Hamburger, Logo, NavbarLinks} from "./exportNavbar";
 import Github from "../Github";
 import { Link } from "react-router-dom";
 import Language from "../Language";

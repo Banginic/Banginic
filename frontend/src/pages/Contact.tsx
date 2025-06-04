@@ -11,8 +11,8 @@ function Contact() {
       transition={{ duration: 0.6, delay: 0.3 }}
       className="min-h-screen"
     >
-      <h1 className="text-center heading3 mano">CONTACT US</h1>
-      <p className="text-black/80 dark:text-white/60 text-center">
+      <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent via-pink-400 to-blue-400 bg-clip-text text-transparent montserrat text-center">CONTACT US</h1>
+      <p className="text-lg text-pink-50/60 text-center">
         We appreciate your interest in our services
       </p>
       <div className="flex flex-col justify-around md:flex-row mt-12 2xl:mt-16 2xl:px-30 items-cent">

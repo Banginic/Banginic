@@ -14,11 +14,13 @@ function Services() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="text-center min-h-screen"
       >
-        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent via-pink-400 to-blue-400 bg-clip-text text-transparent montserrat">SERVICES</h1>
-        <p className="text-lg">
+        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent via-pink-400 to-blue-400 bg-clip-text text-transparent montserrat">
+          SERVICES
+        </h1>
+        <p className="text-lg text-pink-50/60 mt-1">
           Services Built to Elevate Your Brand.
         </p>
-        <p className=" px-4 text-lg">
+        <p className=" px-4 text-lg text-pink-50/60 ">
           From Strategy to Execution. Everything You Need to Succeed Online.
         </p>
 
@@ -38,16 +40,16 @@ function Services() {
               >
                 <span className="flex gap-2 md:gap-5 items-center w-full md:w-52 mb-1  ">
                   <p className="font-bold text-xl md:text-2xl"></p>
-                  <p className={` text-3xl font-bold text-purple-400 text-start text-nowrap `}>
+                  <p
+                    className={` text-3xl font-bold text-purple-400 text-start text-nowrap `}
+                  >
                     <span className="mano text-accent text-start mr-2">
                       {index + 1}.
                     </span>
                     {skill.title}
                   </p>
                 </span>
-                <p className=" subheading text-black/80 dark:text-white/60 mb-4 text-start px-2">
-                  
-                </p>
+                <p className=" subheading text-black/80 dark:text-white/60 mb-4 text-start px-2"></p>
                 <p className=" text-start text-gray-50 text-lg px-2">
                   {skill.desription}
                 </p>

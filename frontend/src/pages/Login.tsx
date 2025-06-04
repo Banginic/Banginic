@@ -130,22 +130,21 @@ function Login() {
   return (
     <form
       onSubmit={handlerFormSubmit}
-      className="bg-white dark:bg-black mb-8 p-8 rounded-lg 
+      className="bg-black/40 backdrop:blur-md mb-8 p-8 rounded-lg 
       w-sm borde border-gray-300 dark:border-gray-800 mx-auto shadow-accent/20 shadow-lg"
     >
       <div className="text-start mb-5 ">
         <Logo logoSize="size-8" textSize="heading4" />
-        <h1 className="font-bold ">Welcome to Logo</h1>
-        <p className="text-sm text-gray-500">
+        <p className="t text-pink-100/60">
           {formState} using the form below
         </p>
       </div>
       {formState !== "Login" && (
-        <div className="mb-b">
-          <label htmlFor="fullName" className="block text-start text-sm mb-1">
+        <div className="mb-4">
+          <label htmlFor="fullName" className="block text-start mb-1.5">
             Full Name{" "}
           </label>
-          <div className="border rounded-full py-2 flex items-center px-4 gap-2 border-gray-400 dark:border-gray-800">
+          <div className="border rounded-lg py-3 flex items-center px-4 gap-2 border-pink-50/50 ">
             <img src={person} width={25} alt="" />{" "}
             <input
               type="text"
@@ -164,10 +163,10 @@ function Login() {
         </div>
       )}
       <div className="mb-4">
-        <label htmlFor="email" className="block text-start text-sm mb-1">
+        <label htmlFor="email" className="block text-start text-sm mb-1.5">
           Email{" "}
         </label>
-        <div className="border rounded-full py-2 flex items-center px-4 gap-2 border-gray-400 dark:border-gray-800">
+        <div className="border rounded-lg py-3 flex items-center px-4 gap-2 border-pink-50/50">
           <img src={email} width={25} alt="" />
           <input
             type="text"
@@ -186,10 +185,10 @@ function Login() {
       </div>
       {formState !== "Login" && (
         <div className="mb-4">
-          <label htmlFor="phone" className="block text-start text-sm mb-1">
+          <label htmlFor="phone" className="block text-start text-sm mb-1.5">
             Phone{" "}
           </label>
-          <div className="border rounded-full py-2 flex items-center px-4 gap-2 border-gray-400 dark:border-gray-800">
+          <div className="border rounded-lg py-3 flex items-center px-4 gap-2 border-pink-50/50">
             <img src={call} width={25} alt="" />
             <input
               type="tell"
@@ -211,7 +210,7 @@ function Login() {
         <label htmlFor="password" className="block text-start text-sm mb-1">
           Password
         </label>
-        <div className="relative border rounded-full py-2 flex items-center px-4 gap-2 border-gray-400 dark:border-gray-800">
+        <div className="relative border rounded-lg py-3 flex items-center px-4 gap-2 border-pink-50/50">
           <img src={lock} width={25} alt="" />
           <input
             type={viewPassword}
@@ -236,7 +235,7 @@ function Login() {
         </div>
       </div>
       {formState === "Login" && (
-        <div className="flex items-center font-medium text-xs  justify-between mb-6">
+        <div className="flex items-center font-medium text-sm  justify-between mb-6">
           <label
             htmlFor="rememberMe"
             className="cursor-pointer flex items-center gap-2"
@@ -252,7 +251,7 @@ function Login() {
             />
             Remember me
           </label>
-          <p className="text-indigo-700 hover:underline cursor-pointer">
+          <p className="text-pink-100 hover:underline cursor-pointer">
             Forgot Password
           </p>
         </div>
@@ -262,7 +261,7 @@ function Login() {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full disabled:bg-accent/50 cursor-pointer bg-accent hover:opacity-80 text-white rounded-full py-2 text-sm mb-2"
+        className="w-full disabled:bg-accent/50 cursor-pointer bg-accent hover:opacity-80 text-white text-lg font-semibold rounded-lg py-2.5 bg-gradient-to-br from-pink-400 via-purple-400 to-pink-400 mb-2"
       >
         {isLoading ? "Loding..." : formState}
       </button>
@@ -270,21 +269,21 @@ function Login() {
         {error}
       </p>
       <div className="flex items-center gap-3 mb-3 ">
-        <hr className="border-0.5 border-gray-400 w-1/2 dark:border-gray-800" />
+        <hr className="border-0.5 border-gray-400 w-1/2 " />
         <span className="text-xs">Or</span>
-        <hr className="border-0.5 border-gray-400 w-1/2 dark:border-gray-800" />
+        <hr className="border-0.5 border-gray-400 w-1/2 " />
       </div>
       {/* OAUTH */}
       <button
         type="button"
-        className="text-xs flex items-center gap-2 justify-center font-medium w-full cursor-pointer rounded-full py-2 border mb-4 hover:border-black/10 hover:bg-black/10 border-gray-400 dark:border-gray-800"
+        className="text-sm flex items-center gap-2 justify-center font-medium w-full cursor-pointer rounded-lg py-3 border border-pink-50/30 mb-4 hover:border-black/10 hover:bg-black/10 border-gray-400 "
       >
         <img src={google_logo} alt=" google logo" width={20} />
         Continue with Google
       </button>
       <button
         type="button"
-        className="text-xs flex items-center gap-2 justify-center font-medium w-full cursor-pointer rounded-full py-2 border mb-4 hover:border-black/10  hover:bg-black/10 border-gray-400 dark:border-gray-800"
+        className="text-sm flex items-center gap-2 justify-center font-medium w-full cursor-pointer rounded-lg py-3 border border-pink-50/30 mb-4 hover:border-black/10  hover:bg-black/10 border-gray-400 "
       >
         <img src={apple_logo} alt=" google logo" width={20} />
         Continue with Apple
@@ -294,10 +293,10 @@ function Login() {
       {formState === "Login" ? (
         <p
           onClick={toggleFormState}
-          className="text-xs flex items-center justify-center gap-2 mt-2"
+          className="text-sm flex items-center justify-center gap-2 mt-2"
         >
           <span>Don't have an account?</span>
-          <span className="text-indigo-700  text-sm font-medium cursor-pointer hover:text-indigo-900 hover:underline">
+          <span className="text-accent  text-sm font-medium cursor-pointer hover:text-indigo-900 hover:underline">
             Sign up
           </span>
         </p>
@@ -307,7 +306,7 @@ function Login() {
           className="text-xs flex items-center justify-center gap-2 mt-2"
         >
           <span>Already have an account?</span>
-          <span className="text-indigo-700   text-[16px ] cursor-pointer hover:text-indigo-900 hover:underline">
+          <span className="text-accent   text-[16px ] cursor-pointer hover:text-indigo-900 hover:underline">
             Login
           </span>
         </p>

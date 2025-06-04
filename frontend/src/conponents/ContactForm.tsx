@@ -62,18 +62,17 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className=" shadow-accent/20 shadow-lg p-8 lg:px-12 w-sm lg:w-105 rounded-lg bg-white dark:bg-gray-950/40 text-sm mx-auto md:mx-0"
+      className=" shadow-accent/20 shadow-lg p-8 lg:px-12 w-sm mb-8 lg:w-105 rounded-lg bg-black/30 backdrop:blur-md mx-auto md:mx-0"
     >
       <div className="mb-8 text-black/80 dark:text-white/60">
         <Logo logoSize="size-8" textSize="heading4" />
         <p className="">Please send your message using the form below </p>
-        <p> We look forward to assisting you.</p>
       </div>
       <div>
         <label htmlFor="fullName" className="p-1">
           Full name
         </label>
-        <div className="border border-gray-400 dark:border-gray-600 mt-1 rounded-2xl flex items-center px-4 gap-3 py-2 mb-4">
+        <div className="border border-pink-50/50 mt-1 rounded-lg flex items-center px-4 gap-3 py-2 mb-4">
          <img src={person} width={25} alt=" person icon" aria-label="person icon" />
           <input
             type="text"
@@ -94,7 +93,7 @@ function ContactForm() {
         <label htmlFor="EmailAddress" className="p-1">
           Email address
         </label>
-        <div className="border border-gray-400 dark:border-gray-600 mt-1 rounded-2xl flex items-center px-4 gap-3 py-2 mb-4">
+        <div className="border border-pink-50/50 mt-1 rounded-lg flex items-center px-4 gap-3 py-2 mb-4">
           <img src={email} width={25} alt="" />
           <input
             type="email"
@@ -116,7 +115,7 @@ function ContactForm() {
         <label htmlFor="PhoneNumber" className="p-1">
           Phone number
         </label>
-        <div className="border border-gray-400 dark:border-gray-600 mt-1 px-4 rounded-2xl flex items-center gap-3 py-2 mb-4">
+        <div className="border border-pink-50/50 mt-1 px-4 rounded-lg flex items-center gap-3 py-2 mb-4">
           <img src={call} width={25} alt=" call icon" aria-label="phone icon" />
           <input
             type="tel"
@@ -138,7 +137,7 @@ function ContactForm() {
           Select service
         </label>
         <select
-          className="border bg-white cursor-pointer dark:bg-black/80 border-gray-400 dark:border-gray-600 mt-1  shadow w-full rounded-full  py-2 px-3  mb-4 "
+          className="border  cursor-pointer border-pink-50/50 mt-1  shadow w-full rounded-lg  py-2 px-3  mb-4 "
           id="services"
           value={client.service}
           required
@@ -168,7 +167,7 @@ function ContactForm() {
             rows={4}
             placeholder="Message "
             className="  
-                w-full border  border-gray-400 dark:border-gray-600 mt-1 rounded-lg px-3 py-2 "
+                w-full border border-pink-50/50 mt-1 rounded-lg px-3 py-2 "
           ></textarea>
         </div>
       </div>
@@ -176,7 +175,7 @@ function ContactForm() {
         <button
         type="submit"
         disabled={disableBTN}
-         className=" rounded-full  flex justify-center w-full p-2.5 bg-black border hover:opacity-80 text-white cursor-pointer trans">
+         className=" rounded-lg  flex justify-center w-full p-2.5 bg-gradient-to-br from-pink-400 via-purple-400 to-pink-400 text-lg hover:opacity-80 text-white cursor-pointer trans">
           {
             fetchState.isLoading ? <span className="flex items-center gap-2 "> 
               <Spiner />
