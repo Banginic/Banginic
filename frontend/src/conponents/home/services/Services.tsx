@@ -27,7 +27,7 @@ function Qualities() {
           return (
             <div
               key={index}
-              className="services_children bg-white/90 shadow-accent/20 hover:shadow-lg dark:bg-gray-900/30 md:flex justify-around w-full lg:w-[90%] items-center gap-5 mt-4 lg:mt-10 xl:mt-12  py-[6rem] 
+              className="services_children bg-black/40 backdrop:blur-lg shadow-accent/20 hover:shadow-lg border border-pink-400/20 md:flex justify-around w-full lg:w-[90%] items-center gap-5 mt-4 lg:mt-10 xl:mt-12  py-[6rem] 
                lg:h-[300px] text-center m-auto rounded-md pt-[var(--sm-padding)] trans"
             >
               <motion.div
@@ -63,7 +63,7 @@ function Qualities() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
-                  className="px-2 text-lg text-gray-600 dark:text-gray-400 lg:tracking-wider text-center "
+                  className="px-2 text-lg text-pink-50/80 lg:tracking-wider text-center "
                 >
                   {service.details}
                 </motion.p>

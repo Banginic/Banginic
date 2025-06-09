@@ -28,10 +28,10 @@ function ContactCard() {
     window.open(url, "blank");
   }
   return (
-    <div className="shadow-accent/20 shadow-lg text-sm bg-white dark:bg-gray-950/50  grid gap-1 lg:gap-2 p-8 lg:h-[270px] max-w-150 rounded-md grid-items-center">
+    <div className="shadow-accent/20 shadow-lg text-sm bg-black/20 border border-pink-400/50 backdrop:blur-md grid gap-1 lg:gap-2 p-8 lg:h-[270px] max-w-150 rounded-md grid-items-center">
       <button
         title="click to whatsApp"
-        className=" px-3 text-start cursor-pointer text-pink-100 text-[16px] flex items-center gap-4.5 hover:bg-gray-200/50 hover:dark:bg-gray-800/50 trans rounded w-[300px] mb-1 hover:underline"
+        className=" px-3 text-start cursor-pointer text-pink-100 text-[16px] flex items-center gap-4.5 hover:bg-gray-200/10 hover:dark:bg-gray-800/50 trans rounded w-[300px] mb-1 hover:underline"
         onClick={sendWhatsAppMessage}
       >
         {" "}
@@ -41,7 +41,7 @@ function ContactCard() {
       <a
         href={`tel:${phoneNumber}`}
         title="click to call"
-        className=" px-3 text-start cursor-pointer text-pink-100 text-[16px] flex items-center hover:bg-gray-200/50 hover:dark:bg-gray-800/50 trans rounded w-[300px] mb-1 gap-4 hover:underline"
+        className=" px-3 text-start cursor-pointer text-pink-100 text-[16px] flex items-center hover:bg-gray-200/10  trans rounded w-[300px] mb-1 gap-4 hover:underline"
       >
         {" "}
        <img src={call} width={30} alt="" />
@@ -50,14 +50,14 @@ function ContactCard() {
       <a
         href={emailLink}
         title="click to call"
-        className=" px-3 text-start cursor-pointer text-pink-100 text-[16px] flex items-center hover:bg-gray-200/50 hover:dark:bg-gray-800/50 trans rounded w-[300px] gap-4.5 mb-1.5 hover:underline"
+        className=" px-3 text-start cursor-pointer text-pink-100 text-[16px] flex items-center hover:bg-gray-200/10  trans rounded w-[300px] gap-4.5 mb-1.5 hover:underline"
       >
         <img src={email} width={30} alt="" />
         {emailAddress}
       </a>
       {contactDetails.map((contact, index) => {
         return (
-          <div key={index} className="flex px-3 gap-4 hover:bg-gray-200/50 hover:dark:bg-gray-800/50 trans rounded w-[350px]">
+          <div key={index} className="flex px-3 gap-4 hover:bg-gray-200/10 trans rounded w-[350px]">
             <img src={contact.icon} width={30} alt="" />
             <div
               className="cursor-pointer lg:hover:underline w-full trans "

@@ -14,7 +14,8 @@ export interface AppContextType {
   toggleSideBar(): void;
   removeAllDisplay(): void;
   theme: "light" | "dark" | string;
-  toggleTheme(): void;
+  setTheme: React.Dispatch<React.SetStateAction< 'light' | 'dark' | string>>;
+  // toggleTheme(): void;
   showNavbar: boolean;
   showSidebar: boolean;
   baseUrl: string;
@@ -49,40 +50,41 @@ function AppProvider({ children }: PropsType) {
     () => localStorage.getItem("token") || null
   );
   const [lang, setLang] = useState("EN");
-  const storedTheme = localStorage.getItem("theme");
-  const preferedTheme = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
 
-  //  CHECK FOR PREFERS THEME
-  function themeFunction() {
-    document.documentElement.classList.toggle(
-      "dark",
-      storedTheme === "dark" || (!storedTheme && preferedTheme)
-    );
-  }
-  function toggleTheme() {
-    if (storedTheme && storedTheme === "dark") {
-      setTheme("light");
-      localStorage.removeItem("theme");
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.toggle("dark");
-    } else {
-      setTheme("dark");
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.toggle("dark");
-    }
-  }
+  // const storedTheme = localStorage.getItem("theme");
+  // const preferedTheme = window.matchMedia(
+  //   "(prefers-color-scheme: dark)"
+  // ).matches;
 
-  useEffect(() => {
-    themeFunction();
-  }, []);
+  // //  CHECK FOR PREFERS THEME
+  // function themeFunction() {
+  //   document.documentElement.classList.toggle(
+  //     "dark",
+  //     storedTheme === "dark" || (!storedTheme && preferedTheme)
+  //   );
+  // }
+  // function toggleTheme() {
+  //   if (storedTheme && storedTheme === "dark") {
+  //     setTheme("light");
+  //     localStorage.removeItem("theme");
+  //     localStorage.setItem("theme", "light");
+  //     document.documentElement.classList.toggle("dark");
+  //   } else {
+  //     setTheme("dark");
+  //     localStorage.setItem("theme", "dark");
+  //     document.documentElement.classList.toggle("dark");
+  //   }
+  // }
 
-  //  STORE THEME TO LOCAL STORAGE ON CHANGE
-  useEffect(() => {
-    const currentTheme = localStorage.getItem("theme");
-    currentTheme ? setTheme(currentTheme) : setTheme("dark");
-  }, [theme]);
+  // useEffect(() => {
+  //   themeFunction();
+  // }, []);
+
+  // //  STORE THEME TO LOCAL STORAGE ON CHANGE
+  // useEffect(() => {
+  //   const currentTheme = localStorage.getItem("theme");
+  //   currentTheme ? setTheme(currentTheme) : setTheme("dark");
+  // }, [theme]);
 
   function toggleSideBar() {
     setShowSidebar(!showSidebar);
@@ -121,8 +123,8 @@ function AppProvider({ children }: PropsType) {
     setShowSidebar,
     toggleSideBar,
     removeAllDisplay,
-    theme,
-    toggleTheme,
+    theme, setTheme,
+    // toggleTheme,
     showNavbar,
     baseUrl,
     user,

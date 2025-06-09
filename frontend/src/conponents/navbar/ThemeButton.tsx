@@ -7,7 +7,7 @@ function ThemeButton() {
   const appContext = useContext(AppContext);
   return (
     <div
-      onClick={appContext?.toggleTheme}
+      // onClick={appContext?.toggleTheme}
       className={` ${styles.theme_icon} rounded-full  md:block hover`}
       title="change theme"
       aria-label="Toggle theme"

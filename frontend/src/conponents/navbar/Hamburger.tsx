@@ -15,7 +15,7 @@ function Hamburger() {
         {!appContext?.showSidebar ? (
           <svg
             width="50px"
-            className={`size-8  stroke-black dark:stroke-white w-14`}
+            className={`size-8  stroke-white dark:stroke-white w-14`}
             height="50px"
             viewBox="0 0 24 24"
             fill="none"
@@ -32,7 +32,7 @@ function Hamburger() {
           <svg
             width="50px"
             height="50px"
-            className={`size-6 stroke-black dark:stroke-white  w-14`}
+            className={`size-6 stroke-white dark:stroke-white  w-14`}
             viewBox="0 0 24 24"
             fill="white"
             stroke="white"

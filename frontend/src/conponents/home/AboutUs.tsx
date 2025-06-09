@@ -36,7 +36,7 @@ function AboutUs() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className=" flex flex-col justify-center shadow-lg bg-white md:h-[400px] lg:h-[350px]  dark:bg-black/30 p-5 lg:px-8 py-10 mb-7 rounded-lg "
+        className=" flex flex-col justify-center shadow-lg md:h-[400px] lg:h-[350px] bg-black/30 backdrop:blur-lg p-5 lg:px-8 py-10 mb-7 rounded-lg "
       >
         <motion.h3
           initial={{ opacity: 0, y: 20 }}

@@ -86,7 +86,7 @@ function Employees() {
   return (
     <div className="my-20 lg:mt-0 relative min-h-[550px] lg:w-1/2">
       <article
-        className=" shadow-accent/50 max-w-sm md:w-md h-[500px] shadow-lg hover:shadow-xl trans dark:border border-gray-700  lg:w-sm min-h-92
+        className=" shadow-accent/50 max-w-sm md:w-md h-[500px] shadow-lg hover:shadow-xl trans dark:border border-pink-400/50  lg:w-sm min-h-92
             mx-auto rounded-xl p-4 text-center "
       >
         <motion.div
@@ -110,11 +110,11 @@ function Employees() {
         </motion.div>
         <div className="-translate-y-10">
           <h3 className="text-lg font-bold mt-4  ">{employee?.fullName}</h3>
-          <p className=" mano text-gray-600 dark:text-gray-400">
+          <p className=" mano text-gray-300 ">
             {employee?.position}
           </p>
           <p className="text-accent">{employee?.qualification}</p>
-          <p className="text-sm text-gray-500 my-2 overflow-hidden rounded h-23 ">
+          <p className="text-sm text-gray-400 my-2 overflow-hidden rounded h-23 ">
             {employee?.motivation}
           </p>
         </div>
@@ -130,7 +130,7 @@ function Employees() {
             onClick={() => setCurrentIndex(index)}
             className={`size-3 ${
               currentIndex === index ? "w-6" : ""
-            } rounded-full bg-neutral-500 cursor-pointer`}
+            } rounded-full bg-gray-300 cursor-pointer`}
           ></span>
         ))}
       </div>
@@ -143,7 +143,7 @@ function Employees() {
           height="24px"
           viewBox="0 -960 960 960"
           width="24px"
-          className="fill-gray-300 dark:fill-gray-800 dark:hover:fill-white size-full hover:fill-black trans"
+          className="fill-gray-300  size-full hover:fill-black trans"
         >
           <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
         </svg>

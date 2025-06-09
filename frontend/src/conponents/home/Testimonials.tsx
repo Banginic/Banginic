@@ -105,7 +105,7 @@ function Testimonials() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <article className="bg-white shadow-lg border mx-auto border-gray-200 dark:border-gray-950 rounded-lg  dark:bg-gray-900/50 relative p-5 md:w-xs lg:w-sm h-110">
+          <article className="bg-black/20 backdrop:blur-sm shadow-lg border mx-auto border-pink-400/50  rounded-lg  relative p-5 md:w-xs lg:w-sm h-110">
             <div className="flex items-center justify-between p-3">
               <LazyLoadImage
                 className="size-[64px] lg:size-[80px] bg-blue-300 rounded-full shadow"
@@ -120,7 +120,7 @@ function Testimonials() {
               />
               <StarRating rating={current?.rating} />
             </div>
-            <p className="text-lg mt-4 p-4 text-center text-gray-500 italic ">
+            <p className="text-lg mt-4 p-4 text-center text-gray-300 italic ">
               <span className="text-accent text-xl right-5">&ldquo;</span>
               {current?.message}
               <span className="text-accent text-xl right-5">&ldquo;</span>
