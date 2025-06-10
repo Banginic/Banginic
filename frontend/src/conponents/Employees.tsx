@@ -86,7 +86,7 @@ function Employees() {
   return (
     <div className="my-20 lg:mt-0 relative min-h-[550px] lg:w-1/2">
       <article
-        className=" shadow-accent/50 max-w-sm md:w-md h-[500px] shadow-lg hover:shadow-xl trans dark:border border-pink-400/50  lg:w-sm min-h-92
+        className=" shadow-accent/50 max-w-sm md:w-md h-[500px] shadow-lg hover:shadow-xl trans dark:border border-pink-400/50 bg-gradient-to-b from-white to-pink-50 lg:w-sm min-h-92
             mx-auto rounded-xl p-4 text-center "
       >
         <motion.div
@@ -109,12 +109,12 @@ function Employees() {
           />
         </motion.div>
         <div className="-translate-y-10">
-          <h3 className="text-lg font-bold mt-4  ">{employee?.fullName}</h3>
-          <p className=" mano text-gray-300 ">
+          <h3 className="text-lg font-bold mt-4 text-black ">{employee?.fullName.toUpperCase()}</h3>
+          <p className=" mano text-pink-400 ">
             {employee?.position}
           </p>
           <p className="text-accent">{employee?.qualification}</p>
-          <p className="text-sm text-gray-400 my-2 overflow-hidden rounded h-23 ">
+          <p className="text-[17px] text-black/80 my-2 overflow-hidden rounded h-23 ">
             {employee?.motivation}
           </p>
         </div>

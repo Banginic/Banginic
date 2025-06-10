@@ -82,7 +82,7 @@
   }
   input::placeholder,
   textarea::placeholder{
-    color:rgba(245, 220, 224, 0.473);
+    color:rgba(82, 58, 80, 0.473);
     background-color: inherit;
   }
   body .light_bg{

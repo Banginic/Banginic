@@ -50,11 +50,11 @@ function Hero() {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, delay: 0.5 }}
         className={`w-[320px] absolute md:static  h-[400px] md:w-[600px] md:h-[300px] lg:h-[500px] lg:w-[500px] 
-         md:opacity-85  m-auto md:m-0 top-[30rem] lg:mt-10 right-10 trans
+         md:opacity-85  m-auto md:m-0 top-[38rem] lg:mt-10 right-10 trans
       hover:border-purple-800`}
       >
         <LazyLoadImage
-          className="lg:pl-14 absolute md:static right-0 w-[550px] md:w-[600px] borde lg:h-[400px] 2xl:h-[450px] 2xl:w-[650px]"
+          className="lg:pl-14 md:static right-0 w-[350px] md:w-[600px] borde lg:h-[400px] 2xl:h-[450px] 2xl:w-[650px]"
           alt={placeholdeImage}
           effect="blur"
           aria-label="Hero image"

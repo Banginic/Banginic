@@ -13,11 +13,11 @@ function User() {
             title="Visit profile"
             alt="logo"
             src={person}
-            className="size-12 rounded-full cursor-pointer bg-gray-200 dark:bg-900"
+            className="size-12 rounded-full cursor-pointer dark:bg-900"
           />
           <p className="flex gap-2 text-accent">
             <span>Hello!</span>
-            <span>Boris</span>
+            <span>User</span>
           </p>
           <button
             title="Log out"

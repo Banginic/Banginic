@@ -77,29 +77,29 @@ function Careers() {
   return (
     <div className="min-h-screen ">
       <h1 className="heading3 mano text-center">AVAILABLE JOBS</h1>
-      <div className="border border-gray-200 bg-white dark:bg-black dark:border-gray-800 shadow-lg lg:w-2xl mt-8 mx-auto rounded-sm p-4 ">
+      <div className="border border-gray-200  dark:border-gray-800 bg-black shadow-lg lg:w-2xl mt-8 mx-auto rounded-sm p-4 ">
         {data &&
           data.jobs.map((job) => (
             <Link key={job._id} to={`/careers/${job._id}`}>
               <article
                 title={`View Job ID ${job._id}`}
-                className="flex justify-around md:grid-cols-4 mx-auto  text-sm  bg-gray-100/50 border border-gray-400/10 dark:bg-gray-900/30 my-2  hover:bg-gray-200 dark:hover:bg-gray-800 px-4 py-2 rounded-sm trans cursor-pointer"
+                className="flex justify-around md:grid-cols-4 mx-auto  text-sm  bg-gray-800 backdrop:blur-sm border border-gray-400/10  my-2 hover:bg-white/20 px-4 py-2 rounded-sm trans cursor-pointer"
               >
                 <div className="mb-2 sr-only">
                   <h3 className="text-gray-500">Job ID</h3>
                   <p>{job._id}</p>
                 </div>
                 <div className="mb-2 flex-1">
-                  <h3 className="text-gray-500">Job Title</h3>
+                  <h3 className="text-pink-100/70">Job Title</h3>
                   <p>{job.title}</p>
                 </div>
                 <div className="mb-2 flex-1">
-                  <h3 className="text-gray-500">Location</h3>
+                  <h3 className="text-pink-100/70">Location</h3>
                   <p>{job.location}</p>
                 </div>
                 <div className="mb-2">
-                  <h3 className="text-gray-500">Posted Date</h3>
-                  <p className="text-green-500">
+                  <h3 className="text-pink-100/70">Posted Date</h3>
+                  <p className="text-green-300">
                     {new Date(job.postedDate).toLocaleDateString('en-GB')}
                   </p>
                 </div>

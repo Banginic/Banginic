@@ -62,7 +62,7 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className=" shadow-accent/20 shadow-lg p-8 lg:px-12 w-sm mb-8 lg:w-105 border border-pink-400/50 rounded-lg bg-black/30 backdrop:blur-md mx-auto md:mx-0"
+      className=" shadow-accent/20 shadow-lg p-8 lg:px-12 w-sm mb-8 lg:w-105 border border-pink-400/50 rounded-lg bg-black mx-auto md:mx-0"
     >
       <div className="mb-8 ">
         <Logo logoSize="size-8" textSize="heading4" />
@@ -72,7 +72,7 @@ function ContactForm() {
         <label htmlFor="fullName" className="p-1">
           Full name
         </label>
-        <div className="border border-pink-50/50 mt-1 rounded-lg flex items-center px-4 gap-3 py-2 mb-4">
+        <div className="border border-pink-50/50 mt-1 rounded-lg flex items-center px-4 gap-3 py-3 mb-4">
          <img src={person} width={25} alt=" person icon" aria-label="person icon" />
           <input
             type="text"
@@ -93,7 +93,7 @@ function ContactForm() {
         <label htmlFor="EmailAddress" className="p-1">
           Email address
         </label>
-        <div className="border border-pink-50/50 mt-1 rounded-lg flex items-center px-4 gap-3 py-2 mb-4">
+        <div className="border border-pink-50/50 mt-1 rounded-lg flex items-center px-4 gap-3 py-3 mb-4">
           <img src={email} width={25} alt="" />
           <input
             type="email"
@@ -115,7 +115,7 @@ function ContactForm() {
         <label htmlFor="PhoneNumber" className="p-1">
           Phone number
         </label>
-        <div className="border border-pink-50/50 mt-1 px-4 rounded-lg flex items-center gap-3 py-2 mb-4">
+        <div className="border border-pink-50/50 mt-1 px-4 rounded-lg flex items-center gap-3 py-3 mb-4">
           <img src={call} width={25} alt=" call icon" aria-label="phone icon" />
           <input
             type="tel"
@@ -137,7 +137,7 @@ function ContactForm() {
           Select service
         </label>
         <select
-          className="border  cursor-pointer border-pink-50/50 mt-1  shadow w-full rounded-lg  py-2 px-3  mb-4 "
+          className="border  cursor-pointer border-pink-50/50 mt-1  shadow w-full rounded-lg  py-3 px-3  mb-4 "
           id="services"
           value={client.service}
           required
@@ -175,7 +175,7 @@ function ContactForm() {
         <button
         type="submit"
         disabled={disableBTN}
-         className=" rounded-lg  flex justify-center w-full p-2.5 bg-gradient-to-br from-pink-400 via-purple-400 to-pink-400 text-lg hover:opacity-80 text-white cursor-pointer trans">
+         className=" rounded-lg  flex justify-center w-full p-3 bg-gradient-to-br from-pink-400 via-purple-400 to-pink-400 text-lg hover:opacity-80 text-white cursor-pointer trans">
           {
             fetchState.isLoading ? <span className="flex items-center gap-2 "> 
               <Spiner />

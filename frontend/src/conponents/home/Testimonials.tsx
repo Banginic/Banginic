@@ -125,7 +125,7 @@ function Testimonials() {
               {current?.message}
               <span className="text-accent text-xl right-5">&ldquo;</span>
             </p>
-            <p className="heading4 mano text-gray-800 dark:text-gray-300 text-center mt-5">
+            <p className="heading4 mano text-gray-300 text-center mt-5">
               {current?.projectName}
             </p>
             <div className="grid">

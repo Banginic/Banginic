@@ -39,7 +39,7 @@ function Cookies() {
           <button
             title="Reject cookies"
             onClick={declineCookie}
-            className="ml-2 px-6 py-1 border rounded text-sm cursor-pointer"
+            className="ml-2 px-6 py-1 text-black border rounded text-sm cursor-pointer"
           >
             No! Thank you
           </button>

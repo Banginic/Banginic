@@ -98,7 +98,7 @@ function ApplyJob(props: Props) {
       <div className="h-screen grid place-items-center">
         <div>
           <h3 className="heading3 text-center">{error}</h3>
-          <p className="text-center text-gray-500">
+          <p className="text-center text-gray-400">
             <a href="#footer" className="text-indigo-700 underline font-bold">
               Subscribe
             </a>{" "}
@@ -111,10 +111,10 @@ function ApplyJob(props: Props) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-sm border mx-auto shadow-accent/20 shadow-xl mt-12 lg:mt-8 border-gray-200 bg-white/50 dark:border-gray-800/50 dark:bg-gray-900/50 rounded-lg p-6 text-sm"
+      className="w-sm border mx-auto shadow-accent/20 shadow-xl mt-12 lg:mt-8 border-pink-200 bg-white text-black backdrop:blur-sm dark:border-gray-800/50 dark:bg-gray-900/50 rounded-lg p-6 text-sm"
     >
       <Logo textSize="heading4" logoSize="size-8" />
-      <p className="text-neutral-500">
+      <p className="t">
         Apply for this job using the form below.
       </p>
       <div className="mb-4 mt-8">
@@ -131,7 +131,7 @@ function ApplyJob(props: Props) {
           placeholder="John Smith"
           maxLength={25}
           minLength={3}
-          className="border w-full py-2 px-4 rounded-xl border-gray-700/50 bg-transparent"
+          className="border w-full py-3 px-4 rounded-xl  border-gray-700/70 bg-transparent"
         />
       </div>
       <div className="mb-4 ">
@@ -148,7 +148,7 @@ function ApplyJob(props: Props) {
           placeholder="example@email.com"
           maxLength={25}
           minLength={3}
-          className="border w-full py-2 px-4 rounded-xl border-gray-700/50 bg-transparent"
+          className="border w-full py-3 px-4 rounded-xl border-gray-700/70 bg-transparent"
         />
       </div>
       <div className="mb-4 ">
@@ -165,7 +165,7 @@ function ApplyJob(props: Props) {
           placeholder="+1 343 3433 0030"
           maxLength={25}
           minLength={3}
-          className="border w-full py-2 px-4 rounded-lg border-gray-700/50 bg-transparent"
+          className="border w-full py-3 px-4 rounded-xl border-gray-700/70 bg-transparent"
         />
       </div>
       <div className="mb-4 ">
@@ -181,7 +181,7 @@ function ApplyJob(props: Props) {
           name="motivation"
           placeholder="Motivation letter"
           rows={4}
-          className="border w-full py-2 px-4 rounded-lg border-gray-700/50 bg-transparent"
+          className="border w-full py-2 px-4 rounded-lg border-gray-700/70 bg-transparent"
         ></textarea>
       </div>
       <div className="mb-4 ">
@@ -195,19 +195,19 @@ function ApplyJob(props: Props) {
             accept=".pdf, .doc, .docx"
             onChange={handleChange}
             required
-            className="border border-gray-700/50 w-full cursor-pointer mt-1 py-2 px-4 rounded-md"
+            className="border py-3 px-4 rounded-xl border-gray-700/70 w-full cursor-pointer mt-1"
           />
         </label>
       </div>
       <button
         type="submit"
         disabled={disableBTN}
-        className="bg-black disabled:cursor-not-allowed flex justify-center items-center dark:bg-accent text-white text-sm py-2 cursor-pointer hover:opacity-90 trans px-6 w-full rounded-xl mt-4 disabled:bg-gray-400 dark:disabled:bg-gray-800"
+        className="bg-black disabled:cursor-not-allowed flex justify-center items-center dark:bg-accent text-white text-sm py-3 cursor-pointer hover:opacity-90 trans px-6 w-full rounded-xl mt-4 disabled:bg-gray-400 dark:disabled:bg-gray-800"
       >
        {
             isPending ? <span className="flex items-center gap-2 "> 
               <Spiner />
-               Appying... </span> : 'Apply'
+               Appying... </span> : 'Send Application'
           }
       </button>
       <p className="text-red-500 text-center h-5 mt-1">{error}</p>
