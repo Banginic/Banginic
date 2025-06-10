@@ -6,7 +6,7 @@ function User() {
   const appContext = useContext(AppContext);
 
   return (
-    <section className="text-center p-2 rounded bg-gray-100/50 dark:bg-gray-900/50 ">
+    <section className="text-center p-2 rounded bg-gray-900/50 ">
       {localStorage.getItem("token") ? (
         <div className="flex flex-col items-center gap-2  py-2">
           <img
@@ -25,7 +25,7 @@ function User() {
               window.localStorage.removeItem('user');
               appContext?.navigate("/");
             }}
-            className="px-6 py-2 rounded bg-red-400 text-red-200 cursor-pointer hover:bg-red-500"
+            className="px-6 py-2 rounded b text-red-200 cursor-pointer border"
           >
             Log out
           </button>

@@ -114,7 +114,7 @@ function Testimonials() {
                 aria-label="happy customers image"
                 loading="lazy"
                 wrapperProps={{
-                  style: { transition: "1s" },
+                  style: { transition: "1s" }
                 }}
                 src={current?.photo || person}
               />
