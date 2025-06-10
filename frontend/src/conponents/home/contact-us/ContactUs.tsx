@@ -8,7 +8,7 @@ function ContactUs() {
     <section
       className={`relative  bg-no-repeat bg-cover  rounded-lg  pt-5 py-10 mt-[var(--md-padding)]`}
     >
-      <h2 className="absolute text-3xl top-8 md:text-black left-1/2 -translate-x-[50%] text-center font-bold bg-gradient-to-r from-accent via-pink-400 mt-4 to-blue-400 bg-clip-text text-transparent montserrat ">
+      <h2 className="absolute text-3xl top-8 left-1/2 -translate-x-[50%] text-center font-bold bg-gradient-to-r from-accent via-pink-400 mt-4 to-blue-400 bg-clip-text text-transparent montserrat ">
         CONTACT US
       </h2>
       <div className="  rounded-lg md:ml-8 shadow-sm  h-full md:max-w-1/2 gap-12 p-5 mt-24 ">

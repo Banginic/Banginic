@@ -12,7 +12,7 @@ function CTAHero() {
           Get in touch
         </button>
       </Link>
-      <Link to="/works/all">
+      <Link to="/works">
         <button
           className="text-sm flex montserrat gap-2 justify-center items-center p-3 px-6 lg:text-[17px] rounded-lg
         shadow-md trans bg-gray-950 dark:bg-gray-800/90 text-white cursor-pointer hover:bg-black/80  trans"

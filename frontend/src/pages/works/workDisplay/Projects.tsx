@@ -35,12 +35,11 @@ function Works() {
 
   function handleActiveTabs({ isActive }: { isActive: boolean }) {
     const active = isActive
-      ? appContext?.theme === "dark"
-        ? "bg-accent/60 text-white"
-        : "bg-accent text-white  "
-      : "bg-accent/10";
+        ? "bg-pink-400 text-white"
+        : "bg-accent/20 hover:bg-accent/40 text-white  "
+   
     return clsx(
-      "text-sm sm:hover:bg-accent/40 md:hover:text-accent rounded-lg trans snap-start px-6 py-1.5",
+      "rounded-lg trans snap-start px-6 py-3",
       active
     );
   }
@@ -73,7 +72,7 @@ function Works() {
           <h2 className="heading3">Error fetching projects</h2>
           <p>Please try again later</p>
           <button
-            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 mt-1 px-4 py-1 rounded cursor-pointer"
+            className="border mt-1 px-4 py-1 rounded cursor-pointer"
             onClick={() => refetch()}
           >
             Retry
@@ -102,8 +101,8 @@ function Works() {
       className={`min-h-screen trans `}
     >
       <div className=" text-center lg:w-[80%] mx-auto  ">
-        <h1 className=" heading3 mano">OUR PROJECTS</h1>
-        <p className="text-gray-600 dark:text-white/80">
+        <h1 className=" text-4xl md:text-5xl font-bold bg-gradient-to-r mb-2 from-accent via-pink-400 to-blue-400 bg-clip-text text-transparent montserrat text-center">OUR PROJECTS</h1>
+        <p className="max-w-xl text-center mx-auto text-[18px] px-2">
           Each project we take on is driven by a deep understanding of our
           clients’ goals, ensuring that we create solutions that have a lasting
           impact.
@@ -113,10 +112,10 @@ function Works() {
       <section
         className="overflow-x-scroll hide-scrollbar
       snap-x snap-mandatory
-       md:overflow-hidden my-8 md:w-[90%] lg:w-[60%] mx-1.5 md:mx-auto bg-gray-200/50 dark:bg-gray-800/40  rounded-lg"
+       md:overflow-hidden my-8 md:w-[90%] lg:w-[60%] mx-1.5 md:mx-auto bg-white/20 backdrop:blur-sm  md:rounded-lg "
       >
         <ul
-          className="justify-between py-3 gap-4 flex items-center 
+          className="justify-around md:justify-between py-3 gap-4 flex items-center 
        m-auto p-3 rounded-full "
         >
           {skillsLinks.map((link, index) => {
@@ -141,7 +140,7 @@ function Works() {
         {result.map((project) => (
           <article
             key={project._id}
-            className="rounded-lg shadow-accent/50  trans mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8"
+            className="rounded-lg shadow-accent/50  trans mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group md:h-[430px] border hover:shadow-lg overflow-hidden my-8"
           >
             <LazyLoadImage
               className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
@@ -156,17 +155,17 @@ function Works() {
                 project.photos.length > 0 ? project.photos[0] : placeholdeImage
               }
             />
-            <div className="p-4 bg-white dark:bg-gray-900/50">
-              <h2 className="font-bold text-xl mt-4 mb-2">
+            <div className="p-4 bg-white backdrop:blur-lg h-full ">
+              <h2 className="font-bold text-xl mt-4 mb-2 text-black">
                 {project.projectName}
               </h2>
-              <p className="text-gray-500">{project.description}</p>
+              <p className="text-gray-600">{project.description}</p>
               <button
                 onClick={() =>
                   appContext?.navigate(`/workDetails/${project._id}`)
                 }
                 title="View Project"
-                className="my-4 text-bold md:w-30 text-nowrap md:hover:w-35 shadow-md border border-gray-500 px-5 text-sm rounded-full py-1.5 flex items-center gap-2 cursor-pointer trans hover:bg-black hover:text-white"
+                className="my-4 text-bold bg-black md:w-30 text-nowrap md:hover:w-35 shadow-md border border-gray-500 px-5 text-sm rounded-full py-1.5 flex items-center gap-2 cursor-pointer trans hover:bg-black hover:text-white"
               >
                 <p>View Project</p>
                 <svg

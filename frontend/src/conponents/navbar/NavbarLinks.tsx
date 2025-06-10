@@ -8,7 +8,7 @@ function NavbarLinks() {
   const navLinks = [
     { name: "Home", pathName: "/" },
     { name: "Services", pathName: "/services" },
-    { name: "Projects", pathName: "/works/all" },
+    { name: "Projects", pathName: "/works" },
     { name: "About", pathName: "/about-us" },
   ];
   return (

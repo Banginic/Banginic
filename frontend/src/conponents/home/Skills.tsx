@@ -35,7 +35,7 @@ function Skills() {
       <div className="pointer-events-none absolute top-0 right-0 h-full w-16 bg-gradient-to-l  to-transparent z-10" />
 
       <motion.div
-        className="flex relative gap-10 whitespace-nowrap overflow-hidden animate-scroll group:hover:[animation-play-state:paused]  w-full "
+        className="flex relative gap-10 whitespace-nowrap overflow-hidden scroll-content w-full "
         initial={{ opacity: 0.2, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
@@ -44,7 +44,10 @@ function Skills() {
         {cards &&
           cards.map((skill, index) => {
             return (
-              <div className="text-center" key={index}>
+              <div
+                className="text-center animate-scroll  group:hover:[animation-play-state:paused] "
+                key={index}
+              >
                 <div
                   className="backdrop-blur-sm bg-purple-400/10 cursor-pointer flex flex-col items-center gap-3 shadow-lg hover:bg-blue-900/20 trans
              rounded-lg w-[140px] md:w-[160px] h-[160px] md:lg-[180px] pt-[var(--md-padding)] "
@@ -54,7 +57,7 @@ function Skills() {
                     alt={placeholdeImage}
                     effect="blur"
                     aria-label="framework image"
-                     loading="lazy"
+                    loading="lazy"
                     wrapperProps={{
                       style: { transition: "1s" },
                     }}
@@ -68,21 +71,13 @@ function Skills() {
           })}
       </motion.div>
       <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-scroll {
-          animation: scroll 20s linear infinite;
-        }
-
-        .group:hover .animate-scroll {
-          animation-play-state: paused;
+      .scroll-content{
+      animation:scrolling 20s linear infinite
+      }
+        @keyframes scrolling {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-1 * 200 * 8)); }
+}
         }
       `}</style>
     </motion.section>

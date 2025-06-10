@@ -54,8 +54,8 @@ function RecentWorks() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <h3 className="heading3 montserrat">RECENT PROJECTS</h3>
-          <p className="paragraph1 text-gray-600 dark:text-gray-400 px-2">
+          <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent via-pink-400 to-blue-400 bg-clip-text text-transparent montserrat text-center">RECENT PROJECTS</h3>
+          <p className="text-[18px] px-2">
             These recent projects reflect our commitment to clean code,
             thoughtful design, and real results
           </p>
@@ -83,11 +83,11 @@ function RecentWorks() {
                   : placeholdeImage
               }
             />
-            <div className="p-4 bg-white dark:bg-gray-900/50 h-full">
-              <h2 className="font-bold text-xl mt-4 mb-2">
+            <div className="p-4 bg-white h-full">
+              <h2 className="font-bold text-xl mt-4 mb-2 text-black">
                 {project.projectName}
               </h2>
-              <p className="text-gray-500 overflow-hidden truncat h-20">
+              <p className="text-gray-600 overflow-hidden truncat h-20">
                 {project.description}
               </p>
               <button
@@ -95,7 +95,7 @@ function RecentWorks() {
                   appContext?.navigate(`/workDetails/${project._id}`)
                 }
                 title="View Project"
-                className="my-4 text-bold md:w-30 text-nowrap md:hover:w-35 shadow-md border border-gray-500 px-5 text-sm rounded-full py-1.5 flex items-center gap-2 cursor-pointer trans hover:bg-black hover:text-white"
+                className="my-4 text-bold bg-purple-950 md:w-30 text-nowrap md:hover:w-35 shadow-md border border-gray-500 px-5 text-sm rounded-lg py-3 flex items-center gap-2 cursor-pointer trans "
               >
                 <p>View Project</p>
                 <svg
@@ -122,7 +122,7 @@ function RecentWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="gap-2 items-center px-6 rounded-full lg:w-43 hover:w-52  text-nowrap overflow-hidden trans py-2 text-sm border-gray-500 font-bold cursor-pointer hover:text-white hover:bg-black mx-auto flex border shadow-md  "
+            className="gap-2 items-center px-6 rounded-lg lg:w-43 hover:w-52  text-nowrap overflow-hidden trans py-3 border-gray-500 font-bold cursor-pointer hover:text-white hover:bg-black mx-auto flex border shadow-md  "
             color=""
           >
             <p className="size-full flex items-center gap-2">

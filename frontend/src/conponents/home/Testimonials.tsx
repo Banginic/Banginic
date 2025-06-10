@@ -105,7 +105,7 @@ function Testimonials() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <article className="bg-black/20 backdrop:blur-sm shadow-lg border mx-auto border-pink-400/50  rounded-lg  relative p-5 md:w-xs lg:w-sm h-110">
+          <article className="bg-white backdrop:blur-sm shadow-lg border mx-auto border-pink-400/50  rounded-lg  relative p-5 md:w-xs lg:w-sm h-110">
             <div className="flex items-center justify-between p-3">
               <LazyLoadImage
                 className="size-[64px] lg:size-[80px] bg-blue-300 rounded-full shadow"
@@ -120,18 +120,18 @@ function Testimonials() {
               />
               <StarRating rating={current?.rating} />
             </div>
-            <p className="text-lg mt-4 p-4 text-center text-gray-300 italic ">
+            <p className="text-lg mt-4 p-4 text-center text-gray-600 italic ">
               <span className="text-accent text-xl right-5">&ldquo;</span>
               {current?.message}
               <span className="text-accent text-xl right-5">&ldquo;</span>
             </p>
-            <p className="heading4 mano text-gray-300 text-center mt-5">
+            <p className="heading4 mano text-black text-center mt-5">
               {current?.projectName}
             </p>
             <div className="grid">
               <button
                 onClick={handleTestify}
-                className="mx-auto border px-6 rounded-full py-1.5 mt-6  cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900 trans trans"
+                className="mx-auto border px-6 rounded-lg py-3 mt-6  cursor-pointer hover:bg-purple-800 bg-purple-950 trans trans"
               >
                 Testify Yours
               </button>
