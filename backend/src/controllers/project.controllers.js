@@ -34,7 +34,7 @@ export const createProject = asyncHandler(async (req, res) => {
     })
   );
   //   Save to database;
-  let project = await ProjectModel.create({
+  let project = new ProjectModel({
     projectName,
     category,
     description,
