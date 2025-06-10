@@ -67,7 +67,7 @@ function RecentWorks() {
         {data?.projects.slice(0, 3).map((project) => (
           <article
             key={project._id}
-            className="rounded-lg relative shadow-accent/50 w-sm max-h-[500px] lg:min-h-[460px] trans mx-auto lg:mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8"
+            className="rounded-lg relative shadow-accent/50 w-[95%] max-h-[500px] lg:min-h-[460px] trans mx-auto lg:mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group  hover:shadow-lg overflow-hidden my-8"
           >
             <LazyLoadImage
               className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
@@ -83,11 +83,11 @@ function RecentWorks() {
                   : placeholdeImage
               }
             />
-            <div className="p-4 bg-white h-full">
-              <h2 className="font-bold text-xl mt-4 mb-2 text-black">
+            <div className="p-4 bg-black/20 backdrop:blur-sm h-full">
+              <h2 className="font-bold text-xl mt-4 mb-2 text-white">
                 {project.projectName}
               </h2>
-              <p className="text-gray-600 overflow-hidden truncat h-20">
+              <p className="text-gray-300 overflow-hidden truncat h-20">
                 {project.description}
               </p>
               <button
@@ -95,7 +95,7 @@ function RecentWorks() {
                   appContext?.navigate(`/workDetails/${project._id}`)
                 }
                 title="View Project"
-                className="my-4 text-bold bg-purple-950 md:w-30 text-nowrap md:hover:w-35 shadow-md border border-gray-500 px-5 text-sm rounded-lg py-3 flex items-center gap-2 cursor-pointer trans "
+                className="my-4 text-bold text-black bg-white md:w-30 text-nowrap md:hover:w-35 shadow-md  px-5 text-sm rounded-lg py-2 flex items-center gap-2 cursor-pointer trans "
               >
                 <p>View Project</p>
                 <svg

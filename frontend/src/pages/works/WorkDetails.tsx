@@ -73,7 +73,7 @@ function WorkDetails() {
       </h1>
       <section className=" m-auto backdrop-blur-40 bg-transparent scroll-smooth t pt-6 overflow-auto ">
         <div className="display m-auto relative top-0 lg:flex gap-10 md:px-5 justify-around">
-          <div className="relative md:w-[400px] h-1/2 lg:w-[800px] lg:h-[500px] mx-auto overflow-hidden">
+          <div className="relative  h-1/2 lg:min-w-[600px] lg:h-[500px] mx-auto overflow-hidden">
             <div className="min-h-[400px] w-full">
               
               <LazyLoadImage

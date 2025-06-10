@@ -80,7 +80,9 @@ function Login() {
         type='submit'
         disabled={disabledBTN}
         className='bg-black disabled:bg-gray-400 disabled:cursor-not-allowed text-white w-full py-2.5 cursor-pointer disable:cursor-wait hover:opacity-90 trans rounded mt-4'
-        >Login</button>
+        >{
+          fetchState.isLoading ? 'Logging in.....' : 'Login'
+        }</button>
         <p className='text-red-500 text-center mt-1'>{fetchState.error}</p>
       </form>
     </div>

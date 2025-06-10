@@ -91,7 +91,7 @@ function Testimonials() {
             alt={placeholdeImage}
             effect="blur"
             aria-label="happy customers image"
-             loading="lazy"
+            loading="lazy"
             wrapperProps={{
               style: { transition: "1s" },
             }}
@@ -105,14 +105,14 @@ function Testimonials() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <article className="bg-white backdrop:blur-sm shadow-lg border mx-auto border-pink-400/50  rounded-lg  relative p-5 md:w-xs lg:w-sm h-110">
+          <article className="bg-white backdrop:blur-sm shadow-lg  mx-auto rounded-lg  relative p-5 md:w-xs lg:w-sm min-h-110">
             <div className="flex items-center justify-between p-3">
               <LazyLoadImage
                 className="size-[64px] lg:size-[80px] bg-blue-300 rounded-full shadow"
                 alt={placeholdeImage}
                 effect="blur"
                 aria-label="happy customers image"
-                 loading="lazy"
+                loading="lazy"
                 wrapperProps={{
                   style: { transition: "1s" },
                 }}

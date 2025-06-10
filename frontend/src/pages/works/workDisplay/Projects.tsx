@@ -39,7 +39,7 @@ function Works() {
         : "bg-accent/20 hover:bg-accent/40 text-white  "
    
     return clsx(
-      "rounded-lg trans snap-start px-6 py-3",
+      "rounded-lg trans snap-center px-6 py-3",
       active
     );
   }
@@ -112,11 +112,11 @@ function Works() {
       <section
         className="overflow-x-scroll hide-scrollbar
       snap-x snap-mandatory
-       md:overflow-hidden my-8 md:w-[90%] lg:w-[60%] mx-1.5 md:mx-auto bg-white/20 backdrop:blur-sm  md:rounded-lg "
+       md:overflow-hidden  my-8 mx-auto w-[95%] lg:w-[60%]  md:mx-auto bg-white/20 backdrop:blur-sm rounded-lg "
       >
         <ul
-          className="justify-around md:justify-between py-3 gap-4 flex items-center 
-       m-auto p-3 rounded-full "
+          className="justify-around md:justify-between py-2 gap-4 flex items-center  mx-auto
+       m-auto p-3"
         >
           {skillsLinks.map((link, index) => {
             const name = link.name;
@@ -140,7 +140,7 @@ function Works() {
         {result.map((project) => (
           <article
             key={project._id}
-            className="rounded-lg shadow-accent/50  trans mx-8 md:w-[350px] lg:w-[360px] 2xl:w-[400px] group md:h-[430px] border hover:shadow-lg overflow-hidden my-8"
+            className="rounded-lg shadow-accent/50 w-[95%] mx-auto trans  md:w-[350px] lg:w-[360px] 2xl:w-[400px] group md:h-[450px]  hover:shadow-lg overflow-hidden my-8"
           >
             <LazyLoadImage
               className="min-w-full  h-60 xl:h-52 2xl:h-60 outline-none bg-gray-20 group-hover:scale-105 trans"
@@ -155,17 +155,17 @@ function Works() {
                 project.photos.length > 0 ? project.photos[0] : placeholdeImage
               }
             />
-            <div className="p-4 bg-white backdrop:blur-lg h-full ">
-              <h2 className="font-bold text-xl mt-4 mb-2 text-black">
+            <div className="p-4 bg-black/20 backdrop:blur-lg h-full ">
+              <h2 className="font-bold text-xl mt-4 mb-2 text-">
                 {project.projectName}
               </h2>
-              <p className="text-gray-600">{project.description}</p>
+              <p className="text-gray-200">{project.description}</p>
               <button
                 onClick={() =>
                   appContext?.navigate(`/workDetails/${project._id}`)
                 }
                 title="View Project"
-                className="my-4 text-bold bg-black md:w-30 text-nowrap md:hover:w-35 shadow-md border border-gray-500 px-5 text-sm rounded-full py-1.5 flex items-center gap-2 cursor-pointer trans hover:bg-black hover:text-white"
+                className="my-4 text-bold bg-white text-black md:w-30 text-nowrap md:hover:w-35 shadow-md  px-5 text-sm rounded-lg py-2 flex items-center gap-2 cursor-pointer trans hover:bg-black hover:text-white"
               >
                 <p>View Project</p>
                 <svg

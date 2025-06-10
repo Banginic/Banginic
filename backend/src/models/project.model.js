@@ -37,13 +37,13 @@ const projectSchema = mongoose.Schema({
     story:{
         type:String,
         minLength:3,
-        maxLength:250,
+        maxLength:500,
         required:true,
     },
     approach:{
         type:String,
         minLength:3,
-        maxLength:250,
+        maxLength:500,
         required:true,
     },
     photos:{
