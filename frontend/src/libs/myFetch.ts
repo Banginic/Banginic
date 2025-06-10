@@ -43,7 +43,8 @@ const myFetch = async <T>(props: Props, ): Promise< T > => {
   
       const { data } = await axios.get<T>(
         baseUrl + endpoint,  { headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}`} });
-      return data as T;
+        
+      return data ;
     
 
     

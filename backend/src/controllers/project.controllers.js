@@ -28,7 +28,7 @@ export const createProject = asyncHandler(async (req, res) => {
 
       let result = await cloudinary.uploader.upload(dataURI, {
         resource_type: "image",
-        folder: "Projects"
+        folder: "projects"
       });
       return result.secure_url;
     })
@@ -57,10 +57,11 @@ export const createProject = asyncHandler(async (req, res) => {
 export const getProjects = asyncHandler(async (req, res) => {
   const projects = await ProjectModel.find({});
   if (projects.length < 1) {
-    return res.status(404).json({
+    return json({
       success: false,
       message: "No Projects available",
-      statusCode: 200,
+      statusCode: 404,
+
     });
   }
   return res.status(200).json({
