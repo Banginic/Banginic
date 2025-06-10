@@ -18,19 +18,19 @@ function AboutUSkeleton() {
         </div>
       </div> */}
       <article
-        className="bg-white  w-sm md:w-md h-[500px] shadow-lg hover:shadow-xl trans dark:bg-black dark:border border-gray-800  lg:w-sm min-h-92
+        className="w-sm md:w-md h-[500px] shadow-lg hover:shadow-xl trans bg-black dark:border border-gray-800  lg:w-sm min-h-92
             mx-auto rounded-xl p-4 text-center "
       >
         <img
-          className="size-52 -translate-y-10 bg-red-100 dark:opacity-60 rounded-full mx-auto"
+          className="size-52 -translate-y-10 bg-red-950 dark:opacity-60 rounded-full mx-auto"
           src={person}
           alt={`photo`}
         />
         <div className="-translate-y-10">
-          <p className="text-lg font-bold mt-4 bg-gray-300 mb-2 h-6 w-40 mx-auto dark:bg-gray-800 "></p>
-          <p className=" mano text-gray-600 dark:text-gray-400 h-6 w-60 mx-auto dark:bg-gray-800 "></p>
+          <p className="text-lg font-bold mt-4  mb-2 h-6 w-40 mx-auto bg-gray-800 "></p>
+          <p className=" mano text-gray-600 dark:text-gray-400 h-6 w-60 mx-auto bg-gray-800 "></p>
           <p className="h-6 w-40 mx-auto dark:bg-gray-800 mt-2"></p>
-          <p className="mt-2 overflow-hidden rounded h-23 w-70 mx-auto dark:bg-gray-800 "></p>
+          <p className="mt-2 overflow-hidden rounded h-23 w-70 mx-auto bg-gray-800 "></p>
         </div>
         <div className="flex justify-center gap-2">
           <p className="size-8 rounded-lg  dark:bg-gray-800 "></p>
