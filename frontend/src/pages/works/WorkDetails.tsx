@@ -69,7 +69,7 @@ function WorkDetails() {
     >
       <h1 className="relative heading3 text-center mano">
         PROJECT DETAILS
-        <Back link="/works/all" name="Back" />
+        <Back link="/works" name="Back" />
       </h1>
       <section className=" m-auto backdrop-blur-40 bg-transparent scroll-smooth t pt-6 overflow-auto ">
         <div className="display m-auto relative top-0 lg:flex gap-10 md:px-5 justify-around">
