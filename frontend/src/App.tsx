@@ -97,8 +97,7 @@ function App() {
             <Route path="/workDetails/:projectId" element={<WorkDetails />} />
 
             {/* Nested Route Fix */}
-            <Route path="/works*" element={<Works />}>
-            </Route>
+            <Route path="/works*" element={<Works />} />
 
             {/* FOOTER LINKS */}
             <Route path="/careers" element={<Careers />} />
