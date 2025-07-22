@@ -36,7 +36,7 @@ function NavbarLinks() {
             Get in touch
           </button>
         </NavLink>
-      </li>
+      </li> 
     </ul>
   );
 }

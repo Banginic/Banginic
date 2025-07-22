@@ -27,8 +27,9 @@ const myFetch = async <T>(props: Props, ): Promise< T > => {
     }
     // Get single item
    else if (method === "get" && id.length > 1 ) {
+    console.log('called')
       const { data } = await axios.get<T>(
-        baseUrl + endpoint + `/${id}` ,  { headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}`} });
+        endpoint  ,  { headers: { authorization: `Bearer ${localStorage.getItem("Admin-token")}`} });
       return data;
     }
 
