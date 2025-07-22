@@ -26,7 +26,7 @@ import { home, contact_us, about_us, jobs, open_source, tutorial, services_photo
 
 export const metaData = {
   name:'Banginic',
-  githup_url: 'https://github.com/BinaryDigitz',
+  githup_url: 'https://github.com/banginic',
  description: 'Banginic is a creative company that focuses on creating beautiful and functional websites and applications.',
 }
 
